@@ -1,9 +1,6 @@
 <script>
 	export let text;
 	export let hovering;
-	import throttle from 'lodash/throttle';
-	import debounce from 'lodash/debounce';
-
 	let underlineFilter = text;
 	let defaultCameraPosition = new Vector3(5, 1, 1.5);
 	let currentCameraPosition = new Vector3(5, 1, 1.5);

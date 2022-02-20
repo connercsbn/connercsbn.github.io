@@ -22,7 +22,6 @@
   },
   "type": "module",
   "dependencies": {
-    "lodash": "^4.17.21",
     "three": "^0.137.5",
     "threlte": "^2.2.1"
   }
