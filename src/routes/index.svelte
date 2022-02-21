@@ -31,8 +31,8 @@
 		on:mouseleave={handleLeave}
 	>
 		<Canvas>
-			<Pass pass={unrealPass} />
-			<Pass pass={new SMAAPass()} />
+			<!-- <Pass pass={unrealPass} /> -->
+			<!-- <Pass pass={new SMAAPass()} /> -->
 			<CubeThing text={'About'} hovering={hovering == 1} />
 		</Canvas>
 	</div>
@@ -44,8 +44,6 @@
 		}}
 	>
 		<Canvas>
-			<Pass pass={unrealPass} />
-			<Pass pass={new SMAAPass()} />
 			<CubeThing text={'Blog'} hovering={hovering == 2} />
 		</Canvas>
 	</div>
@@ -57,8 +55,6 @@
 		on:mouseleave={handleLeave}
 	>
 		<Canvas>
-			<Pass pass={unrealPass} />
-			<Pass pass={new SMAAPass()} />
 			<CubeThing text={'Contact'} hovering={hovering == 3} />
 		</Canvas>
 	</div>
@@ -75,8 +71,8 @@
 		display: inline-block;
 		top: 0;
 		left: 0;
-		width: 200px;
-		height: 200px;
+		width: 160px;
+		height: 160px;
 	}
 	*,
 	div {
