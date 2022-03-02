@@ -29,16 +29,12 @@
 </button>
 
 <style>
-	:root {
-		--transition-duration: 400ms;
-	}
 	button {
 		cursor: pointer;
 		display: flex;
 		align-items: center;
 		overflow: hidden;
 		border: none;
-		/* background-color: rgb(136, 212, 136); */
 		background: none;
 		position: fixed;
 		top: 1em;
