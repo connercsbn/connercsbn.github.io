@@ -7,29 +7,18 @@
 	export let width = 80;
 </script>
 
-<button on:click={handleBurgerClick} aria-expanded={$open} aria-label={ariaLabel}>
-	<svg
-		class:open={$open}
-		viewBox="0 0 100 100"
-		fill="none"
-		stroke="currentColor"
-		stroke-width="5"
-		{width}
-	>
-		<path
-			class="top"
-			d="m 30,33 h 40 c 3.722839,0 7.5,3.126468 7.5,8.578427 0,5.451959 -2.727029,8.421573 -7.5,8.421573 h -20"
-		/>
-		<path class="middle" d="m 30,50 h 40" />
-		<path
-			class="bottom"
-			d="m 70,67 h -40 c 0,0 -7.5,-0.802118 -7.5,-8.365747 0,-7.563629 7.5,-8.634253 7.5,-8.634253 h 20"
-		/>
-	</svg>
-</button>
+<div class="demo">
+	<div class="menu-icon" on:click={handleBurgerClick} aria-expanded={$open} aria-label={ariaLabel}>
+		<input class="menu-icon__cheeckbox" type="checkbox" checked={$open} />
+		<div>
+			<span />
+			<span />
+		</div>
+	</div>
+</div>
 
-<style>
-	button {
+<style type="scss">
+	.demo {
 		cursor: pointer;
 		display: flex;
 		align-items: center;
@@ -40,30 +29,89 @@
 		top: 1em;
 		left: 1em;
 		z-index: 100;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 	}
-	svg {
-		transition: transform var(--transition-duration);
+
+	:root {
+		--bar-bg: #212529;
 	}
-	.top {
-		stroke-dasharray: 40 160;
-		transition: stroke-dashoffset var(--transition-duration);
-	}
-	.middle {
-		transform-origin: 50%;
-		transition: transform var(--transition-duration);
-	}
-	.bottom {
-		stroke-dasharray: 40 85;
-		transition: stroke-dashoffset var(--transition-duration);
-	}
-	.open {
-		transform: rotate(45deg);
-	}
-	.open .top,
-	.open .bottom {
-		stroke-dashoffset: -64px;
-	}
-	.open .middle {
-		transform: rotate(90deg);
+
+	.menu-icon {
+		position: relative;
+		width: 45px;
+		height: 37px;
+		z-index: 100;
+		cursor: pointer;
+
+		.menu-icon__cheeckbox {
+			display: block;
+			width: 100%;
+			height: 100%;
+			position: relative;
+			cursor: pointer;
+			z-index: 2;
+			-webkit-touch-callout: none;
+			position: absolute;
+			opacity: 0;
+		}
+		div {
+			margin: auto;
+			position: absolute;
+			top: 0;
+			right: 0;
+			left: 0;
+			bottom: 0;
+			width: 22px;
+			height: 12px;
+		}
+		span {
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 2px;
+			background-color: var(--bar-bg, #000);
+			border-radius: 1px;
+			transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+
+			&:first-of-type {
+				top: 0;
+			}
+			&:last-of-type {
+				bottom: 0;
+			}
+		}
+		&.active,
+		.menu-icon__cheeckbox:checked + div {
+			span {
+				&:first-of-type {
+					transform: rotate(45deg);
+					top: 5px;
+				}
+				&:last-of-type {
+					transform: rotate(-45deg);
+					bottom: 5px;
+				}
+			}
+		}
+
+		&.active:hover span:first-of-type,
+		&.active:hover span:last-of-type,
+		&:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
+		&:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
+			width: 22px;
+		}
+
+		&:hover {
+			@media (min-width: 1024px) {
+				span:first-of-type {
+					width: 26px;
+				}
+				span:last-of-type {
+					width: 12px;
+				}
+			}
+		}
 	}
 </style>
