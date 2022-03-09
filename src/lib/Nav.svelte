@@ -5,9 +5,10 @@
 	import { slide, fly, crossfade, draw, blur, fade, scale } from 'svelte/transition';
 
 	let links = [
+		['home', '/'],
 		['about', '/'],
 		['contact', '/'],
-		['whatever', '/']
+		['past work', '/']
 	];
 </script>
 
@@ -19,7 +20,7 @@
 >
 	<Hamburger width={45} --transition-duration="200ms" />
 	{#if $open}
-		<div class="links" transition:fly={{ duration: 200, y: -100 }}>
+		<div class="links" transition:fly={{ duration: 200, x: -100 }}>
 			{#each links as link}
 				<a class="link" href={link[1]}>{link[0]}</a>
 			{/each}
@@ -27,7 +28,7 @@
 	{/if}
 </nav>
 
-<style>
+<style type="scss">
 	nav {
 		position: relative;
 		width: 90%;
@@ -44,17 +45,22 @@
 		background: white;
 		border-radius: 20px;
 		box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
-		border: 1px solid black;
+		white-space: nowrap;
+		width: max-content;
 	}
 	.links {
-		margin: 0.3em;
+		margin: 0.5em 0.3em;
 		position: fixed;
 		display: flex;
-		width: 40%;
 		flex-wrap: wrap;
-		/* flex-direction: column; */
+		flex-direction: column;
 	}
 	.link:hover {
+		background: yellow;
+		border: 2px solid rgb(170, 48, 48);
+		border-width: 2px;
 		text-decoration: underline;
+		text-underline-offset: 2px;
+		padding: calc(0.5em - 2px) calc(1em - 2px);
 	}
 </style>

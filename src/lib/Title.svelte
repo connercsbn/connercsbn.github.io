@@ -1,4 +1,5 @@
 <script>
+	import '@fontsource/noto-sans';
 </script>
 
 <main>
@@ -8,20 +9,19 @@
 <style>
 	main {
 		display: flex;
-		background: white;
+		background: rgb(67, 75, 72);
 		position: fixed;
 		width: 100%;
 		top: 0;
 		box-sizing: border-box;
 		z-index: 0;
 	}
-	main .open {
-		display: none;
-		border: 1px solid rgba(0, 0, 0, 0.3);
-	}
 	.title {
+		font-family: 'Noto Sans';
 		text-align: right;
-		margin: 1.5em auto;
-		color: black;
+		margin: 0.9em auto;
+		color: white;
+		font-weight: bold;
+		font-size: 1.4em;
 	}
 </style>
