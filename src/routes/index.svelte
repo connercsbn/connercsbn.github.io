@@ -1,17 +1,13 @@
 <script>
-	import Header from '$lib/Header.svelte';
-	import { open } from '$lib/stores';
 	import Filler from '$lib/Filler.svelte';
 </script>
 
 <main>
-	<Header />
-	<Filler />
+	<p>I'm am a wbe developer.</p>
 </main>
 
 <style>
 	* {
-		background: rgb(32, 36, 36);
-		color: rgb(195, 195, 195);
+		font-family: 'Noto Sans';
 	}
 </style>

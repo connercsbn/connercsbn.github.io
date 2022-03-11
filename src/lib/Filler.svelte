@@ -32,8 +32,4 @@
 </main>
 
 <style>
-	main {
-		margin-top: 4.4em;
-		padding: 1em;
-	}
 </style>

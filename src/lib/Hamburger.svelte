@@ -1,7 +1,7 @@
 <script>
 	import { open } from '$lib/stores';
 	let handleBurgerClick = () => {
-		open.update((open) => !open);
+		$open = !$open;
 	};
 	let ariaLabel = 'toggle menu';
 	export let width = 80;
@@ -27,6 +27,7 @@
 		background: none;
 		position: fixed;
 		top: 1em;
+		top: var(--top);
 		left: 1em;
 		z-index: 100;
 		display: flex;
@@ -35,7 +36,7 @@
 	}
 
 	:root {
-		--bar-bg: #212529;
+		--bar-bg: #b2c7bc;
 	}
 
 	.menu-icon {
