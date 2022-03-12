@@ -4,7 +4,7 @@
 	export let percentAwayFromTop;
 	let minPadding = 0.3;
 	let maxPadding = 0.4;
-	let minFontSize = 1;
+	let minFontSize = 1.5;
 	let maxFontSize = 2;
 	$: headerPadding = getCurrentDistance(minPadding, maxPadding, percentAwayFromTop);
 	$: headerFontSize = getCurrentDistance(minFontSize, maxFontSize, percentAwayFromTop);
@@ -33,6 +33,7 @@
 		box-sizing: border-box;
 		z-index: 0;
 		border-bottom: 2px solid #566660;
+		transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 	}
 	.title {
 		font-family: 'Noto Sans';
@@ -45,5 +46,6 @@
 		font-size: var(--headerFontSize);
 		/* transition: padding 0.2s;
 		transition: font-size 0.2s; */
+		transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 	}
 </style>

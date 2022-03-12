@@ -4,13 +4,13 @@
 		$open = !$open;
 	};
 	let ariaLabel = 'toggle menu';
-	export let width = 80;
+	export let small;
 </script>
 
 <div class="demo">
 	<div class="menu-icon" on:click={handleBurgerClick} aria-expanded={$open} aria-label={ariaLabel}>
 		<input class="menu-icon__cheeckbox" type="checkbox" checked={$open} />
-		<div>
+		<div class:small>
 			<span />
 			<span />
 		</div>
@@ -65,7 +65,8 @@
 			left: 0;
 			bottom: 0;
 			width: 22px;
-			height: 12px;
+			height: var(--barHeight);
+			transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 		}
 		span {
 			position: absolute;
@@ -113,6 +114,9 @@
 					width: 12px;
 				}
 			}
+		}
+		.small {
+			height: 10px;
 		}
 	}
 </style>

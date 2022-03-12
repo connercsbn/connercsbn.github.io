@@ -4,8 +4,6 @@
 	import { open } from '$lib/stores';
 	import { clickOutside } from './clickOutside.js';
 	import { slide, fly, crossfade, draw, blur, fade, scale } from 'svelte/transition';
-	import { onDestroy, onMount } from 'svelte';
-	import { OneMinusDstAlphaFactor, Path } from 'three';
 
 	let links = [
 		['Home', '/'],
@@ -14,9 +12,12 @@
 		['Past Work', '/past-work']
 	];
 	export let percentAwayFromTop;
-	let minTop = -0.14;
-	let maxTop = 0.9;
+	let minTop = 0.3;
+	let maxTop = 0.8;
+	let minBarHeight = 10;
+	let maxBarHeight = 12;
 	$: currentTop = getCurrentDistance(minTop, maxTop, percentAwayFromTop);
+	$: currentBarHeight = getCurrentDistance(minBarHeight, maxBarHeight, percentAwayFromTop);
 
 	function getCurrentDistance(min, max, percent) {
 		return max - percent * 0.01 * (max - min);
@@ -29,7 +30,11 @@
 		$open = false;
 	}}
 >
-	<Hamburger width={45} --transition-duration="200ms" --top="{currentTop}em" />
+	<Hamburger
+		--barHeight="{currentBarHeight}px"
+		--transition-duration="200ms"
+		--top="{currentTop}em"
+	/>
 	{#if $open}
 		<div class="links" transition:fly={{ duration: 200, x: -100 }}>
 			{#each links as link}
@@ -54,9 +59,9 @@
 		--red: rgb(170, 48, 48);
 		--yellow: rgb(255, 247, 0);
 		--dark-yellow: rgb(151, 148, 39);
-		--selected-border: rgb(15, 48, 25);
-		--selected-background: rgb(188, 213, 178);
-		--unselected-background: rgb(184, 184, 184);
+		--selected-border: rgb(9, 72, 28);
+		--selected-background: rgb(8, 58, 23);
+		--unselected-background: rgb(155, 155, 155);
 	}
 	nav {
 		position: relative;
@@ -86,18 +91,21 @@
 	}
 	.link:hover {
 		// background: var(--selected-background);
-		// border: 2px solid var(--selected-border);
-		// padding: calc(0.5em - 2px) calc(1em - 2px);
-		border-width: 2px;
+		border: 2px solid var(--selected-border);
+		// border-width: 2px;
 		// text-decoration: underline;
 		text-underline-offset: 2px;
-		border: 2px solid darkgreen;
-		padding: calc(0.5em - 2px) calc(1em - 2px);
-		color: rgb(0, 44, 0);
+		border: 2px solid var(--selected-border);
+		// padding: calc(0.5em - 2px) calc(1em - 2px);
+		color: var(--selected-border);
 		color: darkgreenrgb(0, 46, 0);
+		margin: calc(0.2em - 2px) calc(0.2em - 2px);
 	}
 	.active {
 		color: white;
-		background: var(--selected-border);
+		background: var(--selected-background);
+		&:hover {
+			color: white;
+		}
 	}
 </style>

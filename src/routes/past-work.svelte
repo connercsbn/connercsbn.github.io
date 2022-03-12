@@ -61,14 +61,42 @@
 			name="Google TTS Downloader"
 			href="https://www.conner.soy/pronunciation"
 			icon="/images/tbd.png"
-			bgcolors={['white', 'white']}
+			bgcolors={['white', 'black']}
 		/>
 
 		<PortfolioIcon
 			name="Income Tax Calculator"
 			href="/"
-			icon="/images/tax_the_rich.png"
-			bgcolors={['white', 'white']}
+			icon="/images/tbd.png"
+			bgcolors={['white', 'black']}
+		/>
+
+		<PortfolioIcon
+			name="Mobile Link Pro"
+			href="/"
+			icon="/images/tbd.png"
+			bgcolors={['white', 'black']}
+		/>
+
+		<PortfolioIcon
+			name="Xrandr Command Generator"
+			href="/"
+			icon="/images/tbd.png"
+			bgcolors={['white', 'black']}
+		/>
+
+		<PortfolioIcon
+			name="Finance Calculator"
+			href="/"
+			icon="/images/tbd.png"
+			bgcolors={['white', 'black']}
+		/>
+
+		<PortfolioIcon
+			name="Counter-Strike: Global Offensive SourceMod Plugins"
+			href="/"
+			icon="/images/tbd.png"
+			bgcolors={['white', 'black']}
 		/>
 	</main>
 </div>
