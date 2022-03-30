@@ -23,17 +23,17 @@
 	}
 	main {
 		position: relative;
-		z-index: 0;
+		z-index: 1;
 		background: url('/images/albumsplit-full-page.png') top right no-repeat;
 		background-color: #1c1e21;
 		background-size: contain;
 		background-size: 80%;
-		background-attachment: fixed;
 		background-position-y: 42%;
 		padding-bottom: 20%;
 		box-shadow: inset 0 0 0 2000px #1c1e214a;
 	}
 	h1 {
+		z-index: 2;
 		padding: 0.5em 5%;
 		margin: 0;
 		box-shadow: -1px 10px 0px -8px #8ec07c inset;
@@ -53,7 +53,7 @@
 			width: 100%;
 			height: 100%;
 			background: #1c1e21de;
-			box-shadow: 2px 60px 60px 60px var(--albumsplit-background-transparent);
+			box-shadow: 2px 60px 60px 10px var(--albumsplit-background-transparent);
 			z-index: -1;
 		}
 	}
@@ -63,5 +63,6 @@
 		position: relative;
 		background: var(--albumsplit-background-transparent);
 		box-shadow: 2px 0px 35px 68px var(--albumsplit-background-transparent);
+		z-index: 1;
 	}
 </style>
