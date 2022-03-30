@@ -1,9 +1,26 @@
 <script>
 	import PortfolioIcon from '$lib/PortfolioIcon.svelte';
+	import PortfolioHero from '$lib/PortfolioHero.svelte';
+	import BuiltWith from '$lib/BuiltWith.svelte';
 </script>
 
 <h1>Past work</h1>
 
+<PortfolioHero title="Albumsplit">
+	Albumsplit is a project that allows users to automatically download, split, and tag audio books,
+	podcasts, or song compilations&mdash;straight from YouTube&mdash;into separate tracks for
+	convenient offline listening.
+	<BuiltWith>React, Django, Yt-dlp, Celery w/ RabbitMQ, Material UI</BuiltWith>
+</PortfolioHero>
+
+<PortfolioHero title="Conner's Brian Website"
+	>Conner's Brian Website started as an experiment where I played with various features of the
+	canvas browser element. With no clear purpose, it evolved into an
+	open&ndash;to&ndash;interpretation &ldquo;experience&rdquo;. Digital art? Sick prank? Either way,
+	put it on in the background at your party for some chill vibes&mdash;and to meet cool people who
+	catch the subtle Family Guy reference.
+	<BuiltWith>Svelte, using Canvas API and FFmpeg for audio manipulation</BuiltWith>
+</PortfolioHero>
 <div>
 	<main>
 		<PortfolioIcon
@@ -19,7 +36,6 @@
 			icon="/images/albumsplit_logo.png"
 			yoffset={-10}
 			bgcolors={['#94C881', '#83A79A']}
-			extrastuff="background-size: cover;"
 		/>
 
 		<PortfolioIcon
@@ -28,7 +44,6 @@
 			icon="/images/connersbrianwebsite.png"
 			yoffset={-30}
 			bgcolors={['white', 'white']}
-			extrastuff="background-size: cover;"
 		/>
 
 		<PortfolioIcon
@@ -37,7 +52,6 @@
 			icon="/images/tax_the_rich.png"
 			bgcolors={['#FBF7E4', '#EB2329']}
 			xoffset={-8}
-			extrastuff="background-size: cover;"
 		/>
 
 		<PortfolioIcon
@@ -45,7 +59,6 @@
 			href="https://weirdle.web.app"
 			icon="/images/weirdle.png"
 			bgcolors={['#B59F3B', '#538D4E']}
-			extrastuff="background-size: cover;"
 			xoffset={-5}
 		/>
 
@@ -105,11 +118,16 @@
 	* {
 		font-family: 'Noto Sans';
 	}
+	h1 {
+		padding: 0 5%;
+	}
 	main {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(250px, max-content));
 		grid-gap: 16px;
 		justify-content: center;
 		padding: initial;
+		max-width: 1300px;
+		margin: auto;
 	}
 </style>

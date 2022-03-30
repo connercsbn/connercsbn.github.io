@@ -21,27 +21,37 @@
 </main>
 
 <style lang="scss">
+	:root {
+		// --hover-color: rgba(0, 0, 0, 1);
+		// --hover-color: rgb(28, 28, 28);
+	}
 	main {
 		display: flex;
 		justify-content: space-between;
 		width: min-content;
 		position: relative;
 		margin: 1em;
+		--hover-color: var(--border-color);
 	}
 	a {
 		position: relative;
 		height: 240px;
 		width: 240px;
-		border-radius: 20px;
+		border-radius: 0px;
 		overflow: hidden;
 		max-width: 230px;
 		background: var(--background);
 		background-size: 100%;
 		border: 2px solid var(--border-color);
+		transition: all 0.2s;
 		&:hover {
-			border: 2px solid rgb(136, 136, 136);
+			border: 2px solid var(--hover-color);
+			background-size: 110%;
 			span {
-				background: rgb(136, 136, 136);
+				filter: none;
+				font-size: 1.1em;
+				background: var(--hover-color);
+				padding: 1em 0.5em;
 			}
 		}
 	}
@@ -50,10 +60,12 @@
 		bottom: 10px;
 		overflow: hidden;
 		background: rgb(89, 89, 89);
+		background: #000000de;
 		color: white;
 		padding: 1em 1em;
 		bottom: 0px;
 		left: 0px;
 		right: 0;
+		transition: all 0.2s;
 	}
 </style>

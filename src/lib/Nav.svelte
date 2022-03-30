@@ -44,7 +44,7 @@
 					}}
 					class="link"
 					href={link[1]}
-					class:active={$page.url.pathname === link[1]}>{link[0]}</a
+					class:active={$page.url.pathname === link[1]}><span>{link[0]}</span></a
 				>
 			{/each}
 		</div>
@@ -59,30 +59,38 @@
 		--red: rgb(170, 48, 48);
 		--yellow: rgb(255, 247, 0);
 		--dark-yellow: rgb(151, 148, 39);
-		--selected-border: rgb(9, 72, 28);
+		--faded-yellow: #fcf599a9;
+		--dark-faded-yellow: #403e2eed;
+		--light-faded-yellow: #e1daa7;
+		// --light-faded-yellow: white;
 		--selected-background: rgb(8, 58, 23);
 		--unselected-background: rgb(155, 155, 155);
 	}
 	nav {
 		position: relative;
 		width: 90%;
+		user-select: none;
 	}
 	.link {
 		position: relative;
 		display: inline-block;
 		text-decoration: none;
 		padding: 0.5em 1em;
-		margin: 0.2em;
-		color: black;
+		margin: 0.1em;
+		color: var(--faded-yellow);
 		text-align: center;
+		font-weight: bold;
 		background: var(--yellow);
 		background: var(--unselected-background);
-		border-radius: 20px;
+		background: #4e4e3a;
+		background: var(--dark-faded-yellow);
 		white-space: nowrap;
 		width: max-content;
+		border: 2px solid white;
+		border: 2px solid var(--faded-yellow);
 	}
 	.links {
-		margin: 5em 0.3em;
+		margin: 4.4em 0.3em;
 		position: fixed;
 		display: flex;
 		flex-wrap: wrap;
@@ -90,20 +98,26 @@
 		z-index: 1000;
 	}
 	.link:hover {
-		// background: var(--selected-background);
-		border: 2px solid var(--selected-border);
-		// border-width: 2px;
-		// text-decoration: underline;
-		text-underline-offset: 2px;
-		border: 2px solid var(--selected-border);
-		// padding: calc(0.5em - 2px) calc(1em - 2px);
-		color: var(--selected-border);
-		color: darkgreenrgb(0, 46, 0);
-		margin: calc(0.2em - 2px) calc(0.2em - 2px);
+		box-sizing: content-box;
+		border: 2px solid var(--light-faded-yellow);
+		color: var(--light-faded-yellow);
+		&:after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(225, 150, 52, 0.44);
+			display: block;
+			position: absolute;
+			z-index: 10000;
+		}
 	}
 	.active {
 		color: white;
 		background: var(--selected-background);
+		background: rgba(100, 200, 100, 0.2);
+		background: rgba(67, 121, 67, 0.8);
 		&:hover {
 			color: white;
 		}

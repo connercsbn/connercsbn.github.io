@@ -13,7 +13,7 @@
 
 <style>
 	.content {
-		padding: 5.5em 2em;
+		padding-top: 4.5em;
 		background: rgb(48, 47, 47);
 		color: rgb(206, 206, 206);
 	}
