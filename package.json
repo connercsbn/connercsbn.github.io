@@ -2,7 +2,7 @@
 	"name": "sveltekit-2-20-22",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "svelte-kit dev --host --port 42069",
+		"dev": "svelte-kit dev --host --port 3000",
 		"build": "svelte-kit build",
 		"package": "svelte-kit package",
 		"preview": "svelte-kit preview",

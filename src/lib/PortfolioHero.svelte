@@ -2,6 +2,7 @@
 	import { onMount } from 'svelte';
 	import '@fontsource/roboto-slab';
 	export let title;
+	export let source;
 </script>
 
 <svelte:head>
@@ -12,7 +13,10 @@
 </svelte:head>
 
 <main>
-	<h1>{title}</h1>
+	<video autoplay muted loop playsinline>
+		<source src={source} type="video/mp4" />
+	</video>
+	<a href="google.com"><h1>{title}</h1></a>
 	<p><slot /></p>
 </main>
 
@@ -23,28 +27,37 @@
 	}
 	main {
 		position: relative;
-		z-index: 1;
-		background: url('/images/albumsplit-full-page.png') top right no-repeat;
-		background-color: #1c1e21;
-		background-size: contain;
-		background-size: 80%;
-		background-position-y: 42%;
-		padding-bottom: 20%;
-		box-shadow: inset 0 0 0 2000px #1c1e214a;
+		background: var(--albumsplit-background);
+		overflow: hidden;
+		padding: 2.4em 1em;
 	}
-	h1 {
-		z-index: 2;
-		padding: 0.5em 5%;
+	video {
+		right: 0;
+		position: absolute;
+		width: var(--video-width);
+		top: var(--video-top);
+		opacity: 0.2;
+	}
+	a {
+		text-decoration: none;
+	}
+	a h1 {
+		padding: 0 5%;
 		margin: 0;
-		box-shadow: -1px 10px 0px -8px #8ec07c inset;
 		color: #83a598;
 		font-family: Roboto Slab;
 		font-weight: 500;
 		font-size: 8vw;
 		line-height: 1.2;
 		letter-spacing: -0.00833em;
-		text-decoration: underline #8ec07c 0.5vw;
 		position: relative;
+		text-decoration: underline;
+		text-decoration-color: #8ec07c;
+		text-decoration-thickness: 0.5vw;
+		text-underline-offset: 1vw;
+		&:link {
+			text-decoration: none;
+		}
 		&:after {
 			content: '';
 			position: absolute;
@@ -52,17 +65,14 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-			background: #1c1e21de;
-			box-shadow: 2px 60px 60px 10px var(--albumsplit-background-transparent);
-			z-index: -1;
+		}
+		&:hover {
+			text-decoration: underline #8ec07c 0.5vw;
 		}
 	}
 	p {
 		padding: 0 5%;
 		font-size: 2.5vw;
 		position: relative;
-		background: var(--albumsplit-background-transparent);
-		box-shadow: 2px 0px 35px 68px var(--albumsplit-background-transparent);
-		z-index: 1;
 	}
 </style>

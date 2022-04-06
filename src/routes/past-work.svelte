@@ -6,14 +6,18 @@
 
 <h1>Past work</h1>
 
-<PortfolioHero title="Albumsplit">
+<PortfolioHero title="Albumsplit" source="albumsplit.mp4" --video-width="60%" --video-top="-75%">
 	Albumsplit is a project that allows users to automatically download, split, and tag audio books,
 	podcasts, or song compilations&mdash;straight from YouTube&mdash;into separate tracks for
 	convenient offline listening.
 	<BuiltWith>React, Django, Yt-dlp, Celery w/ RabbitMQ, Material UI</BuiltWith>
 </PortfolioHero>
 
-<PortfolioHero title="Conner's Brian Website"
+<PortfolioHero
+	title="Conner's Brian Website"
+	source="brian.mp4"
+	--video-width="130%"
+	--video-top="0"
 	>Conner's Brian Website started as an experiment where I played with various features of the
 	canvas browser element. With no clear purpose, it evolved into an
 	open&ndash;to&ndash;interpretation &ldquo;experience&rdquo;. Digital art? Sick prank? Either way,
