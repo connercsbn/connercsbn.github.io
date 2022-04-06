@@ -2,11 +2,32 @@
 	import PortfolioIcon from '$lib/PortfolioIcon.svelte';
 	import PortfolioHero from '$lib/PortfolioHero.svelte';
 	import BuiltWith from '$lib/BuiltWith.svelte';
+	let albumSplitVideoOffset = 0;
+	let connersBrianWebsiteOffset = 0;
+	let y;
+	$: {
+		albumSplitVideoOffset = y / 20;
+		connersBrianWebsiteOffset = y / 20;
+	}
 </script>
+
+<svelte:window bind:scrollY={y} />
 
 <h1>Past work</h1>
 
-<PortfolioHero title="Albumsplit" source="albumsplit.mp4" --video-width="60%" --video-top="-75%">
+<PortfolioHero
+	title="Albumsplit"
+	source="albumsplit.webm"
+	link="//albumsplit.com"
+	--video-width="60%"
+	--video-top="{-75 + albumSplitVideoOffset}%"
+	--font="roboto slab"
+	--font-color="#83a598"
+	--font-size="8vw"
+	--letter-spacing="-0.00833em"
+	--opaque-background="#1c1e21"
+	--border-color="#8ec07c"
+>
 	Albumsplit is a project that allows users to automatically download, split, and tag audio books,
 	podcasts, or song compilations&mdash;straight from YouTube&mdash;into separate tracks for
 	convenient offline listening.
@@ -15,14 +36,23 @@
 
 <PortfolioHero
 	title="Conner's Brian Website"
-	source="brian.mp4"
-	--video-width="130%"
-	--video-top="0"
+	source="brian.webm"
+	link="//connersbrianwebsite.xyz"
+	--video-width="150%"
+	--video-top="{-50 + connersBrianWebsiteOffset}%"
+	--font="fg"
+	--font-color="#3970AA"
+	--font-size="6.5vw"
+	--text-decoration="none"
+	--text-stroke="2px white"
+	--letter-spacing="0.04em"
+	--opaque-background="black"
+	--border-color="#3970AA"
 	>Conner's Brian Website started as an experiment where I played with various features of the
-	canvas browser element. With no clear purpose, it evolved into an
-	open&ndash;to&ndash;interpretation &ldquo;experience&rdquo;. Digital art? Sick prank? Either way,
-	put it on in the background at your party for some chill vibes&mdash;and to meet cool people who
-	catch the subtle Family Guy reference.
+	canvas browser element. With no clear purpose, it evolved into an open-to-interpretation
+	&ldquo;experience.&rdquo; Digital art? Elaborate ruse? Either way, put it on in the background at
+	your party for some chill vibes&mdash;and to meet cool people who catch the subtle Family Guy
+	reference.
 	<BuiltWith>Svelte, using Canvas API and FFmpeg for audio manipulation</BuiltWith>
 </PortfolioHero>
 <div>
@@ -119,9 +149,6 @@
 </div>
 
 <style>
-	* {
-		font-family: 'Noto Sans';
-	}
 	h1 {
 		padding: 0 5%;
 	}

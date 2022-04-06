@@ -14,7 +14,4 @@
 </main>
 
 <style>
-	* {
-		font-family: 'Noto Sans';
-	}
 </style>

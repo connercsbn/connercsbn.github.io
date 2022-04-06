@@ -1,6 +1,4 @@
 <script>
-	import '@fontsource/noto-sans';
-	import Header from './Header.svelte';
 	export let percentAwayFromTop;
 	let minPadding = 0.3;
 	let maxPadding = 0.4;
@@ -36,7 +34,6 @@
 		transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 	}
 	.title {
-		font-family: 'Noto Sans';
 		text-align: right;
 		margin: auto;
 		color: white;

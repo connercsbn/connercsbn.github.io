@@ -1,35 +1,32 @@
 <script>
-	import { onMount } from 'svelte';
 	import '@fontsource/roboto-slab';
+	import '@fontsource/roboto';
+	import '@fontsource/andada-pro';
+
 	export let title;
 	export let source;
+	export let link;
 </script>
-
-<svelte:head>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Andada+Pro:wght@300;500&family=PT+Serif:wght@400;700&family=Raleway:wght@400;500;600&display=swap"
-		rel="stylesheet"
-	/>
-</svelte:head>
 
 <main>
 	<video autoplay muted loop playsinline>
-		<source src={source} type="video/mp4" />
+		<source src={source} type="video/webm" />
 	</video>
-	<a href="google.com"><h1>{title}</h1></a>
+	<a href={link}><h1>{title}</h1></a>
 	<p><slot /></p>
 </main>
 
 <style lang="scss">
-	:root {
-		--albumsplit-background: #1c1e21;
-		--albumsplit-background-transparent: #1c1e21d4;
+	@font-face {
+		font-family: 'fg';
+		src: url('/webfonts/fg.woff');
 	}
+
 	main {
 		position: relative;
-		background: var(--albumsplit-background);
+		background: var(--opaque-background);
 		overflow: hidden;
-		padding: 2.4em 1em;
+		padding: 8% 1em;
 	}
 	video {
 		right: 0;
@@ -44,17 +41,18 @@
 	a h1 {
 		padding: 0 5%;
 		margin: 0;
-		color: #83a598;
-		font-family: Roboto Slab;
+		color: var(--font-color, black);
+		font-family: var(--font, 'Roboto');
 		font-weight: 500;
-		font-size: 8vw;
+		font-size: var(--font-size);
 		line-height: 1.2;
-		letter-spacing: -0.00833em;
 		position: relative;
-		text-decoration: underline;
+		text-decoration: var(--text-decoration, underline);
 		text-decoration-color: #8ec07c;
 		text-decoration-thickness: 0.5vw;
 		text-underline-offset: 1vw;
+		letter-spacing: var(--letter-spacing, 0);
+		-webkit-text-stroke: var(--text-stroke, none);
 		&:link {
 			text-decoration: none;
 		}
@@ -65,9 +63,6 @@
 			left: 0;
 			width: 100%;
 			height: 100%;
-		}
-		&:hover {
-			text-decoration: underline #8ec07c 0.5vw;
 		}
 	}
 	p {

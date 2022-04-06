@@ -52,9 +52,6 @@
 </nav>
 
 <style type="scss">
-	* {
-		font-family: 'Noto Sans';
-	}
 	:root {
 		--red: rgb(170, 48, 48);
 		--yellow: rgb(255, 247, 0);

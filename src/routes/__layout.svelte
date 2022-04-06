@@ -1,6 +1,6 @@
 <script>
-	import '@fontsource/noto-sans';
 	import '../app.scss';
+	import '@fontsource/roboto';
 	import Header from '$lib/Header.svelte';
 </script>
 
