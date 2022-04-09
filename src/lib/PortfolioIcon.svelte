@@ -27,19 +27,20 @@
 	}
 	main {
 		display: flex;
-		justify-content: space-between;
-		width: min-content;
 		position: relative;
-		margin: 1em;
+		justify-content: space-evenly;
+		position: relative;
+		margin: 2.5%;
+		margin: auto;
+		width: 100%;
+		height: 200px;
 		--hover-color: var(--border-color);
 	}
 	a {
 		position: relative;
-		height: 240px;
-		width: 240px;
+		width: 100%;
 		border-radius: 0px;
 		overflow: hidden;
-		max-width: 230px;
 		background: var(--background);
 		background-size: 100%;
 		border: 2px solid var(--border-color);
