@@ -1,122 +1,104 @@
 <script>
 	import { page } from '$app/stores';
-	import Hamburger from '$lib/Hamburger.svelte';
+	import { fly } from 'svelte/transition';
+
 	import { open } from '$lib/stores';
+	import Hamburger from '$lib/Hamburger.svelte';
 	import { clickOutside } from './clickOutside.js';
-	import { slide, fly, crossfade, draw, blur, fade, scale } from 'svelte/transition';
 
 	let links = [
-		['Home', '/'],
-		['About', '/about'],
 		['Contact', '/contact'],
-		['Past Work', '/past-work']
+		['Past Work', '/past-work'],
+		['About', '/']
 	];
-	export let percentAwayFromTop;
-	let minTop = 0.3;
-	let maxTop = 0.8;
-	let minBarHeight = 10;
-	let maxBarHeight = 12;
-	$: currentTop = getCurrentDistance(minTop, maxTop, percentAwayFromTop);
-	$: currentBarHeight = getCurrentDistance(minBarHeight, maxBarHeight, percentAwayFromTop);
-
-	function getCurrentDistance(min, max, percent) {
-		return max - percent * 0.01 * (max - min);
-	}
 </script>
 
 <nav
+	class:open={$open}
 	use:clickOutside
 	on:click_outside={() => {
 		$open = false;
 	}}
 >
-	<Hamburger
-		--barHeight="{currentBarHeight}px"
-		--transition-duration="200ms"
-		--top="{currentTop}em"
-	/>
-	{#if $open}
-		<div class="links" transition:fly={{ duration: 200, x: -100 }}>
-			{#each links as link}
-				<a
-					on:click={() => {
-						$open = false;
-					}}
-					class="link"
-					href={link[1]}
-					class:active={$page.url.pathname === link[1]}><span>{link[0]}</span></a
-				>
-			{/each}
-		</div>
-	{/if}
+	<Hamburger />
+	<div class="links" class:open={$open} transition:fly={{ x: -250, y: 0, duration: 450 }}>
+		{#each links as link}
+			<a class="link" href={link[1]} class:active={$page.url.pathname === link[1]}
+				><span>{link[0]}</span></a
+			>
+		{/each}
+	</div>
 </nav>
 
 <style type="scss">
-	:root {
-		--red: rgb(170, 48, 48);
-		--yellow: rgb(255, 247, 0);
-		--dark-yellow: rgb(151, 148, 39);
-		--faded-yellow: #fcf599a9;
-		--dark-faded-yellow: #403e2eed;
-		--light-faded-yellow: #e1daa7;
-		// --light-faded-yellow: white;
-		--selected-background: rgb(8, 58, 23);
-		--unselected-background: rgb(155, 155, 155);
-	}
 	nav {
 		position: relative;
-		width: 90%;
+		display: flex;
+		flex-direction: column;
+		align-items: left;
+		width: 400px;
+		border-right: 1px solid var(--text-color);
+		background: var(--background-color);
 		user-select: none;
+		flex-shrink: 0;
+		transition: 0.4s all;
 	}
 	.link {
 		position: relative;
-		display: inline-block;
 		text-decoration: none;
-		padding: 0.5em 1em;
-		margin: 0.1em;
-		color: var(--faded-yellow);
-		text-align: center;
+		padding: 1em 30px;
+		color: var(--text-color);
+		text-align: right;
 		font-weight: bold;
-		background: var(--yellow);
-		background: var(--unselected-background);
-		background: #4e4e3a;
-		background: var(--dark-faded-yellow);
 		white-space: nowrap;
-		width: max-content;
-		border: 2px solid white;
-		border: 2px solid var(--faded-yellow);
+		width: 230px;
+		transition: 0.4s all;
+		&::before {
+			content: '';
+			position: absolute;
+			right: 0%;
+			bottom: 50%;
+			width: 0px;
+			height: 1px;
+			background: black;
+			transition: 0.2s all ease-in;
+		}
+		&:hover {
+			transform: translate3d(-20px, 0, 0);
+			transition: 0.2s all ease-in;
+			&::before {
+				width: 20px;
+				transition: 0.2s all ease-in;
+			}
+		}
 	}
 	.links {
-		margin: 4.4em 0.3em;
+		padding: 1em 0;
 		position: fixed;
 		display: flex;
+		align-content: left;
 		flex-wrap: wrap;
-		flex-direction: column;
-		z-index: 1000;
+		flex-direction: column-reverse;
+		top: 67px;
+		bottom: 0;
+		left: 0;
+		transform: translate3d(var(--right-transform), 0, 0);
 	}
 	.link:hover {
 		box-sizing: content-box;
-		border: 2px solid var(--light-faded-yellow);
-		color: var(--light-faded-yellow);
+		color: var(--text-color);
 		&:after {
 			content: '';
 			width: 100%;
 			height: 100%;
 			top: 0;
 			left: 0;
-			background: rgba(225, 150, 52, 0.44);
 			display: block;
 			position: absolute;
-			z-index: 10000;
 		}
 	}
 	.active {
-		color: white;
-		background: var(--selected-background);
-		background: rgba(100, 200, 100, 0.2);
-		background: rgba(67, 121, 67, 0.8);
-		&:hover {
-			color: white;
-		}
+		color: var(--text-color);
+		background: transparent;
 	}
 </style>

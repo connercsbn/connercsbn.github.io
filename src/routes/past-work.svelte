@@ -17,8 +17,6 @@
 
 <svelte:window bind:scrollY={y} bind:innerHeight={height} bind:innerWidth={width} />
 
-<h1>Past work</h1>
-
 <PortfolioHero
 	title="Albumsplit"
 	source="albumsplit.mp4"
@@ -45,7 +43,7 @@
 	--video-top="{-30 + ttrOffset}%"
 	--font="Brandon Grotesque"
 	--font-color="#ff362c"
-	--font-size="16vw"
+	--font-size="14vw"
 	--text-decoration="none"
 	--text-stroke="none"
 	--letter-spacing="-.004em"
@@ -67,7 +65,7 @@
 	--video-top="{-40 + connersBrianWebsiteOffset}%"
 	--font="fg"
 	--font-color="#3970AA"
-	--font-size="11vw"
+	--font-size="12vw"
 	--text-decoration="none"
 	--text-stroke="2px white"
 	--letter-spacing="0.07em"
@@ -176,9 +174,6 @@
 </div>
 
 <style>
-	h1 {
-		padding: 0 5%;
-	}
 	main {
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
@@ -186,7 +181,7 @@
 		margin: auto;
 		grid-gap: 16px;
 		justify-content: center;
-		padding: initial;
+		padding: 16px;
 		max-width: 1300px;
 		margin: auto;
 	}

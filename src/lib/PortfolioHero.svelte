@@ -39,9 +39,9 @@
 		position: relative;
 		background: var(--opaque-background);
 		overflow: hidden;
-		padding: 8% 1em;
-		margin: 5%;
 		border: 2px solid var(--border-color);
+		margin: 30px;
+		padding: 4%;
 	}
 	.bg-container {
 		background: #fbf7e4;
@@ -95,7 +95,7 @@
 		text-decoration: none;
 	}
 	a h1 {
-		padding: 0 5%;
+		padding: 0 2%;
 		margin: 0;
 		color: var(--font-color, black);
 		font-family: var(--font, 'Roboto');
@@ -122,8 +122,8 @@
 		}
 	}
 	p {
-		padding: 0 5%;
-		font-size: 4.5vw;
+		padding: 0 2%;
+		font-size: 3.5vw;
 		position: relative;
 	}
 	@keyframes stripe {

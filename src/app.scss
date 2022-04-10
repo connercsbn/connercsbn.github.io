@@ -1,7 +1,8 @@
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
 :root {
-	--text-color: white;
-	--background-color: black;
+	--text-color: rgb(35, 64, 87);
+	--background-color: rgb(170, 217, 230);
+	--background-color: white;
 }
 * {
 	font-family: roboto;

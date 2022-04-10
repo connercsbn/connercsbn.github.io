@@ -4,119 +4,49 @@
 		$open = !$open;
 	};
 	let ariaLabel = 'toggle menu';
-	export let small;
 </script>
 
-<div class="demo">
-	<div class="menu-icon" on:click={handleBurgerClick} aria-expanded={$open} aria-label={ariaLabel}>
-		<input class="menu-icon__cheeckbox" type="checkbox" checked={$open} />
-		<div class:small>
-			<span />
-			<span />
-		</div>
-	</div>
+<div
+	class="burger"
+	class:open={$open}
+	on:click={handleBurgerClick}
+	aria-expanded={$open}
+	aria-label={ariaLabel}
+>
+	<div class="burger-item a" class:open={$open} />
+	<div class="burger-item b" class:open={$open} />
+	<div class="burger-item c" class:open={$open} />
 </div>
 
 <style type="scss">
-	.demo {
-		cursor: pointer;
-		display: flex;
-		align-items: center;
-		overflow: hidden;
-		border: none;
-		background: none;
+	.burger {
 		position: fixed;
-		top: 1em;
-		top: var(--top);
-		left: 1em;
-		z-index: 100;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-	}
-
-	:root {
-		--bar-bg: #b2c7bc;
-	}
-
-	.menu-icon {
-		position: relative;
-		width: 45px;
-		height: 37px;
-		z-index: 100;
+		margin: auto;
 		cursor: pointer;
-
-		.menu-icon__cheeckbox {
-			display: block;
-			width: 100%;
-			height: 100%;
-			position: relative;
-			cursor: pointer;
-			z-index: 2;
-			-webkit-touch-callout: none;
-			position: absolute;
-			opacity: 0;
-		}
-		div {
-			margin: auto;
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			bottom: 0;
-			width: 22px;
-			height: var(--barHeight);
-			transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
-		}
-		span {
-			position: absolute;
-			display: block;
-			width: 100%;
-			height: 2px;
-			background-color: var(--bar-bg, #000);
-			border-radius: 1px;
-			transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
-
-			&:first-of-type {
-				top: 0;
-			}
-			&:last-of-type {
-				bottom: 0;
-			}
-		}
-		&.active,
-		.menu-icon__cheeckbox:checked + div {
-			span {
-				&:first-of-type {
-					transform: rotate(45deg);
-					top: 5px;
-				}
-				&:last-of-type {
-					transform: rotate(-45deg);
-					bottom: 5px;
-				}
-			}
-		}
-
-		&.active:hover span:first-of-type,
-		&.active:hover span:last-of-type,
-		&:hover .menu-icon__cheeckbox:checked + div span:first-of-type,
-		&:hover .menu-icon__cheeckbox:checked + div span:last-of-type {
-			width: 22px;
-		}
-
-		&:hover {
-			@media (min-width: 1024px) {
-				span:first-of-type {
-					width: 26px;
-				}
-				span:last-of-type {
-					width: 12px;
-				}
-			}
-		}
-		.small {
-			height: 10px;
-		}
+		padding: 20px;
+		right: 0;
+		top: 0;
+		z-index: 1;
+		width: 30px;
+		height: 30px;
+		width: 20px;
+	}
+	.burger-item {
+		height: 1px;
+		width: 100%;
+		background: var(--text-color);
+		margin: 30% 0;
+	}
+	.burger.open {
+		transform: translate3d(5px, 3px, 0);
+	}
+	.open.a {
+		transform: translate3d(-5px, 5px, 0) rotate(45deg);
+	}
+	.open.b {
+		display: none;
+	}
+	.open.c {
+		transform: translate3d(-5px, -2px, 0) rotate(-45deg);
 	}
 </style>
