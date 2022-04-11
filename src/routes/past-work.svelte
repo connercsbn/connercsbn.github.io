@@ -18,13 +18,14 @@
 <svelte:window bind:scrollY={y} bind:innerHeight={height} bind:innerWidth={width} />
 
 <PortfolioHero
-	title="Albumsplit"
+	title={['Albumsplit']}
 	source="albumsplit.mp4"
 	link="//albumsplit.com"
 	--video-width="60%"
 	--video-top="{-75 + albumSplitVideoOffset}%"
 	--font="roboto slab"
 	--font-color="#83a598"
+	--shadow-color="white"
 	--font-size="14vw"
 	--letter-spacing="-0.00833em"
 	--opaque-background="#1c1e21"
@@ -36,13 +37,14 @@
 	<BuiltWith>Built with React, Django, Yt-dlp, Celery w/ RabbitMQ, Material UI</BuiltWith>
 </PortfolioHero>
 <PortfolioHero
-	title="Tax The Rich NYS"
+	title={['Tax The Rich', 'NYC']}
 	link="//taxtherichnys.com"
 	background="tts"
 	--video-width="150%"
 	--video-top="{-30 + ttrOffset}%"
 	--font="Brandon Grotesque"
 	--font-color="#ff362c"
+	--shadow-color="white"
 	--font-size="14vw"
 	--text-decoration="none"
 	--text-stroke="none"
@@ -58,13 +60,14 @@
 </PortfolioHero>
 
 <PortfolioHero
-	title="Conner's Brian Website"
+	title={["Conner's Brian Website"]}
 	source="brian.mp4"
 	link="//connersbrianwebsite.xyz"
 	--video-width="150%"
 	--video-top="{-40 + connersBrianWebsiteOffset}%"
 	--font="fg"
 	--font-color="#3970AA"
+	--shadow-color="white"
 	--font-size="12vw"
 	--text-decoration="none"
 	--text-stroke="2px white"

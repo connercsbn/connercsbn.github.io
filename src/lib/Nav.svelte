@@ -1,7 +1,5 @@
 <script>
 	import { page } from '$app/stores';
-	import { fly } from 'svelte/transition';
-
 	import { open } from '$lib/stores';
 	import Hamburger from '$lib/Hamburger.svelte';
 	import { clickOutside } from './clickOutside.js';
@@ -21,10 +19,15 @@
 	}}
 >
 	<Hamburger />
-	<div class="links" class:open={$open} transition:fly={{ x: -250, y: 0, duration: 450 }}>
+	<div class="links" class:open={$open}>
 		{#each links as link}
-			<a class="link" href={link[1]} class:active={$page.url.pathname === link[1]}
-				><span>{link[0]}</span></a
+			<a
+				on:click={() => {
+					$open = false;
+				}}
+				class="link"
+				href={link[1]}
+				class:active={$page.url.pathname === link[1]}><span>{link[0]}</span></a
 			>
 		{/each}
 	</div>
@@ -37,7 +40,7 @@
 		flex-direction: column;
 		align-items: left;
 		width: 400px;
-		border-right: 1px solid var(--text-color);
+		border-right: 1px solid var(--custom-text-color);
 		background: var(--background-color);
 		user-select: none;
 		flex-shrink: 0;
@@ -47,7 +50,7 @@
 		position: relative;
 		text-decoration: none;
 		padding: 1em 30px;
-		color: var(--text-color);
+		color: var(--custom-text-color);
 		text-align: right;
 		font-weight: bold;
 		white-space: nowrap;
@@ -63,6 +66,9 @@
 			background: black;
 			transition: 0.2s all ease-in;
 		}
+		&:visited {
+			color: var(--custom-text-color);
+		}
 		&:hover {
 			transform: translate3d(-20px, 0, 0);
 			transition: 0.2s all ease-in;
@@ -73,6 +79,7 @@
 		}
 	}
 	.links {
+		border-right: 1px solid var(--custom-text-color);
 		padding: 1em 0;
 		position: fixed;
 		display: flex;

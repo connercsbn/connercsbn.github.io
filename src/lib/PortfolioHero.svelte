@@ -2,11 +2,20 @@
 	import '@fontsource/roboto-slab';
 	import '@fontsource/roboto';
 	import '@fontsource/andada-pro';
+	import Links from '$lib/Links.svelte';
 
 	export let title;
 	export let source;
 	export let link;
 	export let background;
+	let showLinks = false;
+
+	const handleMouseOver = () => {
+		showLinks = true;
+	};
+	const handleMouseLeave = () => {
+		showLinks = false;
+	};
 </script>
 
 <main>
@@ -21,7 +30,17 @@
 			<source src={source} type="video/mp4" />
 		</video>
 	{/if}
-	<a href={link}><h1>{title}</h1></a>
+	<h1
+		on:focus={handleMouseOver}
+		on:mouseover={handleMouseOver}
+		on:mouseleave={handleMouseLeave}
+		href={link}
+	>
+		{#if showLinks}
+			<Links />
+		{/if}
+		{title[0]}{#if title[1]}<br />{title[1]}{/if}
+	</h1>
 	<p><slot /></p>
 </main>
 
@@ -93,35 +112,36 @@
 	}
 	a {
 		text-decoration: none;
+		padding: none;
 	}
-	a h1 {
-		padding: 0 2%;
+	h1 {
+		user-select: none;
+		display: inline-block;
+		position: relative;
+		padding: 0;
 		margin: 0;
 		color: var(--font-color, black);
 		font-family: var(--font, 'Roboto');
-		font-weight: 500;
+		font-weight: 600;
 		font-size: var(--font-size);
-		line-height: 1.2;
+		line-height: 1;
 		position: relative;
-		text-decoration: var(--text-decoration, underline);
+		// text-decoration: var(--text-decoration, underline);
 		text-decoration-color: #8ec07c;
 		text-decoration-thickness: 0.5vw;
 		text-underline-offset: 1vw;
 		letter-spacing: var(--letter-spacing, 0);
 		-webkit-text-stroke: var(--text-stroke, none);
+		z-index: 1;
 		&:link {
 			text-decoration: none;
 		}
-		&:after {
-			content: '';
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
+		&:hover {
+			text-shadow: 0.6vw 0.6vw 0px var(--shadow-color);
 		}
 	}
 	p {
+		color: var(--custom-background-color);
 		padding: 0 2%;
 		font-size: 3.5vw;
 		position: relative;

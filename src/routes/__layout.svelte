@@ -31,14 +31,15 @@
 	}
 
 	function touchEnd() {
-		if (startX + 10 < moveX) {
-			// swipe right
-			if (startY + 20 < moveY || startY - 20 > moveY) {
-				// swipe up or down twice as much as right (so not a true swipe right)
-			} else {
-				$open = true;
-			}
-		} else if (startX - 10 > moveX) {
+		// if (startX + 10 < moveX) {
+		// 	// swipe right
+		// 	if (startY + 20 < moveY || startY - 20 > moveY) {
+		// 		// swipe up or down twice as much as right (so not a true swipe right)
+		// 	} else {
+		// 		$open = true;
+		// 	}
+		// } else if (startX - 10 > moveX) {
+		if (startX - 10 > moveX) {
 			// swipe left
 			if (startY + 20 < moveY || startY - 20 > moveY) {
 				// swipe up or down twice as much as right (so not a true swipe right)
@@ -67,7 +68,7 @@
 />
 
 <main
-	style="--right-transform: {$right}px; --custom-background-color: hsl({$color[0]}, 70%, 90%); --custom-text-color: hsl({$color[1]}, 80%, 20%);"
+	style="--right-transform: {$right}px; --custom-background-color: hsl({$color[0]}, 70%, 95%); --custom-text-color: hsl({$color[1]}, 30%, 40%);--custom-background-light: hsl({$color[0]}, 70%, 99%);"
 >
 	<div class="main-page">
 		<Header />
@@ -83,6 +84,8 @@
 		position: relative;
 		overflow: hidden;
 		top: 65px;
+		background: var(--custom-background-color);
+		min-height: 100vh;
 	}
 	.main-page {
 		position: relative;
@@ -93,7 +96,6 @@
 	}
 	.content {
 		position: relative;
-		border: 1px solid black;
 		transform: translate3d(var(--right-transform), 0, 0);
 	}
 </style>
