@@ -22,8 +22,8 @@
 <PortfolioHero
 	title={['Albumsplit']}
 	source="albumsplit.mp4"
-	link="www.albumsplit.com"
-	githubLink="www.albumsplit.com"
+	link="//www.albumsplit.com"
+	githubLink="//www.albumsplit.com"
 	--video-width="60%"
 	--video-top="{-75 + albumSplitVideoOffset}%"
 	--font="roboto slab"
@@ -43,7 +43,7 @@
 <PortfolioHero
 	title={['Tax The Rich', 'NYC']}
 	link="//taxtherichnys.com"
-	githubLink="www.taxtherichnys.com"
+	githubLink="//www.taxtherichnys.com"
 	background="tts"
 	--video-width="150%"
 	--video-top="{-30 + ttrOffset}%"
@@ -69,7 +69,7 @@
 	title={["Conner's Brian Website"]}
 	source="brian.mp4"
 	link="//connersbrianwebsite.xyz"
-	githubLink="www.connersbrianwebsite.xyz"
+	githubLink="//www.connersbrianwebsite.xyz"
 	--video-width="150%"
 	--video-top="{-40 + connersBrianWebsiteOffset}%"
 	--font="fg"

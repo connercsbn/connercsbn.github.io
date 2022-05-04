@@ -1,7 +1,7 @@
 <script>
 	export let onclick;
 	import Fa from 'svelte-fa';
-	import { faCircleChevronDown } from '@fortawesome/free-solid-svg-icons';
+	import { faCircleChevronDown } from '@fortawesome/free-solid-svg-icons/faCircleChevronDown';
 </script>
 
 <div on:click={onclick}>
