@@ -34,7 +34,7 @@
 	.burger-item {
 		height: 1px;
 		width: 100%;
-		background: var(--text-color);
+		background: var(--custom-text-color);
 		margin: 30% 0;
 	}
 	.burger.open {

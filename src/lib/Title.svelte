@@ -1,5 +1,5 @@
 <script>
-	import { color } from '$lib/stores';
+	import { color, colorTwo } from '$lib/stores';
 	import { stop_propagation } from 'svelte/internal';
 	let width;
 	let backgroundColor, fontColor;
@@ -8,6 +8,7 @@
 		backgroundColor = (clientX / width) * 360;
 		fontColor = (backgroundColor + 0) % 360;
 		$color = [backgroundColor, fontColor];
+		$colorTwo = [(backgroundColor + 180) % 360, fontColor];
 	}
 	function handleTouchMove(e) {
 		clientX = e.touches[0].clientX;
@@ -38,7 +39,7 @@
 		height: 67px;
 		top: 0;
 		box-sizing: border-box;
-		border-bottom: 1px solid var(--custom-text-color);
+		border-bottom: 1px solid var(--custom-secondary-color);
 		transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 		&::after {
 			content: '';

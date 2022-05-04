@@ -1,0 +1,92 @@
+{
+  ".svelte-kit/build/index.js": {
+    "file": "index.js",
+    "src": ".svelte-kit/build/index.js",
+    "isEntry": true,
+    "imports": [
+      "_index-05d56d6a.js"
+    ],
+    "dynamicImports": [
+      ".svelte-kit/build/hooks.js"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "entries/pages/__layout.svelte.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-05d56d6a.js"
+    ],
+    "css": [
+      "assets/entries/pages/__layout.svelte-8c8c9068.css",
+      "assets/index-7757d92f.css"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-05d56d6a.js"
+    ]
+  },
+  "src/routes/about.svelte": {
+    "file": "entries/pages/about.svelte.js",
+    "src": "src/routes/about.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-05d56d6a.js"
+    ]
+  },
+  "src/routes/contact.svelte": {
+    "file": "entries/pages/contact.svelte.js",
+    "src": "src/routes/contact.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-05d56d6a.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "entries/pages/index.svelte.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-05d56d6a.js"
+    ],
+    "css": [
+      "assets/entries/pages/index.svelte-992ce687.css"
+    ]
+  },
+  "src/routes/past-work.svelte": {
+    "file": "entries/pages/past-work.svelte.js",
+    "src": "src/routes/past-work.svelte",
+    "isEntry": true,
+    "imports": [
+      "_index-05d56d6a.js"
+    ],
+    "css": [
+      "assets/entries/pages/past-work.svelte-46a3fb9d.css",
+      "assets/index-7757d92f.css"
+    ],
+    "assets": [
+      "assets/roboto-slab-cyrillic-ext-400-normal-cd496c73.woff2",
+      "assets/roboto-slab-all-400-normal-a39df3a4.woff",
+      "assets/roboto-slab-cyrillic-400-normal-09bfc532.woff2",
+      "assets/roboto-slab-greek-400-normal-d2d23685.woff2",
+      "assets/roboto-slab-latin-ext-400-normal-9d7b0a96.woff2",
+      "assets/roboto-slab-latin-400-normal-c636cdf8.woff2",
+      "assets/andada-pro-vietnamese-400-normal-d521c37a.woff2",
+      "assets/andada-pro-all-400-normal-3db72338.woff",
+      "assets/andada-pro-latin-ext-400-normal-465d2fee.woff2",
+      "assets/andada-pro-latin-400-normal-34db6953.woff2"
+    ]
+  },
+  "_index-05d56d6a.js": {
+    "file": "chunks/index-05d56d6a.js"
+  },
+  ".svelte-kit/build/hooks.js": {
+    "file": "chunks/hooks-1c45ba0b.js",
+    "src": ".svelte-kit/build/hooks.js",
+    "isDynamicEntry": true
+  }
+}

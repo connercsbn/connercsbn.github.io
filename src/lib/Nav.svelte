@@ -40,7 +40,7 @@
 		flex-direction: column;
 		align-items: left;
 		width: 400px;
-		border-right: 1px solid var(--custom-text-color);
+		border-right: 1px solid var(--custom-secondary-color);
 		background: var(--background-color);
 		user-select: none;
 		flex-shrink: 0;
@@ -79,7 +79,7 @@
 		}
 	}
 	.links {
-		border-right: 1px solid var(--custom-text-color);
+		border-right: 1px solid var(--custom-secondary-color);
 		padding: 1em 0;
 		position: fixed;
 		display: flex;

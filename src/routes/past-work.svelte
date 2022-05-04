@@ -8,6 +8,8 @@
 	let y = 0;
 	let width = 1;
 	let height = 1;
+	let maxFontSize = 80;
+	let maxPFontSize = 30;
 	$: {
 		albumSplitVideoOffset = y / 25 / (width / height);
 		connersBrianWebsiteOffset = y / 25 / (width / height);
@@ -20,14 +22,16 @@
 <PortfolioHero
 	title={['Albumsplit']}
 	source="albumsplit.mp4"
-	link="//albumsplit.com"
+	link="www.albumsplit.com"
+	githubLink="www.albumsplit.com"
 	--video-width="60%"
 	--video-top="{-75 + albumSplitVideoOffset}%"
 	--font="roboto slab"
 	--font-color="#83a598"
 	--shadow-color="white"
-	--font-size="14vw"
-	--letter-spacing="-0.00833em"
+	--font-size={`min(14vw, ${maxFontSize}px)`}
+	--p-font-size={`min(3.5vw, ${maxPFontSize}px)`}
+	--letter-spacing="0"
 	--opaque-background="#1c1e21"
 	--border-color="#8ec07c"
 >
@@ -39,16 +43,18 @@
 <PortfolioHero
 	title={['Tax The Rich', 'NYC']}
 	link="//taxtherichnys.com"
+	githubLink="www.taxtherichnys.com"
 	background="tts"
 	--video-width="150%"
 	--video-top="{-30 + ttrOffset}%"
 	--font="Brandon Grotesque"
 	--font-color="#ff362c"
 	--shadow-color="white"
-	--font-size="14vw"
+	--font-size={`min(14vw, ${maxFontSize}px)`}
+	--p-font-size={`min(3.5vw, ${maxPFontSize}px)`}
 	--text-decoration="none"
 	--text-stroke="none"
-	--letter-spacing="-.004em"
+	--letter-spacing="0"
 	--opaque-background="black"
 	--border-color="#ff362c"
 >
@@ -63,12 +69,14 @@
 	title={["Conner's Brian Website"]}
 	source="brian.mp4"
 	link="//connersbrianwebsite.xyz"
+	githubLink="www.connersbrianwebsite.xyz"
 	--video-width="150%"
 	--video-top="{-40 + connersBrianWebsiteOffset}%"
 	--font="fg"
 	--font-color="#3970AA"
 	--shadow-color="white"
-	--font-size="12vw"
+	--font-size={`min(12vw, ${maxFontSize}px)`}
+	--p-font-size={`min(3.5vw, ${maxPFontSize}px)`}
 	--text-decoration="none"
 	--text-stroke="2px white"
 	--letter-spacing="0.07em"

@@ -6,7 +6,7 @@
 	import Header from '$lib/Header.svelte';
 	import Nav from '$lib/Nav.svelte';
 	import { open } from '$lib/stores';
-	import { color } from '$lib/stores';
+	import { color, colorTwo } from '$lib/stores';
 	let scrollY;
 
 	const right = tweened(1, {
@@ -31,14 +31,6 @@
 	}
 
 	function touchEnd() {
-		// if (startX + 10 < moveX) {
-		// 	// swipe right
-		// 	if (startY + 20 < moveY || startY - 20 > moveY) {
-		// 		// swipe up or down twice as much as right (so not a true swipe right)
-		// 	} else {
-		// 		$open = true;
-		// 	}
-		// } else if (startX - 10 > moveX) {
 		if (startX - 10 > moveX) {
 			// swipe left
 			if (startY + 20 < moveY || startY - 20 > moveY) {
@@ -68,7 +60,7 @@
 />
 
 <main
-	style="--right-transform: {$right}px; --custom-background-color: hsl({$color[0]}, 70%, 95%); --custom-text-color: hsl({$color[1]}, 30%, 40%);--custom-background-light: hsl({$color[0]}, 70%, 99%);"
+	style="--right-transform: {$right}px; --custom-background-color: hsl({$color[0]}, 70%, 95%); --custom-text-color: hsl({$color[1]}, 30%, 40%);--custom-background-light: hsl({$color[0]}, 70%, 99%);--custom-secondary-color: hsl({$colorTwo[0]}, 70%, 45%);"
 >
 	<div class="main-page">
 		<Header />
@@ -96,6 +88,7 @@
 	}
 	.content {
 		position: relative;
+		padding: 30px;
 		transform: translate3d(var(--right-transform), 0, 0);
 	}
 </style>
