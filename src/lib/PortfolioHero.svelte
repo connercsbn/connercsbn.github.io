@@ -4,7 +4,7 @@
 	import '@fontsource/andada-pro';
 	import Fa from 'svelte-fa';
 	import Arrow from '$lib/Arrow.svelte';
-	import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+	import faUpRightFromSquare from '@fortawesome/free-solid-svg-icons/faUpRightFromSquare';
 	import { clickOutside } from './clickOutside.js';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
