@@ -1,5 +1,8 @@
 <script>
 	import Filler from '$lib/Filler.svelte';
+	import PastWork from './past-work.svelte';
+	import Contact from './contact.svelte';
+	import About from './about.svelte';
 </script>
 
 <main>
@@ -13,6 +16,10 @@
 	</p>
 	<p>languages: python, javascript</p>
 	<p>some experience in rust, c, pawn, awk, bash</p>
+	<div class="unspacer" />
+	<PastWork />
+	<Contact />
+	<About />
 </main>
 
 <style lang="scss">

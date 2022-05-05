@@ -19,6 +19,9 @@
 
 <svelte:window bind:scrollY={y} bind:innerHeight={height} bind:innerWidth={width} />
 
+<div id="past-work" class="h2-container">
+	<h2>Past Work</h2>
+</div>
 <PortfolioHero
 	title={['Albumsplit']}
 	source="albumsplit.mp4"
@@ -94,7 +97,9 @@
 </PortfolioHero>
 
 <div>
-	<h1>Other work</h1>
+	<div id="other-work" class="h2-container">
+		<h2>Other work</h2>
+	</div>
 	<main>
 		<PortfolioIcon
 			name="The Cleveland Show Time Capsule Discord Bot"
@@ -184,6 +189,7 @@
 			icon="/images/tbd.png"
 			bgcolors={['white', 'black']}
 		/>
+		<div class="unspacer" />
 	</main>
 </div>
 

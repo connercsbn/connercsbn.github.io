@@ -46,12 +46,12 @@
 		</div>
 	{:else}
 		<!-- <video autoplay muted loop playsinline>
-			<source src={source} type="video/mp4" />
-		</video> -->
+            <source src={source} type="video/mp4" />
+        </video> -->
 	{/if}
-	<h1 href={link} on:click={changeShowLinks}>
+	<h3 href={link} on:click={changeShowLinks}>
 		{title[0]}{#if title[1]}<br />{title[1]}{/if}
-	</h1>
+	</h3>
 	<div class="info-display">
 		<div style={`transform: translate(0, ${$yOffset}%);`} class="github-link">
 			<a href={link} target="__blank"
@@ -183,7 +183,7 @@
 		text-decoration: none;
 		padding: none;
 	}
-	h1 {
+	h3 {
 		user-select: none;
 		display: inline-block;
 		position: relative;

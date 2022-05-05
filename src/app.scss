@@ -8,3 +8,19 @@
 	font-family: roboto;
 	font-family: 'IBM Plex Serif';
 }
+
+h2 {
+	border: 1px solid var(--custom-text-color);
+	border-left: unset;
+	border-right: unset;
+	padding: 1em;
+}
+
+.h2-container {
+	position: relative;
+	padding-top: 67px;
+}
+
+.unspacer {
+	margin: -67px;
+}

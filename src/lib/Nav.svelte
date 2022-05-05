@@ -5,9 +5,9 @@
 	import { clickOutside } from './clickOutside.js';
 
 	let links = [
-		['Contact', '/contact'],
-		['Past Work', '/past-work'],
-		['About', '/']
+		['Contact', '#contact'],
+		['Past Work', '#past-work'],
+		['About', '#about']
 	];
 </script>
 
