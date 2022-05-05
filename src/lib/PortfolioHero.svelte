@@ -45,9 +45,9 @@
 			<div class="bg-rect" />
 		</div>
 	{:else}
-		<video autoplay muted loop playsinline>
+		<!-- <video autoplay muted loop playsinline>
 			<source src={source} type="video/mp4" />
-		</video>
+		</video> -->
 	{/if}
 	<h1 href={link} on:click={changeShowLinks}>
 		{title[0]}{#if title[1]}<br />{title[1]}{/if}
@@ -90,16 +90,17 @@
 			display: flex;
 			padding: 1rem;
 			// border-radius: 30px;
-			border: 2px solid white;
+			// border: 2px solid white;
 			color: white;
-			background: var(--custom-secondary-color);
+			// background: var(--custom-secondary-color);
 			&:hover {
-				background: white;
-				box-shadow: 4px 5px 0px 1px var(--custom-text-color);
-				color: var(--custom-secondary-color);
-				& svg {
-					fill: var(--custom-secondary-color);
-				}
+				// 	background: white;
+				// 	box-shadow: 4px 5px 0px 1px var(--custom-text-color);
+				// 	color: var(--custom-secondary-color);
+				// 	& svg {
+				// 		fill: var(--custom-secondary-color);
+				// 	}
+				font-style: italic;
 			}
 		}
 		& svg {
