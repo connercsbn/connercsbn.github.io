@@ -2,7 +2,10 @@
 	import '@fontsource/roboto-slab';
 	import '@fontsource/roboto';
 	import '@fontsource/andada-pro';
+	import Fa from 'svelte-fa';
 	import Arrow from '$lib/Arrow.svelte';
+	import { faUpRightFromSquare } from '@fortawesome/free-solid-svg-icons';
+	import { clickOutside } from './clickOutside.js';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 
@@ -11,6 +14,7 @@
 	export let link;
 	export let githubLink;
 	export let background;
+	export let arrowColor;
 	let showLinks = false;
 
 	const yOffset = tweened(0, {
@@ -23,9 +27,17 @@
 	} else {
 		yOffset.set(0);
 	}
+	const changeShowLinks = () => {
+		showLinks = !showLinks;
+	};
 </script>
 
-<main>
+<main
+	use:clickOutside
+	on:click_outside={() => {
+		showLinks = false;
+	}}
+>
 	{#if background == 'tts'}
 		<div class="bg-container">
 			<div class="bg-trapezoid" />
@@ -37,22 +49,30 @@
 			<source src={source} type="video/mp4" />
 		</video>
 	{/if}
-	<h1 href={link}>
+	<h1 href={link} on:click={changeShowLinks}>
 		{title[0]}{#if title[1]}<br />{title[1]}{/if}
 	</h1>
 	<div class="info-display">
-		<!-- {#if showLinks} -->
 		<div style={`transform: translate(0, ${$yOffset}%);`} class="github-link">
-			{githubLink} | www.github.com
+			<a href={link} target="__blank"
+				><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+					><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path
+						d="M256 64C256 46.33 270.3 32 288 32H415.1C415.1 32 415.1 32 415.1 32C420.3 32 424.5 32.86 428.2 34.43C431.1 35.98 435.5 38.27 438.6 41.3C438.6 41.35 438.6 41.4 438.7 41.44C444.9 47.66 447.1 55.78 448 63.9C448 63.94 448 63.97 448 64V192C448 209.7 433.7 224 416 224C398.3 224 384 209.7 384 192V141.3L214.6 310.6C202.1 323.1 181.9 323.1 169.4 310.6C156.9 298.1 156.9 277.9 169.4 265.4L338.7 96H288C270.3 96 256 81.67 256 64V64zM0 128C0 92.65 28.65 64 64 64H160C177.7 64 192 78.33 192 96C192 113.7 177.7 128 160 128H64V416H352V320C352 302.3 366.3 288 384 288C401.7 288 416 302.3 416 320V416C416 451.3 387.3 480 352 480H64C28.65 480 0 451.3 0 416V128z"
+					/></svg
+				>Visit</a
+			>
+			<a href={githubLink}>
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"
+					><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path
+						d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"
+					/></svg
+				>
+				Github</a
+			>
 		</div>
-		<!-- {/if} -->
 		<div class="info" style={`transform: translate(0, ${$yOffset}%);`}><slot /></div>
 	</div>
-	<Arrow
-		onclick={() => {
-			showLinks = !showLinks;
-		}}
-	/>
+	<Arrow {showLinks} {arrowColor} onclick={changeShowLinks} />
 </main>
 
 <style lang="scss">
@@ -62,6 +82,31 @@
 		bottom: 100%;
 		left: 0;
 		color: var(--custom-background-color);
+		display: flex;
+		& a {
+			height: min-content;
+			width: min-content;
+			margin: 0.2em;
+			display: flex;
+			padding: 1rem;
+			// border-radius: 30px;
+			border: 2px solid white;
+			color: white;
+			background: var(--custom-secondary-color);
+			&:hover {
+				background: white;
+				box-shadow: 4px 5px 0px 1px var(--custom-text-color);
+				color: var(--custom-secondary-color);
+				& svg {
+					fill: var(--custom-secondary-color);
+				}
+			}
+		}
+		& svg {
+			fill: white;
+			width: 20px;
+			padding-right: 6px;
+		}
 	}
 	.info-display {
 		position: relative;
@@ -101,11 +146,6 @@
 	.bg-trapezoid {
 		clip-path: polygon(0% 43.5%, 100% 100%, 100% 95%, 0% -40%);
 		background-color: rgba(187, 200, 179, 0.6);
-		// animation-duration: 10s;
-		// animation-iteration-count: infinite;
-		// animation-timing-function: ease-in-out;
-		// animation-direction: alternate;
-		// animation-name: spotlight;
 	}
 	.bg-circle {
 		clip-path: circle(10% at -4% 90%);
@@ -114,11 +154,6 @@
 	.bg-rect {
 		clip-path: polygon(97% 0%, 100.8% 0%, 87% 100%, 83% 98.3%);
 		background-color: #eb2329;
-		// animation-duration: 8s;
-		// animation-iteration-count: infinite;
-		// animation-direction: alternate;
-		// animation-name: stripe;
-		// top: 10px;
 	}
 	.bg-container {
 		position: absolute;
@@ -155,7 +190,7 @@
 		margin: 0;
 		color: var(--font-color, black);
 		font-family: var(--font, 'Roboto');
-		font-weight: 500;
+		font-weight: 600;
 		font-size: var(--font-size);
 		line-height: 1;
 		position: relative;

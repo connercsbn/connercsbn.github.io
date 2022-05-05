@@ -1,6 +1,7 @@
 <script>
 	import '../app.scss';
 	import '@fontsource/roboto';
+	import '@fontsource/ibm-plex-serif';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
 	import Header from '$lib/Header.svelte';
