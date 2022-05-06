@@ -23,7 +23,7 @@
 	<h2>Past Work</h2>
 </div>
 <PortfolioHero
-	title={['Albumsplit']}
+	title="Albumsplit"
 	source="albumsplit.mp4"
 	link="//www.albumsplit.com"
 	githubLink="//www.github.com"
@@ -31,8 +31,9 @@
 	--video-top="{-75 + albumSplitVideoOffset}%"
 	--font="roboto slab"
 	--font-color="#83a598"
+	--explicit-p-color="#ebdbb2"
 	arrowColor="#83a598"
-	--shadow-color="white"
+	--shadow-color="#ebdbb2"
 	--font-size={`min(14vw, ${maxFontSize}px)`}
 	--p-font-size={`min(3.5vw, ${maxPFontSize}px)`}
 	--letter-spacing="0"
@@ -45,7 +46,7 @@
 	<BuiltWith>Built with React, Django, Yt-dlp, Celery w/ RabbitMQ, Material UI</BuiltWith>
 </PortfolioHero>
 <PortfolioHero
-	title={['Tax The Rich', 'NYC']}
+	title="Tax The Rich NYC"
 	link="//taxtherichnys.com"
 	githubLink="//www.github.com"
 	background="tts"
@@ -71,29 +72,33 @@
 </PortfolioHero>
 
 <PortfolioHero
-	title={["Conner's Brian Website"]}
+	title={`Conner's Brian\nWebsite`}
 	source="brian.mp4"
 	link="//connersbrianwebsite.xyz"
 	githubLink="//www.github.com"
 	--video-width="150%"
 	--video-top="{-40 + connersBrianWebsiteOffset}%"
 	--font="fg"
+	--explicit-p-color="black"
 	--font-color="#3970AA"
-	arrowColor="white"
-	--shadow-color="white"
+	arrowColor="black"
+	--arrow-highlight-color="gray"
+	--shadow-color="black"
 	--font-size={`min(12vw, ${maxFontSize}px)`}
 	--p-font-size={`min(3.5vw, ${maxPFontSize}px)`}
 	--text-decoration="none"
 	--text-stroke="2px white"
 	--letter-spacing="0.07em"
-	--opaque-background="black"
+	--opaque-background="white"
 	--border-color="#3970AA"
 	>Conner's Brian Website started as an experiment where I played with various features of the
 	canvas browser element. With no clear purpose, it evolved into an open-to-interpretation
 	&ldquo;experience.&rdquo; Digital art? Waste of time? Either way, put it on in the background at
 	your party for some chill vibes&mdash;and to meet cool people who catch the subtle Family Guy
 	reference.
-	<BuiltWith>Built with Svelte, using Canvas API and FFmpeg for audio manipulation</BuiltWith>
+	<BuiltWith --built-with-color="#35352b"
+		>Built with Svelte, using Canvas API and FFmpeg for audio manipulation</BuiltWith
+	>
 </PortfolioHero>
 
 <div>

@@ -11,6 +11,6 @@
 		font-style: italic;
 		font-size: 0.75em;
 		color: gray;
-		color: #9d9d93;
+		color: var(--built-with-color, #9d9d93);
 	}
 </style>

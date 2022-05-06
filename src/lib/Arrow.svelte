@@ -17,20 +17,20 @@
 	}
 </script>
 
-<div on:click={onclick} style={`--arrow-color: ${arrowColor};transform: rotate(${$turn}deg);`}>
-	<Fa icon={faCircleChevronDown} />
+<div on:click={onclick} style={`--arrow-color: ${arrowColor}`}>
+	<Fa icon={faCircleChevronDown} rotate={$turn} scale={1} />
 </div>
 
 <style lang="scss">
 	div {
 		position: absolute;
-		right: 100px;
-		bottom: 100px;
+		right: 0.4em;
+		bottom: 0em;
 		font-size: 52px;
 		fill: white;
 		color: var(--arrow-color);
 		&:hover {
-			color: white;
+			color: var(--arrow-highlight-color, white);
 		}
 	}
 </style>

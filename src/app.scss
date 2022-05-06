@@ -10,7 +10,7 @@
 }
 
 h2 {
-	border: 1px solid var(--custom-text-color);
+	border: 1px solid var(--custom-text-color, black);
 	border-left: unset;
 	border-right: unset;
 	padding: 1em;
@@ -23,4 +23,11 @@ h2 {
 
 .unspacer {
 	margin: -67px;
+}
+
+a {
+	color: var(--custom-secondary-color, deepskyblue);
+	&:hover {
+		color: var(--custom-secondary-highlight-color, cyan);
+	}
 }

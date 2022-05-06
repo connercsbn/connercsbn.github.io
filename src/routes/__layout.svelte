@@ -4,11 +4,15 @@
 	import '@fontsource/ibm-plex-serif';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
+	import { open } from '$lib/stores';
+	import { color, colorTwo, colorMode } from '$lib/stores';
+	import LCH_to_sRGB_string from '$lib/lch.js';
 	import Header from '$lib/Header.svelte';
 	import Nav from '$lib/Nav.svelte';
-	import { open } from '$lib/stores';
-	import { color, colorTwo } from '$lib/stores';
+
+	let startingColor = 206.5;
 	let scrollY;
+	let chromaSat = 10; // was 70
 
 	const right = tweened(1, {
 		duration: 300,
@@ -50,6 +54,29 @@
 	function handleKeyDown({ key }) {
 		if (key == 'Escape') $open = false;
 	}
+	$: customStyle =
+		`--right-transform: ${$right}px;` +
+		($colorMode
+			? `
+    --custom-background-color: ${LCH_to_sRGB_string(95, chromaSat, $color || startingColor)};
+    --custom-arrow-color: ${LCH_to_sRGB_string(60, 80, $color || startingColor, 100, true)};
+    --custom-text-color: ${LCH_to_sRGB_string(40, 10, $color || startingColor)};
+    --custom-background-light: ${LCH_to_sRGB_string(100, 10, $color || startingColor)};
+    --custom-secondary-color: ${LCH_to_sRGB_string(
+			40,
+			80,
+			(($color || startingColor) + 180) % 360,
+			100,
+			true
+		)};
+    --custom-secondary-highlight-color: ${LCH_to_sRGB_string(
+			70,
+			100,
+			(($color || startingColor) + 180) % 360,
+			100,
+			true
+		)};`
+			: ` `);
 </script>
 
 <svelte:window
@@ -60,9 +87,8 @@
 	bind:scrollY
 />
 
-<main
-	style="--right-transform: {$right}px; --custom-background-color: hsl({$color[0]}, 70%, 95%); --custom-text-color: hsl({$color[1]}, 30%, 40%);--custom-background-light: hsl({$color[0]}, 70%, 99%);--custom-secondary-color: hsl({$colorTwo[0]}, 70%, 45%);"
->
+<!-- --custom-background-color: hsl({$color[0]}, 70%, 95%);  -->
+<main style={customStyle}>
 	<div class="main-page">
 		<Header />
 		<Nav --right-transform="{$right - 300}px" />
