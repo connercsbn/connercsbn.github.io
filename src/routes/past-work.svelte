@@ -68,7 +68,7 @@
 		>Tax The Rich was a political campaign in New York. Lorem ipsum lorem ipsum more information
 		about this website, etc.</span
 	>
-	<BuiltWith><span class="ttr">Built with Next.js, Airtable, Action Network</span></BuiltWith>
+	<BuiltWith><span class="ttr">Built with React, Next.js, Airtable, Action Network</span></BuiltWith>
 </PortfolioHero>
 
 <PortfolioHero
