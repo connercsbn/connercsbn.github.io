@@ -12,7 +12,7 @@
 
 	let startingColor = 206.5;
 	let scrollY;
-	let chromaSat = 10; // was 70
+	let chromaSat = 50; // was 70
 
 	const right = tweened(1, {
 		duration: 300,
@@ -58,9 +58,15 @@
 		`--right-transform: ${$right}px;` +
 		($colorMode
 			? `
-    --custom-background-color: ${LCH_to_sRGB_string(95, chromaSat, $color || startingColor)};
+    --custom-background-color: ${LCH_to_sRGB_string(
+			95,
+			chromaSat,
+			$color || startingColor,
+			100,
+			false
+		)};
     --custom-arrow-color: ${LCH_to_sRGB_string(60, 80, $color || startingColor, 100, true)};
-    --custom-text-color: ${LCH_to_sRGB_string(40, 10, $color || startingColor)};
+    --custom-text-color: ${LCH_to_sRGB_string(0, 40, $color || startingColor)};
     --custom-background-light: ${LCH_to_sRGB_string(100, 10, $color || startingColor)};
     --custom-secondary-color: ${LCH_to_sRGB_string(
 			40,

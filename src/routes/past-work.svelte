@@ -68,7 +68,8 @@
 		>Tax The Rich was a political campaign in New York. Lorem ipsum lorem ipsum more information
 		about this website, etc.</span
 	>
-	<BuiltWith><span class="ttr">Built with React, Next.js, Airtable, Action Network</span></BuiltWith>
+	<BuiltWith><span class="ttr">Built with React, Next.js, Airtable, Action Network</span></BuiltWith
+	>
 </PortfolioHero>
 
 <PortfolioHero
@@ -111,30 +112,6 @@
 			href="https://top.gg/bot/938968621781225533"
 			icon="/images/Cleveland_Brown.png"
 			bgcolors={['#1D0917', '#380E21']}
-		/>
-
-		<PortfolioIcon
-			name="Albumsplit"
-			href="https://connercsbn.github.io"
-			icon="/images/albumsplit_logo.png"
-			yoffset={-10}
-			bgcolors={['#94C881', '#83A79A']}
-		/>
-
-		<PortfolioIcon
-			name="Conner's Brian Website"
-			href="https://connersbrianwebsite.xyz"
-			icon="/images/connersbrianwebsite.png"
-			yoffset={-30}
-			bgcolors={['white', 'white']}
-		/>
-
-		<PortfolioIcon
-			name="Tax The Rich NYS"
-			href="https://www.taxtherichnys.com"
-			icon="/images/tax_the_rich.png"
-			bgcolors={['#FBF7E4', '#EB2329']}
-			xoffset={-8}
 		/>
 
 		<PortfolioIcon

@@ -1,12 +1,13 @@
 <script>
 	import { color, colorTwo, colorMode } from '$lib/stores';
+	import { onMount } from 'svelte';
 	let width;
 	let backgroundColor, fontColor;
 	let clientX;
 
 	$: colorMode && updateColor();
 	function updateColor() {
-		backgroundColor = (clientX / width) * 360;
+		backgroundColor = (clientX / width) * 360 || $color;
 		fontColor = (backgroundColor + 0) % 360;
 		$color = backgroundColor;
 		$colorTwo = (backgroundColor + 180) % 360;
@@ -24,6 +25,10 @@
 			}
 		}
 	}
+	onMount(() => {
+		updateColor();
+		clientX = (backgroundColor / 360) * width;
+	});
 </script>
 
 <svelte:window bind:innerWidth={width} />
@@ -32,7 +37,11 @@
 	on:mousemove={handleMouseMove}
 	on:touchmove={handleTouchMove}
 >
-	<div class="arrow" style="--pixels-over: {clientX}px" />
+	<div class="arrow" style="--pixels-over: {clientX || -1000}px">
+		{#if $colorMode && backgroundColor}
+			{Math.floor(backgroundColor)}&deg;
+		{/if}
+	</div>
 	<div class="title"><a href="/">Conner<br />Luker</a></div>
 </main>
 
@@ -69,16 +78,28 @@
 		}
 	}
 	.arrow {
-		width: 2px;
-		height: 66px;
 		position: absolute;
-		background-image: linear-gradient(
-			to left,
-			var(--custom-background-light),
-			var(--custom-arrow-color),
-			var(--custom-background-light)
-		);
+		width: 100px;
+		height: 100px;
+		user-select: none;
+		color: var(--custom-text-color);
 		left: var(--pixels-over);
+		transform: translateX(5px);
+		font-size: 0.9em;
+		&::after {
+			content: '';
+			width: 1px;
+			height: 66px;
+			left: -5px;
+			position: absolute;
+			background: var(--custom-arrow-color);
+			// background-image: linear-gradient(
+			// 	to left,
+			// 	var(--custom-background-light),
+			// 	var(--custom-arrow-color),
+			// 	var(--custom-background-light)
+			// );
+		}
 	}
 	.title {
 		user-select: none;
