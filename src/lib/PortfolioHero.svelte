@@ -103,7 +103,7 @@
 		position: absolute;
 		top: 160%;
 		left: 0;
-		color: var(--custom-background-color);
+		color: var(--custom-background-color, black);
 		display: flex;
 		justify-content: center;
 		& a {
@@ -113,14 +113,14 @@
 			display: flex;
 			padding: 1rem;
 			border-radius: 30px;
-			border: 1px solid white;
-			color: white;
-			background: var(--custom-text-color);
+			border: 1px solid var(--custom-text-color, black);
+			color: var(--custom-text-color);
+			background: var(--custom-background-color, white);
 			transition: all 0.2s;
 			&:hover {
 				// background: white;
 				transform: translate3d(-5px, -5px, 0);
-				box-shadow: 5px 5px 0px 0px var(--custom-secondary-color);
+				box-shadow: 5px 5px 0px 0px var(--custom-secondary-color, black);
 				// color: var(--custom-secondary-color);
 				// & svg {
 				// 	fill: var(--custom-secondary-color);
@@ -129,7 +129,7 @@
 			}
 		}
 		& svg {
-			fill: white;
+			fill: var(--custom-text-color);
 			padding-right: 6px;
 		}
 	}
@@ -140,8 +140,9 @@
 	.info {
 		color: var(--explicit-p-color, var(--custom-background-color));
 		padding: 0;
-		margin: 1.3em 0 0;
+		margin: 1.3em 0;
 		font-size: var(--p-font-size);
+		font-weight: bold;
 		position: relative;
 	}
 	@font-face {
@@ -157,7 +158,10 @@
 		position: relative;
 		background: var(--opaque-background);
 		overflow: hidden;
-		border: 2px solid var(--border-color);
+		// border: 2px solid var(--border-color);
+		// border: 0.3em solid var(--custom-secondary-color);
+		border: 0.3em solid var(--custom-text-color);
+		// box-shadow: 0.3em 0.3em 0px 0px var(--custom-secondary-highlight-color, black);
 		margin: 30px auto;
 		padding: 4%;
 	}

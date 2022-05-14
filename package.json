@@ -21,7 +21,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"fontawesome-svelte": "^2.0.1",
+		"@fontsource/andada-pro": "^4.5.9",
+		"@fontsource/ibm-plex-serif": "^4.5.9",
+		"@fontsource/roboto": "^4.5.5",
+		"@fontsource/roboto-slab": "^4.5.6",
 		"@fortawesome/fontawesome-svg-core": "^1.2.36",
 		"@fortawesome/free-regular-svg-icons": "^6.1.1",
 		"@fortawesome/free-solid-svg-icons": "^6.1.1",
@@ -29,12 +32,10 @@
 		"@sveltejs/adapter-node": "^1.0.0-next.73",
 		"@sveltejs/adapter-static": "^1.0.0-next.28",
 		"@sveltejs/kit": "next",
-		"@fontsource/andada-pro": "^4.5.9",
-		"@fontsource/ibm-plex-serif": "^4.5.9",
-		"@fontsource/roboto": "^4.5.5",
-		"@fontsource/roboto-slab": "^4.5.6",
+		"fontawesome-svelte": "^2.0.1",
 		"postcss": "^8.4.12",
 		"svelte-fa": "^2.4.0",
+		"svelte-scrolling": "^1.1.1",
 		"three": "^0.137.5",
 		"threlte": "^2.2.1"
 	}

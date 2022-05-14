@@ -1,6 +1,7 @@
 <script>
 	import { color, colorTwo, colorMode } from '$lib/stores';
 	import { onMount } from 'svelte';
+	import { scrollTo, scrollRef, scrollTop } from 'svelte-scrolling';
 	let width;
 	let backgroundColor, fontColor;
 	let clientX;
@@ -42,7 +43,9 @@
 			{Math.floor(backgroundColor)}&deg;
 		{/if}
 	</div>
-	<div class="title"><a href="/">Conner<br />Luker</a></div>
+	<div class="title" use:scrollTo={'home'} use:scrollRef={'home'}>
+		<a href="/">Conner<br />Luker</a>
+	</div>
 </main>
 
 <style type="scss">
@@ -88,7 +91,7 @@
 		font-size: 0.9em;
 		&::after {
 			content: '';
-			width: 1px;
+			width: 2px;
 			height: 66px;
 			left: -5px;
 			position: absolute;

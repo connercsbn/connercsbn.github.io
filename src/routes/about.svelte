@@ -1,7 +1,8 @@
 <script>
+	import { scrollTo, scrollRef, scrollTop } from 'svelte-scrolling';
 </script>
 
-<div id="about" class="h2-container">
+<div id="about" class="h2-container" use:scrollRef={'about'}>
 	<h2>About</h2>
 	<p>
 		wbe developer and creator of <a href="//weirdle.web.app">WEIRDLE</a> and

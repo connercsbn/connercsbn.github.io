@@ -3,11 +3,12 @@
 	import { open } from '$lib/stores';
 	import Hamburger from '$lib/Hamburger.svelte';
 	import { clickOutside } from './clickOutside.js';
+	import { scrollTo, scrollRef, scrollTop } from 'svelte-scrolling';
 
 	let links = [
-		['Contact', '#contact'],
-		['Past Work', '#past-work'],
-		['About', '#about']
+		['About', 'about'],
+		['Past Work', 'past-work'],
+		['Contact', 'contact']
 	];
 </script>
 
@@ -25,9 +26,9 @@
 				on:click={() => {
 					$open = false;
 				}}
+				use:scrollTo={link[1]}
 				class="link"
-				href={link[1]}
-				class:active={$page.url.pathname === link[1]}><span>{link[0]}</span></a
+				href={'/'}><span>{link[0]}</span></a
 			>
 		{/each}
 	</div>
@@ -85,7 +86,7 @@
 		display: flex;
 		align-content: left;
 		flex-wrap: wrap;
-		flex-direction: column-reverse;
+		flex-direction: column;
 		top: 67px;
 		bottom: 0;
 		left: 0;

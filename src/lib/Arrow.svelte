@@ -27,10 +27,14 @@
 		right: 0.4em;
 		bottom: 0em;
 		font-size: 52px;
-		fill: white;
-		color: var(--arrow-color);
+		color: var(--custom-background-color, gray);
+		stroke: var(--custom-text-color);
+		stroke-width: 10px;
+		// color: var(--arrow-color);
 		&:hover {
-			color: var(--arrow-highlight-color, white);
+			// color: var(--arrow-highlight-color, white);
+			color: var(--custom-background-color, white);
+			color: white;
 		}
 	}
 </style>
