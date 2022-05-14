@@ -65,8 +65,6 @@
 		position: relative;
 		justify-content: space-evenly;
 		position: relative;
-		margin: 2.5%;
-		margin: auto;
 		width: 100%;
 		height: 300px;
 		--hover-color: var(--border-color);
@@ -82,7 +80,7 @@
 		// transition: all 0.2s;
 		transition: 0.2s background;
 		&:hover {
-			der: 2px solid var(--hover-color);
+			border: 2px solid var(--hover-color);
 			background-size: 120%;
 			// transform: scale(1.2);
 		}
@@ -122,7 +120,7 @@
 			transform: translateY(-10px);
 			width: min-content;
 			z-index: 1000;
-			margin: 0.5em;
+			margin: 1em;
 			display: flex;
 			padding: 1rem;
 			border-radius: 30px;

@@ -121,7 +121,7 @@
 	}
 	.content {
 		position: relative;
-		padding: 30px;
+		padding: min(3vw, 30px);
 		transform: translate3d(var(--right-transform), 0, 0);
 	}
 </style>

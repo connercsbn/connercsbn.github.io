@@ -117,6 +117,7 @@
 		font-weight: bold;
 		z-index: 1;
 		margin: 1.3em 30px;
+		margin-left: min(3vw, 30px);
 		font-size: 1em;
 		font-size: 0.8em;
 		/* transition: padding 0.2s;

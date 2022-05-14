@@ -160,7 +160,7 @@
 		overflow: hidden;
 		// border: 2px solid var(--border-color);
 		// border: 0.3em solid var(--custom-secondary-color);
-		border: 0.3em solid var(--custom-text-color);
+		border: 1px solid var(--custom-text-color);
 		// box-shadow: 0.3em 0.3em 0px 0px var(--custom-secondary-highlight-color, black);
 		margin: 30px auto;
 		padding: 4%;
