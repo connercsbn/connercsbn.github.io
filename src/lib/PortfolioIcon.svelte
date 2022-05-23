@@ -120,25 +120,26 @@
 			transform: translateY(-10px);
 			width: min-content;
 			z-index: 1000;
-			margin: 1em;
+			margin: 0.6em;
 			display: flex;
 			padding: 1rem;
-			border-radius: 30px;
+			border-radius: 50%;
 			color: var(--custom-text-color);
 			// background: var(--custom-background-color, white);
 			background: black;
 			border: 2px solid transparent;
 			& svg {
+				width: 30px;
 				fill: white;
-				fill: var(--custom-background-color);
+				fill: var(--custom-background-color, white);
 			}
 			&:hover {
-				border: 2px solid transparent;
-				fill: var(--custom-text-color);
-				color: var(--custom-secondary-color);
-				background: var(--custom-background-color);
+				border: 2px solid var(--custom-background-color, black);
+				fill: var(--custom-text-color, black);
+				color: var(--custom-secondary-color, white);
+				background: var(--custom-background-color, white);
 				& svg {
-					fill: var(--custom-text-color);
+					fill: var(--custom-text-color, black);
 				}
 			}
 		}

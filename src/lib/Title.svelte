@@ -44,7 +44,7 @@
 		{/if}
 	</div>
 	<div class="title" use:scrollTo={'home'} use:scrollRef={'home'}>
-		<a href="/">Conner<br />Luker</a>
+		<a on:click|stopPropagation={() => {}} href="/">Conner</a>
 	</div>
 </main>
 

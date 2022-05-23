@@ -9,15 +9,22 @@
 	font-family: 'IBM Plex Serif';
 }
 
-h2 {
+.h2-container {
 	border: 1px solid var(--custom-text-color, black);
 	border-left: unset;
 	border-right: unset;
-	padding: 1em;
+	margin: 1em auto;
+	box-sizing: border-box;
+	padding: 1em 4%;
 }
-
-.h2-container {
-	position: relative;
+.article,
+h2 {
+	box-sizing: border-box;
+	max-width: 1000px;
+	margin: auto;
+}
+h2 {
+	padding: 0.3em 0.9em;
 }
 
 .unspacer {
@@ -30,4 +37,9 @@ a {
 	&:hover {
 		color: var(--custom-secondary-highlight-color, cyan);
 	}
+}
+*::selection {
+	// background: var(--custom-secondary-highlight-color);
+	background: white;
+	color: var(--custom-secondary-color);
 }

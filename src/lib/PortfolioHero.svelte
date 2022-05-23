@@ -136,6 +136,7 @@
 	.info-display {
 		position: relative;
 		overflow: hidden;
+		padding: 0 1.3em;
 	}
 	.info {
 		color: var(--explicit-p-color, var(--custom-background-color));

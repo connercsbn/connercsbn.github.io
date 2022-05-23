@@ -1,19 +1,18 @@
 <script>
-	import { scrollTo, scrollRef, scrollTop } from 'svelte-scrolling';
+	import { scrollRef } from 'svelte-scrolling';
 </script>
 
-<div id="about" class="h2-container" use:scrollRef={'about'}>
-	<h2>About</h2>
-	<p>
-		wbe developer and creator of <a href="//weirdle.web.app">WEIRDLE</a> and
-		<a href="//connersbrianwebsite.xyz">connersbrianwebsite.xyz</a>
-	</p>
-	<p>
-		svelte, react, django, next, celery, websockets, stripe, twilio, css/scss, linux, git, nginx,
-		firebase, mysql, postgresql, redis, threejs, nivo
-	</p>
-	<p>languages: python, javascript</p>
-	<p>some experience in rust, c, pawn, awk, bash</p>
+<div id="about" use:scrollRef={'about'}>
+	<div class="h2-container">
+		<h2>About</h2>
+	</div>
+	<div class="article">
+		<p>
+			I'm a web developer known for creating <a href="//weirdle.web.app">Weirdle</a>
+			and
+			<a href="//connersbrianwebsite.xyz">connersbrianwebsite.xyz</a>.
+		</p>
+	</div>
 </div>
 
 <style>

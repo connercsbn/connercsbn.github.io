@@ -26,15 +26,15 @@
 		position: absolute;
 		right: 0.4em;
 		bottom: 0em;
-		font-size: 52px;
+		font-size: 40px;
 		color: var(--custom-background-color, gray);
 		stroke: var(--custom-text-color);
 		stroke-width: 10px;
 		// color: var(--arrow-color);
 		&:hover {
-			// color: var(--arrow-highlight-color, white);
-			color: var(--custom-background-color, white);
-			color: white;
+			color: var(--custom-background-light, rgb(165, 165, 165));
 		}
+	}
+	@media (max-width: 500px) {
 	}
 </style>
