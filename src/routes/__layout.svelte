@@ -24,7 +24,7 @@
 
 	$: $right = $open ? 300 : 0;
 
-	$: orangutanTop = 1 + scrollY / (clientY / 90);
+	$: orangutanTop = 1 + scrollY / (clientY / 80);
 
 	let startX, startY, moveX, moveY, clientY;
 
@@ -147,6 +147,8 @@
 	}
 	.orangutan-container {
 		position: absolute;
+		left: 0;
+		right: 0;
 		height: 100%;
 		width: 100%;
 		z-index: -1;
@@ -156,7 +158,8 @@
 	.third-orangutan {
 		position: absolute;
 		background: #ffab7b;
-		mask-image: image(url('/orangutan-glasses.svg'));
+		background: #ffc450;
+		mask-image: url('/orangutan-glasses.svg');
 		-webkit-mask-image: url('/orangutan-glasses.svg');
 		mask-size: cover;
 		-webkit-mask-size: cover;
@@ -167,17 +170,31 @@
 	}
 	.first-orangutan {
 		top: 0;
-		right: 0;
+		right: 8%;
 		clip-path: circle(243px at 323px 242px);
 	}
 	.second-orangutan {
-		top: 200px;
-		left: 0px;
+		top: 569.7px;
+		left: 4%;
 		clip-path: circle(244px at 315px 244px);
 	}
 	.third-orangutan {
 		top: 1000px;
-		left: 200px;
+		right: 9%;
 		clip-path: circle(253px at 320px 252px);
+	}
+	@media screen and (max-width: 700px) {
+		.first-orangutan {
+			left: 0;
+			right: 0;
+		}
+		.second-orangutan {
+			top: 400px;
+			left: 0;
+		}
+		.third-orangutan {
+			right: unset;
+			left: 143px;
+		}
 	}
 </style>

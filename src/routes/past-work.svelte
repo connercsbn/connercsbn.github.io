@@ -186,9 +186,6 @@
 </div>
 
 <style>
-	main.heros {
-		/* background: var(--custom-arrow-color); */
-	}
 	main.other {
 		display: grid;
 		/* grid-template-columns: repeat(auto-fit, minmax(200px, 2fr)); */

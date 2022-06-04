@@ -1,6 +1,4 @@
 <script>
-	import { onMount } from 'svelte';
-
 	export let name;
 	export let href;
 	export let icon;
@@ -25,12 +23,20 @@
 		showLinks = true;
 		currentXOffset = adjustedXOffset;
 	}
+	function handleTouchStart() {
+		if (showLinks) {
+			currentXOffset = adjustedXOffset;
+		} else {
+			currentXOffset = xoffset;
+		}
+	}
 </script>
 
 <main
 	on:mouseleave={handleMouseLeave}
 	on:mouseover={handleMouseEnter}
 	on:focus={() => {}}
+	on:touchstart={handleTouchStart}
 	style={baseBackgroundStyle + `--border-color: ${bgcolors[0]}`}
 >
 	<div class="a" {href} style={extrastuff}>

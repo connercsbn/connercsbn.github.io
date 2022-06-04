@@ -7,12 +7,12 @@
 		<h2>About</h2>
 	</div>
 	<div class="article">
-		<li>Experience in:</li>
+		<p>Experience in:</p>
 		<p>
 			svelte, react, django, next, celery, websockets, stripe, twilio, css/scss, linux, git, nginx,
 			firebase, mysql, redis, threejs
 		</p>
-		<li>Languages:</li>
+		<p>Languages:</p>
 		<p>python, javascript</p>
 		<p>Some experience in rust, c, php, awk, bash</p>
 		<p>

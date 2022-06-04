@@ -5,7 +5,6 @@
 </script>
 
 <main>
-	<div class="unspacer" />
 	<About />
 	<PastWork />
 	<Contact />
