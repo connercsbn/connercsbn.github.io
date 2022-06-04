@@ -156,14 +156,14 @@
 	.third-orangutan {
 		position: absolute;
 		background: #ffab7b;
-
 		mask-image: image(url('/orangutan-glasses.svg'));
-		mask-size: cover;
 		-webkit-mask-image: url('/orangutan-glasses.svg');
-		-webkit-mask-repeat: no-repeat;
+		mask-size: cover;
+		-webkit-mask-size: cover;
 		width: 600px;
 		height: 600px;
 		mask-position: center;
+		-webkit-mask-position: center;
 	}
 	.first-orangutan {
 		top: 0;
