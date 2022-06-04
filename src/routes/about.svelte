@@ -7,6 +7,14 @@
 		<h2>About</h2>
 	</div>
 	<div class="article">
+		<li>Experience in:</li>
+		<p>
+			svelte, react, django, next, celery, websockets, stripe, twilio, css/scss, linux, git, nginx,
+			firebase, mysql, redis, threejs
+		</p>
+		<li>Languages:</li>
+		<p>python, javascript</p>
+		<p>Some experience in rust, c, php, awk, bash</p>
 		<p>
 			I'm a web developer known for creating <a href="//weirdle.web.app">Weirdle</a>
 			and

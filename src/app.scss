@@ -1,6 +1,5 @@
 /* Write your global styles here, in SCSS syntax. Variables and mixins from the src/variables.scss file are available here without importing */
 :root {
-	--text-color: rgb(35, 64, 87);
 	--background-color: rgb(170, 217, 230);
 	--background-color: white;
 }
@@ -10,27 +9,44 @@
 }
 
 .h2-container {
-	border: 1px solid var(--custom-text-color, black);
+	border: 1px solid var(--custom-secondary-color, black);
 	border-left: unset;
 	border-right: unset;
 	margin: 1em auto;
 	box-sizing: border-box;
-	padding: 1em 4%;
+	padding: 1% 6%;
+	color: white;
+	background: var(--custom-secondary-color, black);
+	box-shadow: 4px 4px 0px var(--text-color, black);
+	width: min(800px, 100%);
+	margin-bottom: min(30px, 4%);
 }
 .article,
 h2 {
 	box-sizing: border-box;
-	max-width: 1000px;
+	max-width: 800px;
 	margin: auto;
 }
 h2 {
-	padding: 0.3em 0.9em;
+	padding: 0.3em 0em;
+	margin-left: 1em;
+	margin: auto;
+	text-align: center;
+	font-size: 1.8em;
+	width: max-content;
 }
 
-.unspacer {
-	// margin: -67px;
-	margin: 0;
+.article {
+	padding: 1em 0 4em;
 }
+#about .h2-container {
+	display: none;
+}
+
+// .unspacer {
+// 	// margin: -67px;
+// 	margin: 0;
+// }
 
 a {
 	color: var(--custom-secondary-color, deepskyblue);

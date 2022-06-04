@@ -114,8 +114,10 @@
 			padding: 1rem;
 			border-radius: 30px;
 			border: 1px solid var(--custom-text-color, black);
+			border: 1px solid black;
 			color: var(--custom-text-color);
-			background: var(--custom-background-color, white);
+			color: black;
+			background: var(--custom-nav-color, white);
 			transition: all 0.2s;
 			&:hover {
 				// background: white;
@@ -129,14 +131,13 @@
 			}
 		}
 		& svg {
-			fill: var(--custom-text-color);
+			fill: black;
 			padding-right: 6px;
 		}
 	}
 	.info-display {
 		position: relative;
 		overflow: hidden;
-		padding: 0 1.3em;
 	}
 	.info {
 		color: var(--explicit-p-color, var(--custom-background-color));
@@ -161,13 +162,24 @@
 		overflow: hidden;
 		// border: 2px solid var(--border-color);
 		// border: 0.3em solid var(--custom-secondary-color);
-		border: 1px solid var(--custom-text-color);
+		border: 1px solid var(--custom-text-color, black);
 		// box-shadow: 0.3em 0.3em 0px 0px var(--custom-secondary-highlight-color, black);
-		margin: 30px auto;
-		padding: 4%;
+		margin: min(30px, 4%) auto;
+		padding: 5% 4%;
+		&::after {
+			content: '';
+			width: 100%;
+			height: 100%;
+			background: black;
+			z-index: -1;
+			top: 0;
+			bottom: 30px;
+			left: 30px;
+			position: absolute;
+		}
 	}
 	main {
-		max-width: 1000px;
+		max-width: 800px;
 		margin: auto;
 	}
 	.bg-container {

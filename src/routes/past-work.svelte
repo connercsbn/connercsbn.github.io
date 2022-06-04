@@ -11,6 +11,7 @@
 	let height = 1;
 	let maxFontSize = 80;
 	let maxPFontSize = 22;
+	let basePFontSize = 4;
 	$: {
 		albumSplitVideoOffset = y / 25 / (width / height);
 		connersBrianWebsiteOffset = y / 25 / (width / height);
@@ -29,7 +30,7 @@
 			title="Albumsplit"
 			source="albumsplit.mp4"
 			link="//www.albumsplit.com"
-			githubLink="//www.github.com"
+			githubLink="//www.github.com/connercsbn/albumsplit"
 			--video-width="60%"
 			--video-top="{-75 + albumSplitVideoOffset}%"
 			--font="roboto slab"
@@ -38,7 +39,7 @@
 			arrowColor="#83a598"
 			--shadow-color="#ebdbb2"
 			--font-size={`min(14vw, ${maxFontSize}px)`}
-			--p-font-size={`min(3.5vw, ${maxPFontSize}px)`}
+			--p-font-size={`min(${basePFontSize}vw, ${maxPFontSize}px)`}
 			--letter-spacing="0"
 			--opaque-background="#1c1e21"
 			--border-color="#8ec07c"
@@ -51,7 +52,6 @@
 		<PortfolioHero
 			title="Tax The Rich NYS"
 			link="//taxtherichnys.com"
-			githubLink="//www.github.com"
 			background="tts"
 			--video-width="150%"
 			--video-top="{-30 + ttrOffset}%"
@@ -60,7 +60,7 @@
 			arrowColor="#2f4858;"
 			--shadow-color="white"
 			--font-size={`min(14vw, ${maxFontSize}px)`}
-			--p-font-size={`min(3.5vw, ${maxPFontSize}px)`}
+			--p-font-size={`min(${basePFontSize}vw, ${maxPFontSize}px)`}
 			--text-decoration="none"
 			--text-stroke="none"
 			--letter-spacing="0"
@@ -91,7 +91,7 @@
 			--arrow-highlight-color="gray"
 			--shadow-color="black"
 			--font-size={`min(12vw, ${maxFontSize - 10}px)`}
-			--p-font-size={`min(3.5vw, ${maxPFontSize}px)`}
+			--p-font-size={`min(${basePFontSize}vw, ${maxPFontSize}px)`}
 			--text-decoration="none"
 			--text-stroke="2px white"
 			--letter-spacing="0.07em"
@@ -99,9 +99,9 @@
 			--border-color="#3970AA"
 			>Conner's Brian Website started as an experiment where I played with various features of the
 			canvas browser element. With no clear purpose, it evolved into an open-to-interpretation
-			&ldquo;experience.&rdquo; Digital art? Waste of time? Either way, put it on in the background
-			at your party for some chill vibes&mdash;and to meet cool people who catch the subtle Family
-			Guy reference.
+			<i>experience</i>. Digital art? Waste of time? Either way, put it on in the background at your
+			party for some chill vibes&mdash;and to meet cool people who catch the subtle Family Guy
+			reference.
 			<BuiltWith --built-with-color="#35352b"
 				>Built with Svelte, using Canvas API and FFmpeg for audio manipulation</BuiltWith
 			>
@@ -118,6 +118,7 @@
 	<main class="other">
 		<PortfolioIcon
 			name="The Cleveland Show Time Capsule Discord Bot"
+			gh="https://github.com/connercsbn/cleveland-show-time-capsule"
 			href="https://top.gg/bot/938968621781225533"
 			icon="/images/Cleveland_Brown.png"
 			bgcolors={['#1D0917', '#380E21']}
@@ -126,6 +127,7 @@
 		<PortfolioIcon
 			name="Weirdle"
 			href="https://weirdle.web.app"
+			gh="https://github.com/connercsbn/weirdle"
 			icon="/images/weirdle2.png"
 			bgcolors={['#B59F3B', '#538D4E']}
 			xoffset={0}
@@ -134,6 +136,7 @@
 		<PortfolioIcon
 			name="Deferred Capital Gain"
 			href="https://defer-225e4.web.app/"
+			gh="https://github.com/connercsbn/ken"
 			icon="/images/deferred_capital_gain.webp"
 			yoffset={60}
 			bgcolors={['white', 'white']}
@@ -142,6 +145,7 @@
 		<PortfolioIcon
 			name="Google TTS Downloader"
 			href="https://www.conner.soy/pronunciation"
+			gh="https://github.com/connercsbn/tts-tool"
 			icon="/images/tbd.png"
 			bgcolors={['white', 'black']}
 		/>
@@ -149,13 +153,7 @@
 		<PortfolioIcon
 			name="Income Tax Calculator"
 			href="/"
-			icon="/images/tbd.png"
-			bgcolors={['white', 'black']}
-		/>
-
-		<PortfolioIcon
-			name="Mobile Link Pro"
-			href="/"
+			gh="https://github.com/connercsbn/marginal-tax-calculator"
 			icon="/images/tbd.png"
 			bgcolors={['white', 'black']}
 		/>
@@ -163,6 +161,7 @@
 		<PortfolioIcon
 			name="Xrandr Command Generator"
 			href="/"
+			gh="https://github.com/connercsbn/xcg"
 			icon="/images/tbd.png"
 			bgcolors={['white', 'black']}
 		/>
@@ -170,12 +169,14 @@
 		<PortfolioIcon
 			name="Finance Calculator"
 			href="/"
+			gh="https://github.com/connercsbn/finances"
 			icon="/images/tbd.png"
 			bgcolors={['white', 'black']}
 		/>
 
 		<PortfolioIcon
 			name="Counter-Strike: Global Offensive SourceMod Plugins"
+			gh="https://github.com/connercsbn/csgo-scripts"
 			href="/"
 			icon="/images/tbd.png"
 			bgcolors={['white', 'black']}
@@ -196,9 +197,8 @@
 		grid-gap: 16px;
 		justify-content: center;
 		/* padding: 16px; */
-		max-width: 1000px;
+		max-width: 800px;
 		box-sizing: border-box;
-		padding: 1em 1.3em;
 		margin: auto;
 	}
 	.ttr {

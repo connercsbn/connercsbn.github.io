@@ -1,5 +1,4 @@
 <script>
-	import Filler from '$lib/Filler.svelte';
 	import PastWork from './past-work.svelte';
 	import Contact from './contact.svelte';
 	import About from './about.svelte';

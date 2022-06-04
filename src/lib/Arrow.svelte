@@ -28,7 +28,7 @@
 		bottom: 0em;
 		font-size: 40px;
 		color: var(--custom-background-color, gray);
-		stroke: var(--custom-text-color);
+		stroke: var(--custom-text-color, black);
 		stroke-width: 10px;
 		// color: var(--arrow-color);
 		&:hover {

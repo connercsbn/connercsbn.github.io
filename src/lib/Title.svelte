@@ -2,11 +2,15 @@
 	import { color, colorTwo, colorMode } from '$lib/stores';
 	import { onMount } from 'svelte';
 	import { scrollTo, scrollRef, scrollTop } from 'svelte-scrolling';
+	import LCH_to_sRGB_string from '$lib/lch.js';
 	let width;
 	let backgroundColor, fontColor;
 	let clientX;
+	let rbL = 90;
+	let clicking = false;
+	let dragging = false;
+	let cursorStyle = 'default';
 
-	$: colorMode && updateColor();
 	function updateColor() {
 		backgroundColor = (clientX / width) * 360 || $color;
 		fontColor = (backgroundColor + 0) % 360;
@@ -18,13 +22,21 @@
 		updateColor();
 	}
 	function handleMouseMove(e) {
-		clientX = e.clientX;
-		if ($colorMode) {
-			updateColor();
-			if (e.buttons) {
-				updateColor();
-			}
+		cursorStyle = clientX - 10 < e.clientX && e.clientX < clientX + 10 ? 'pointer' : 'dedfault';
+		if (clicking) {
+			dragging = true;
 		}
+		if (clicking && $colorMode) {
+			clientX = e.clientX;
+			updateColor();
+		}
+	}
+	function handleMouseUp() {
+		clicking = false;
+		if (!dragging) {
+			$colorMode = !$colorMode;
+		}
+		dragging = false;
 	}
 	onMount(() => {
 		updateColor();
@@ -34,9 +46,12 @@
 
 <svelte:window bind:innerWidth={width} />
 <main
-	on:click={() => ($colorMode = !$colorMode)}
 	on:mousemove={handleMouseMove}
 	on:touchmove={handleTouchMove}
+	on:mousedown={() => (clicking = true)}
+	on:mouseup={handleMouseUp}
+	on:mouseleave={() => (clicking = false)}
+	style="--cursorStyle: {cursorStyle}"
 >
 	<div class="arrow" style="--pixels-over: {clientX || -1000}px">
 		{#if $colorMode && backgroundColor}
@@ -44,7 +59,7 @@
 		{/if}
 	</div>
 	<div class="title" use:scrollTo={'home'} use:scrollRef={'home'}>
-		<a on:click|stopPropagation={() => {}} href="/">Conner</a>
+		<a on:click|stopPropagation={() => {}} href="/">CL</a>
 	</div>
 </main>
 
@@ -61,23 +76,15 @@
 		box-sizing: border-box;
 		border-bottom: 1px solid var(--custom-secondary-color, black);
 		transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
+		cursor: var(--cursorStyle);
 		&::after {
 			content: '';
 			position: absolute;
 			width: 100%;
-			height: 4px;
+			height: 3px;
 			top: 100%;
 			left: 0px;
-			// background: linear-gradient(
-			// 	to right,
-			// 	hsl(0, 70%, 95%) 0%,
-			// 	hsl(60, 70%, 95%) 16.67%,
-			// 	hsl(120, 70%, 95%) 33.33%,
-			// 	hsl(180, 70%, 95%) 50%,
-			// 	hsl(240, 70%, 95%) 66.67%,
-			// 	hsl(320, 70%, 95%) 83.33%,
-			// 	hsl(360, 70%, 95%) 100%
-			// );
+			// background: linear-gradient(to right, var(--gradient-colors));
 		}
 	}
 	.arrow {
@@ -86,6 +93,7 @@
 		height: 100px;
 		user-select: none;
 		color: var(--custom-text-color);
+		color: var(--custom-secondary-highlight-color);
 		left: var(--pixels-over);
 		transform: translateX(5px);
 		font-size: 0.9em;
@@ -110,16 +118,17 @@
 	.title a {
 		text-decoration: none;
 		display: inline-block;
+		display: flex;
+		align-self: center;
 		user-select: none;
 		position: relative;
 		text-align: left;
-		color: var(--custom-text-color);
+		color: var(--custom-secondary-color);
 		font-weight: bold;
 		z-index: 1;
-		margin: 1.3em 30px;
+		margin: 0.38em 30px;
 		margin-left: min(3vw, 30px);
-		font-size: 1em;
-		font-size: 0.8em;
+		font-size: 2em;
 		/* transition: padding 0.2s;
 		transition: font-size 0.2s; */
 		transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
