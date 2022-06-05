@@ -8,10 +8,10 @@
 	import { cubicOut } from 'svelte/easing';
 
 	export let title;
-	export let source;
+	export let source = '/';
 	export let link;
-	export let githubLink;
-	export let background;
+	export let githubLink = '/';
+	export let background = 'not tts';
 	export let arrowColor;
 	let showLinks = false;
 	let pillIsClicked = false;

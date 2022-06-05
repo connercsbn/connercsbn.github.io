@@ -24,7 +24,7 @@
 			title="Albumsplit"
 			source="albumsplit.mp4"
 			link="//www.albumsplit.com"
-			background="undefined"
+			background={undefined}
 			githubLink="//www.github.com/connercsbn/albumsplit"
 			--video-width="60%"
 			--video-top="{-75 + albumSplitVideoOffset}%"
@@ -46,9 +46,9 @@
 		</PortfolioHero>
 		<PortfolioHero
 			title="Tax The Rich NYS"
-			source="undefined"
+			source={undefined}
 			link="//taxtherichnys.com"
-			githubLink="undefined"
+			githubLink={undefined}
 			background="tts"
 			--video-width="150%"
 			--video-top="{-30 + ttrOffset}%"
@@ -79,7 +79,7 @@
 			source="brian.mp4"
 			link="//connersbrianwebsite.xyz"
 			githubLink="//www.github.com/connercsbn/connersbrianwebsite"
-			background="undefined"
+			background={undefined}
 			--video-width="150%"
 			--video-top="{-40 + connersBrianWebsiteOffset}%"
 			--font="fg"
