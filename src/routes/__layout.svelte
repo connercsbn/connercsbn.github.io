@@ -142,7 +142,7 @@
 					/>;
 				</Group>
 			</Canvas>
-			<div class="orangutan-container">
+			<!-- <div class="orangutan-container">
 				<Parallax sections={4} style="overflow: visible;" config={{ damping: 0.8 }}>
 					<ParallaxLayer offset={0.05} />
 					<ParallaxLayer offset={0.05}>
@@ -155,7 +155,7 @@
 						<div class="third-orangutan" />
 					</ParallaxLayer>
 				</Parallax>
-			</div>
+			</div> -->
 			<slot />
 		</div>
 	</div>
@@ -188,7 +188,7 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		z-index: 1;
+		z-index: -1;
 	}
 	.first-orangutan,
 	.second-orangutan,
