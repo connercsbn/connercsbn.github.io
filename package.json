@@ -37,7 +37,7 @@
 		"postcss": "^8.4.12",
 		"svelte-fa": "^2.4.0",
 		"svelte-scrolling": "^1.1.1",
-		"three": "^0.137.5",
-		"threlte": "^2.2.1"
+		"three": "^0.141.0",
+		"threlte": "^3.8.1"
 	}
 }

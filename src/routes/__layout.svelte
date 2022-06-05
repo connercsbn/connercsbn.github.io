@@ -1,4 +1,16 @@
 <script>
+	import {
+		AmbientLight,
+		Canvas,
+		DirectionalLight,
+		Group,
+		HemisphereLight,
+		Mesh,
+		OrbitControls,
+		PerspectiveCamera,
+		GLTF
+	} from 'threlte';
+	import { DEG2RAD } from 'three/src/math/MathUtils';
 	import '../app.scss';
 	import '@fontsource/roboto';
 	import '@fontsource/ibm-plex-serif';
@@ -107,8 +119,32 @@
 		<Header />
 		<Nav --right-transform="{$right - 300}px" />
 		<div class="content">
+			<Canvas>
+				<PerspectiveCamera position={{ x: 10, y: 10, z: 10 }} fov={34}>
+					<OrbitControls
+						maxPolarAngle={DEG2RAD * 80}
+						autoRotate={true}
+						enableZoom={false}
+						target={{ y: 0.5 }}
+					/>
+				</PerspectiveCamera>
+
+				<DirectionalLight shadow position={{ x: 3, y: 10, z: 10 }} />
+				<DirectionalLight position={{ x: -3, y: 10, z: -10 }} intensity={0.2} />
+				<AmbientLight intensity={0.2} />
+				<Group scale={0.1}>
+					<GLTF
+						url="/models/tree.gltf"
+						interactive
+						on:click={() => {
+							console.log('User clicked!');
+						}}
+					/>;
+				</Group>
+			</Canvas>
 			<div class="orangutan-container">
-				<Parallax sections={3} style="overflow: visible;" config={{ damping: 0.8 }}>
+				<Parallax sections={4} style="overflow: visible;" config={{ damping: 0.8 }}>
+					<ParallaxLayer offset={0.05} />
 					<ParallaxLayer offset={0.05}>
 						<div class="first-orangutan" />
 					</ParallaxLayer>
@@ -152,7 +188,7 @@
 		right: 0;
 		top: 0;
 		bottom: 0;
-		z-index: -1;
+		z-index: 1;
 	}
 	.first-orangutan,
 	.second-orangutan,
@@ -168,6 +204,7 @@
 		height: 600px;
 		mask-position: center;
 		-webkit-mask-position: center;
+		display: none;
 	}
 	.first-orangutan {
 		top: 0;
