@@ -4,6 +4,7 @@
 	import '@fontsource/ibm-plex-serif';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
+	import { Parallax, ParallaxLayer } from 'svelte-parallax';
 	import { open } from '$lib/stores';
 	import { color, colorMode } from '$lib/stores';
 	import LCH_to_sRGB_string from '$lib/lch.js';
@@ -15,7 +16,6 @@
 	let scrollY;
 	let chromaSat = 70; // was 70, then 30
 	let brightness = 85; // was 95
-	let orangutanTop = 0;
 
 	const right = tweened(1, {
 		duration: 300,
@@ -24,14 +24,7 @@
 
 	$: $right = $open ? 300 : 0;
 
-	$: orangutanTop = 1 + scrollY / (clientY / 80);
-
 	let startX, startY, moveX, moveY, clientY;
-
-	onMount(() => {
-		fullHeight = Math.max(body.scrollHeight, body.offsetHeight);
-		console.log(height);
-	});
 
 	function touchStart(e) {
 		startX = e.touches[0].clientX;
@@ -115,9 +108,17 @@
 		<Nav --right-transform="{$right - 300}px" />
 		<div class="content">
 			<div class="orangutan-container">
-				<div class="first-orangutan" style="transform: translate3d(0, {orangutanTop}vh, 0);" />
-				<div class="second-orangutan" style="transform: translate3d(0, {orangutanTop}vh, 0);" />
-				<div class="third-orangutan" style="transform: translate3d(0, {orangutanTop}vh, 0);" />
+				<Parallax sections={3} style="overflow: visible;" config={{ damping: 0.8 }}>
+					<ParallaxLayer offset={0.05}>
+						<div class="first-orangutan" />
+					</ParallaxLayer>
+					<ParallaxLayer offset={0.6} rate={-2}>
+						<div class="second-orangutan" />
+					</ParallaxLayer>
+					<ParallaxLayer offset={2}>
+						<div class="third-orangutan" />
+					</ParallaxLayer>
+				</Parallax>
 			</div>
 			<slot />
 		</div>
@@ -149,8 +150,8 @@
 		position: absolute;
 		left: 0;
 		right: 0;
-		height: 100%;
-		width: 100%;
+		top: 0;
+		bottom: 0;
 		z-index: -1;
 	}
 	.first-orangutan,
@@ -174,27 +175,15 @@
 		clip-path: circle(243px at 323px 242px);
 	}
 	.second-orangutan {
-		top: 569.7px;
+		top: 800px;
+		top: 0;
 		left: 4%;
 		clip-path: circle(244px at 315px 244px);
 	}
 	.third-orangutan {
-		top: 1000px;
+		top: 3400px;
+		top: 0;
 		right: 9%;
 		clip-path: circle(253px at 320px 252px);
-	}
-	@media screen and (max-width: 700px) {
-		.first-orangutan {
-			left: 0;
-			right: 0;
-		}
-		.second-orangutan {
-			top: 400px;
-			left: 0;
-		}
-		.third-orangutan {
-			right: unset;
-			left: 143px;
-		}
 	}
 </style>

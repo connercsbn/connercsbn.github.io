@@ -6,20 +6,14 @@
 	let albumSplitVideoOffset = 0;
 	let connersBrianWebsiteOffset = 0;
 	let ttrOffset = 0;
-	let y = 0;
 	let width = 1;
 	let height = 1;
 	let maxFontSize = 80;
 	let maxPFontSize = 22;
 	let basePFontSize = 4;
-	$: {
-		albumSplitVideoOffset = y / 25 / (width / height);
-		connersBrianWebsiteOffset = y / 25 / (width / height);
-		ttrOffset = y / 25 / (width / height);
-	}
 </script>
 
-<svelte:window bind:scrollY={y} bind:innerHeight={height} bind:innerWidth={width} />
+<svelte:window bind:innerHeight={height} bind:innerWidth={width} />
 
 <div id="past-work" use:scrollRef={'past-work'}>
 	<div class="h2-container">
@@ -30,6 +24,7 @@
 			title="Albumsplit"
 			source="albumsplit.mp4"
 			link="//www.albumsplit.com"
+			background="undefined"
 			githubLink="//www.github.com/connercsbn/albumsplit"
 			--video-width="60%"
 			--video-top="{-75 + albumSplitVideoOffset}%"
@@ -51,7 +46,9 @@
 		</PortfolioHero>
 		<PortfolioHero
 			title="Tax The Rich NYS"
+			source="undefined"
 			link="//taxtherichnys.com"
+			githubLink="undefined"
 			background="tts"
 			--video-width="150%"
 			--video-top="{-30 + ttrOffset}%"
@@ -81,7 +78,8 @@
 			title={`Conner's Brian\nWebsite`}
 			source="brian.mp4"
 			link="//connersbrianwebsite.xyz"
-			githubLink="//www.github.com"
+			githubLink="//www.github.com/connercsbn/connersbrianwebsite"
+			background="undefined"
 			--video-width="150%"
 			--video-top="{-40 + connersBrianWebsiteOffset}%"
 			--font="fg"
@@ -146,7 +144,7 @@
 			name="Google TTS Downloader"
 			href="https://www.conner.soy/pronunciation"
 			gh="https://github.com/connercsbn/tts-tool"
-			icon="/images/tbd.png"
+			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
 
@@ -154,7 +152,7 @@
 			name="Income Tax Calculator"
 			href="/"
 			gh="https://github.com/connercsbn/marginal-tax-calculator"
-			icon="/images/tbd.png"
+			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
 
@@ -162,7 +160,7 @@
 			name="Xrandr Command Generator"
 			href="/"
 			gh="https://github.com/connercsbn/xcg"
-			icon="/images/tbd.png"
+			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
 
@@ -170,15 +168,15 @@
 			name="Finance Calculator"
 			href="/"
 			gh="https://github.com/connercsbn/finances"
-			icon="/images/tbd.png"
+			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
 
 		<PortfolioIcon
 			name="Counter-Strike: Global Offensive SourceMod Plugins"
-			gh="https://github.com/connercsbn/csgo-scripts"
 			href="/"
-			icon="/images/tbd.png"
+			gh="https://github.com/connercsbn/csgo-scripts"
+			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
 		<div class="unspacer" />
