@@ -1,5 +1,5 @@
 <script>
-	import { userSelectedColor, color, colorMode } from '$lib/stores';
+	import { color, colorMode } from '$lib/stores';
 	import { GLTF, useThrelte, useTexture, OrthographicCamera } from 'threlte';
 	import { LCH_to_sRGB } from './lch';
 	const { invalidate } = useThrelte();
@@ -20,7 +20,6 @@
 	});
 
 	$: if (guitarScene) {
-		console.log($userSelectedColor);
 		guitarScene.traverse((o) => {
 			if (o.isMesh) {
 				o.material = material;
@@ -30,14 +29,16 @@
 	}
 
 	let guitarColorRGB;
-	$: if ($color) {
-		guitarColorRGB = LCH_to_sRGB([60, 80, ($color + 260) % 360], 100, false).map((x) =>
-			Math.max(0, x)
-		);
-		console.log(guitarColorRGB);
-		material.color = new Color().fromArray(guitarColorRGB);
-		console.log(material.color);
-		invalidate();
+	$: {
+		if ($color) {
+			guitarColorRGB = LCH_to_sRGB([60, 80, ($color + 260) % 360], 100, false).map((x) =>
+				Math.max(0, x)
+			);
+			console.log(guitarColorRGB);
+			material.color = $colorMode ? new Color().fromArray(guitarColorRGB) : new Color('white');
+			console.log(material.color);
+			invalidate();
+		}
 	}
 </script>
 
