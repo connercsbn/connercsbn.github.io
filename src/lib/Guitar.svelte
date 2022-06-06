@@ -9,6 +9,7 @@
 	export let positionX;
 	export let scale;
 	export let rotateY;
+	export let guitarLoaded;
 	let guitarScene;
 
 	const gradientTexture = useTexture('/models/threeTone.jpg', {
@@ -21,7 +22,6 @@
 	const material = new MeshToonMaterial({
 		gradientMap: gradientTexture
 	});
-
 	$: if (guitarScene) {
 		guitarScene.traverse((o) => {
 			if (o.isMesh) {
@@ -36,9 +36,7 @@
 			guitarColorRGB = LCH_to_sRGB([60, 80, ($color + 260) % 360], 100, false).map((x) =>
 				Math.max(0, x)
 			);
-			console.log(guitarColorRGB);
 			material.color = $colorMode ? new Color().fromArray(guitarColorRGB) : new Color('white');
-			console.log(material.color);
 		}
 		invalidate();
 	}
@@ -53,6 +51,9 @@
 	rotation={{ x: rotateX, y: rotateY, z: 0 }}
 	position={{ x: positionX, y: -4, z: 0 }}
 	dracoDecoderPath="three/examples/js/libs/draco/"
+	on:load={() => {
+		guitarLoaded = true;
+	}}
 />;
 
 <style></style>

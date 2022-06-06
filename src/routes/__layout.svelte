@@ -1,4 +1,5 @@
 <script>
+	import { fade, fly } from 'svelte/transition';
 	import {
 		AmbientLight,
 		OrthographicCamera,
@@ -33,10 +34,16 @@
 	} from 'three';
 	import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
 
+	const guitarOpacity = tweened(0, {
+		duration: 1000,
+		easing: cubicOut
+	});
+
 	let startingColor = 206.5;
 	let scrollY;
 	let chromaSat = 70; // was 70, then 30
 	let brightness = 85; // was 95
+	let guitarLoaded = false;
 
 	let rotateX, rotateY, positionX;
 	const right = tweened(1, {
@@ -49,6 +56,9 @@
 	$: rotateX = -0.3 - scrollY / 50000;
 	$: rotateY = 0 + scrollY / 500;
 	$: scale = 4.5 + scrollY / 500;
+	$: if (guitarLoaded) {
+		guitarOpacity.set(guitarLoaded ? 1 : 0);
+	}
 
 	$: $right = $open ? 300 : 0;
 
@@ -140,7 +150,7 @@
 	<div class="main-page">
 		<Header />
 		<Nav --right-transform="{$right - 300}px" />
-		<div class="canvas">
+		<div class="canvas" style="opacity: {$guitarOpacity};">
 			<Canvas>
 				<PerspectiveCamera position={{ x: 10, y: 10, z: 10 }} fov={24} lookAt={{ y: 0.5 }} />
 				<PointLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
@@ -152,6 +162,7 @@
 						{rotateX}
 						{rotateY}
 						{guitar}
+						bind:guitarLoaded
 						{positionX}
 					/>
 				</Group>
