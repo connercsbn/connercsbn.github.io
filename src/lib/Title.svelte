@@ -2,7 +2,6 @@
 	import { color, colorTwo, colorMode } from '$lib/stores';
 	import { onMount } from 'svelte';
 	import { scrollTo, scrollRef, scrollTop } from 'svelte-scrolling';
-	import LCH_to_sRGB_string from '$lib/lch.js';
 	let width;
 	let backgroundColor, fontColor;
 	let clientX;

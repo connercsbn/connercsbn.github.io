@@ -1,16 +1,15 @@
 <script>
 	import {
 		AmbientLight,
+		OrthographicCamera,
+		Pass,
 		Canvas,
 		DirectionalLight,
 		Group,
-		HemisphereLight,
 		Mesh,
-		OrbitControls,
 		PerspectiveCamera,
-		GLTF
+		PointLight
 	} from 'threlte';
-	import { DEG2RAD } from 'three/src/math/MathUtils';
 	import '../app.scss';
 	import '@fontsource/roboto';
 	import '@fontsource/ibm-plex-serif';
@@ -19,25 +18,45 @@
 	import { Parallax, ParallaxLayer } from 'svelte-parallax';
 	import { open } from '$lib/stores';
 	import { color, colorMode } from '$lib/stores';
-	import LCH_to_sRGB_string from '$lib/lch.js';
+	import { LCH_to_sRGB_string } from '$lib/lch.js';
 	import Header from '$lib/Header.svelte';
 	import Nav from '$lib/Nav.svelte';
-	import { onMount } from 'svelte';
+	import Guitar from '$lib/Guitar.svelte';
+	import { MeshStandardMaterial, CircleBufferGeometry, DoubleSide } from 'three';
+	import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
 
 	let startingColor = 206.5;
 	let scrollY;
 	let chromaSat = 70; // was 70, then 30
 	let brightness = 85; // was 95
 
+	const rotateY = tweened(1, {
+		duration: 1300,
+		easing: cubicOut
+	});
+	const rotateX = tweened(1, {
+		duration: 1300,
+		easing: cubicOut
+	});
 	const right = tweened(1, {
 		duration: 300,
 		easing: cubicOut
 	});
+	let startX, startY, moveX, moveY, clientY, innerWidth, innerHeight;
 
 	$: $right = $open ? 300 : 0;
+	$: {
+		let percentAcross = mouse.x / innerWidth;
+		let percentUp = mouse.y / innerHeight;
+		rotateX.set(percentUp);
+		rotateY.set(percentAcross);
+	}
 
-	let startX, startY, moveX, moveY, clientY;
+	let mouse = { x: undefined, y: undefined };
 
+	function handleMouseMove(e) {
+		mouse = { x: e.clientX, y: e.clientY };
+	}
 	function touchStart(e) {
 		startX = e.touches[0].clientX;
 		startY = e.touches[0].clientY;
@@ -103,6 +122,8 @@
 			true
 		)};`
 			: ` `);
+
+	let mygltf;
 </script>
 
 <svelte:window
@@ -111,37 +132,29 @@
 	on:touchend={touchEnd}
 	on:keydown={handleKeyDown}
 	bind:scrollY
-	bind:outerHeight={clientY}
+	bind:innerWidth
+	bind:innerHeight
 />
 
-<main style={customStyle}>
+<main on:mousemove={handleMouseMove} style={customStyle}>
 	<div class="main-page">
 		<Header />
 		<Nav --right-transform="{$right - 300}px" />
 		<div class="content">
-			<Canvas>
-				<PerspectiveCamera position={{ x: 10, y: 10, z: 10 }} fov={34}>
-					<OrbitControls
-						maxPolarAngle={DEG2RAD * 80}
-						autoRotate={true}
-						enableZoom={false}
-						target={{ y: 0.5 }}
+			<div class="canvas">
+				<Canvas>
+					<PointLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
+					<Group scale={1}>
+						<Guitar rotateAmount={{ x: $rotateX, y: $rotateY }} {mygltf} />
+					</Group>
+					<Mesh
+						receiveShadow
+						rotation={{ x: -90 * (Math.PI / 180) }}
+						geometry={new CircleBufferGeometry(3, 72)}
+						material={new MeshStandardMaterial({ side: DoubleSide, color: 'white' })}
 					/>
-				</PerspectiveCamera>
-
-				<DirectionalLight shadow position={{ x: 3, y: 10, z: 10 }} />
-				<DirectionalLight position={{ x: -3, y: 10, z: -10 }} intensity={0.2} />
-				<AmbientLight intensity={0.2} />
-				<Group scale={0.1}>
-					<GLTF
-						url="/models/tree.gltf"
-						interactive
-						on:click={() => {
-							console.log('User clicked!');
-						}}
-					/>;
-				</Group>
-			</Canvas>
+				</Canvas>
+			</div>
 			<!-- <div class="orangutan-container">
 				<Parallax sections={4} style="overflow: visible;" config={{ damping: 0.8 }}>
 					<ParallaxLayer offset={0.05} />
@@ -181,6 +194,12 @@
 		position: relative;
 		padding: min(3vw, 30px);
 		transform: translate3d(var(--right-transform), 0, 0);
+	}
+	.canvas {
+		position: fixed;
+		height: 500px;
+		width: 500px;
+		z-index: -1;
 	}
 	.orangutan-container {
 		position: absolute;
