@@ -38,27 +38,19 @@
 	let chromaSat = 70; // was 70, then 30
 	let brightness = 85; // was 95
 
-	const rotateY = tweened(1, {
-		duration: 1300,
-		easing: cubicOut
-	});
-	const rotateX = tweened(1, {
-		duration: 1300,
-		easing: cubicOut
-	});
+	let rotateX, rotateY, positionX;
 	const right = tweened(1, {
 		duration: 300,
 		easing: cubicOut
 	});
 	let startX, startY, moveX, moveY, clientY, innerWidth, innerHeight;
 
+	$: positionX = 3 - scrollY / 500;
+	$: rotateX = -0.3 - scrollY / 50000;
+	$: rotateY = 0 + scrollY / 500;
+	$: scale = 4.5 + scrollY / 500;
+
 	$: $right = $open ? 300 : 0;
-	$: {
-		let percentAcross = mouse.x / innerWidth;
-		let percentUp = mouse.y / innerHeight;
-		rotateX.set(percentUp - 0.5);
-		rotateY.set(percentAcross - 0.5);
-	}
 
 	let mouse = { x: undefined, y: undefined };
 
@@ -150,25 +142,25 @@
 		<Nav --right-transform="{$right - 300}px" />
 		<div class="canvas">
 			<Canvas>
-				<PerspectiveCamera position={{ x: 10, y: 10, z: 10 }} fov={24}>
-					<OrbitControls
-						maxPolarAngle={DEG2RAD * 80}
-						autoRotate={false}
-						enableZoom={true}
-						target={{ y: 0.5 }}
-					/>
-				</PerspectiveCamera>
+				<PerspectiveCamera position={{ x: 10, y: 10, z: 10 }} fov={24} lookAt={{ y: 0.5 }} />
 				<PointLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
 				<AmbientLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
 				<Group scale={1}>
-					<Guitar rotateAmount={{ x: $rotateX, y: $rotateY }} {guitar} />
+					<Guitar
+						rotateAmount={{ x: rotateX, y: rotateY }}
+						{scale}
+						{rotateX}
+						{rotateY}
+						{guitar}
+						{positionX}
+					/>
 				</Group>
-				<Mesh
+				<!-- <Mesh
 					receiveShadow
 					rotation={{ x: -90 * (Math.PI / 180) }}
 					geometry={new CircleBufferGeometry(3, 72)}
 					material={new MeshStandardMaterial({ side: DoubleSide, color: new Color('white') })}
-				/>
+				/> -->
 			</Canvas>
 		</div>
 		<div class="content">
@@ -195,7 +187,7 @@
 	main {
 		position: relative;
 		overflow: hidden;
-		top: 65px;
+		top: 67px;
 		background: var(--custom-background-color);
 		min-height: 100vh;
 	}
@@ -216,7 +208,7 @@
 		position: fixed;
 		height: 100%;
 		width: 100%;
-		z-index: 1;
+		z-index: 0;
 	}
 	.orangutan-container {
 		position: absolute;
