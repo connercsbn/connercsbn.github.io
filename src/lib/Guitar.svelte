@@ -4,7 +4,7 @@
 	import { LCH_to_sRGB } from './lch';
 	const { invalidate } = useThrelte();
 	import { Color, MeshToonMaterial, NearestFilter } from 'three';
-	export let mygltf;
+	export let guitar;
 	export let rotateAmount;
 	let guitarScene;
 
@@ -43,12 +43,11 @@
 </script>
 
 <GLTF
-	interactive
 	receiveShadow
-	bind:gltf={mygltf}
+	bind:gltf={guitar}
 	bind:scene={guitarScene}
 	url="/models/guitar.glb"
-	position={{ x: 0, y: -1, z: 3 }}
+	position={{ x: 0, y: 0, z: 0 }}
 	rotation={rotateAmount}
 />;
 

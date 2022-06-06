@@ -8,8 +8,10 @@
 		Group,
 		Mesh,
 		PerspectiveCamera,
-		PointLight
+		PointLight,
+		OrbitControls
 	} from 'threlte';
+	import { DEG2RAD } from 'three/src/math/MathUtils';
 	import '../app.scss';
 	import '@fontsource/roboto';
 	import '@fontsource/ibm-plex-serif';
@@ -22,7 +24,13 @@
 	import Header from '$lib/Header.svelte';
 	import Nav from '$lib/Nav.svelte';
 	import Guitar from '$lib/Guitar.svelte';
-	import { MeshStandardMaterial, CircleBufferGeometry, DoubleSide } from 'three';
+	import {
+		MeshStandardMaterial,
+		CircleBufferGeometry,
+		DoubleSide,
+		BoxBufferGeometry,
+		Color
+	} from 'three';
 	import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
 
 	let startingColor = 206.5;
@@ -48,8 +56,8 @@
 	$: {
 		let percentAcross = mouse.x / innerWidth;
 		let percentUp = mouse.y / innerHeight;
-		rotateX.set(percentUp);
-		rotateY.set(percentAcross);
+		rotateX.set(percentUp - 0.5);
+		rotateY.set(percentAcross - 0.5);
 	}
 
 	let mouse = { x: undefined, y: undefined };
@@ -123,7 +131,7 @@
 		)};`
 			: ` `);
 
-	let mygltf;
+	let guitar;
 </script>
 
 <svelte:window
@@ -140,22 +148,31 @@
 	<div class="main-page">
 		<Header />
 		<Nav --right-transform="{$right - 300}px" />
-		<div class="content">
-			<div class="canvas">
-				<Canvas>
-					<PointLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
-					<Group scale={1}>
-						<Guitar rotateAmount={{ x: $rotateX, y: $rotateY }} {mygltf} />
-					</Group>
-					<Mesh
-						receiveShadow
-						rotation={{ x: -90 * (Math.PI / 180) }}
-						geometry={new CircleBufferGeometry(3, 72)}
-						material={new MeshStandardMaterial({ side: DoubleSide, color: 'white' })}
+		<div class="canvas">
+			<Canvas>
+				<PerspectiveCamera position={{ x: 10, y: 10, z: 10 }} fov={24}>
+					<OrbitControls
+						maxPolarAngle={DEG2RAD * 80}
+						autoRotate={false}
+						enableZoom={true}
+						target={{ y: 0.5 }}
 					/>
-				</Canvas>
-			</div>
-			<!-- <div class="orangutan-container">
+				</PerspectiveCamera>
+				<PointLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
+				<AmbientLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
+				<Group scale={1}>
+					<Guitar rotateAmount={{ x: $rotateX, y: $rotateY }} {guitar} />
+				</Group>
+				<Mesh
+					receiveShadow
+					rotation={{ x: -90 * (Math.PI / 180) }}
+					geometry={new CircleBufferGeometry(3, 72)}
+					material={new MeshStandardMaterial({ side: DoubleSide, color: new Color('white') })}
+				/>
+			</Canvas>
+		</div>
+		<div class="content">
+			<!-- 	<div class="orangutan-container">
 				<Parallax sections={4} style="overflow: visible;" config={{ damping: 0.8 }}>
 					<ParallaxLayer offset={0.05} />
 					<ParallaxLayer offset={0.05}>
@@ -192,14 +209,14 @@
 	}
 	.content {
 		position: relative;
-		padding: min(3vw, 30px);
+		padding: 0 min(3vw, 30px);
 		transform: translate3d(var(--right-transform), 0, 0);
 	}
 	.canvas {
 		position: fixed;
-		height: 500px;
-		width: 500px;
-		z-index: -1;
+		height: 100%;
+		width: 100%;
+		z-index: 1;
 	}
 	.orangutan-container {
 		position: absolute;
