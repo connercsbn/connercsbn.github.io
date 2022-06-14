@@ -109,7 +109,7 @@
 		justify-content: center;
 		overflow: hidden;
 		padding: 1em;
-		color: var(--custom-background-color, white);
+		color: var(--custom-background-light, white);
 		opacity: 1;
 		bottom: 0px;
 		left: 0px;
