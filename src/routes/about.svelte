@@ -12,7 +12,7 @@
 		<p><span>Languages I use:</span></p>
 		<ul><li>Javascript, Python</li>
 	<!--	<p><span><li>Some experience in Rust, C, PHP, Awk, Bash</li></span></p> --></ul>
-		<p><span>Web tools and services I'm comfortable with:</span></p>
+		<p><span>Web tools and services I've used:</span></p>
 		<ul><li>Svelte, React, Django, Next, Celery, Websockets, Stripe, Twilio, CSS/SCSS, Linux, Git,
 		Nginx, Firebase, MySQL, Redis, ThreeJS</li></ul>
 	</div>

@@ -39,7 +39,7 @@
 			--opaque-background="#1c1e21"
 			--border-color="#8ec07c"
 		>
-			Albumsplit is a project that allows users to automatically download, split, and tag audio
+			<u>Albumsplit</u> is a project that allows users to automatically download, split, and tag audio
 			books, podcasts, or song compilations&mdash;straight from YouTube&mdash;into separate tracks
 			for offline listening.
 			<BuiltWith>Built with React, Django, Yt-dlp, Celery w/ RabbitMQ, Material UI</BuiltWith>
@@ -65,8 +65,8 @@
 			--border-color="#ff362c"
 		>
 			<span class="ttr"
-				>Tax The Rich was a political campaign in New York run by the Democratic Socialists of
-				America. This was a website for providing information about the campaign, signing people up for events, and helping people call their local representatives.</span
+			><em>Tax The Rich</em> was a political campaign in New York run by the Democratic Socialists of
+				America. This website provided information about the campaign along with tools to help people get involved, including event registration and a representative lookup tool.</span
 			>
 			<BuiltWith
 				><span class="ttr">Built with React, Next.js, using Airtable and Action Network</span
@@ -75,7 +75,7 @@
 		</PortfolioHero>
 
 		<PortfolioHero
-			title={`Conner's Brian\nWebsite`}
+			title={`Conner's Brian Website`}
 			source="brian.mp4"
 			link="//connersbrianwebsite.xyz"
 			githubLink="//www.github.com/connercsbn/connersbrianwebsite"
@@ -96,7 +96,7 @@
 			--opaque-background="white"
 			--border-color="#3970AA"
 		>
-			Conner's Brian Website started as an experiment where I played with different features of the
+			<u>Conner's Brian Website</u> started as an experiment where I played with different features of the
 			canvas browser element. With no clear purpose, it evolved into an open-to-interpretation
 			<em>experience</em>. Digital art? Waste of time? Either way, put it on in the background at
 			your party for some chill vibes&mdash;and to meet cool people who catch the subtle Family Guy
