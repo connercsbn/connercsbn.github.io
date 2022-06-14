@@ -1,5 +1,5 @@
 <script>
-	import { color, colorTwo, colorMode } from '$lib/stores';
+	import { color, colorMode } from '$lib/stores';
 	import { onMount } from 'svelte';
 	import { scrollTo, scrollRef, scrollTop } from 'svelte-scrolling';
 	let width;
@@ -14,14 +14,13 @@
 		backgroundColor = (clientX / width) * 360 || $color;
 		fontColor = (backgroundColor + 0) % 360;
 		$color = backgroundColor;
-		$colorTwo = (backgroundColor + 180) % 360;
 	}
 	function handleTouchMove(e) {
 		clientX = e.touches[0].clientX;
 		updateColor();
 	}
 	function handleMouseMove(e) {
-		cursorStyle = clientX - 10 < e.clientX && e.clientX < clientX + 10 ? 'pointer' : 'dedfault';
+		cursorStyle = clientX - 10 < e.clientX && e.clientX < clientX + 10 ? 'pointer' : 'default';
 		if (clicking) {
 			dragging = true;
 		}
@@ -96,6 +95,7 @@
 		left: var(--pixels-over);
 		transform: translateX(5px);
 		font-size: 0.9em;
+		display: none;
 		&::after {
 			content: '';
 			width: 2px;
@@ -103,6 +103,7 @@
 			left: -5px;
 			position: absolute;
 			background: var(--custom-arrow-color);
+			display: none;
 			// background-image: linear-gradient(
 			// 	to left,
 			// 	var(--custom-background-light),

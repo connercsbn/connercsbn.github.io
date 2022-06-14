@@ -26,7 +26,9 @@
 	<Hamburger />
 	<div class="links" class:open={$open}>
 		{#each links as link}
-			<a use:scrollTo={link[1]} class="link" href={'/'}><span>{link[0]}</span></a>
+			<a on:click={() => ($open = false)} use:scrollTo={link[1]} class="link" href={'/'}
+				><span>{link[0]}</span></a
+			>
 		{/each}
 	</div>
 </nav>
@@ -104,9 +106,5 @@
 			display: block;
 			position: absolute;
 		}
-	}
-	.active {
-		color: white;
-		background: transparent;
 	}
 </style>

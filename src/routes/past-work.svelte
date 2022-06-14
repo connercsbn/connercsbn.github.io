@@ -66,7 +66,7 @@
 		>
 			<span class="ttr"
 				>Tax The Rich was a political campaign in New York run by the Democratic Socialists of
-				America. Lorem ipsum lorem ipsum more information about this website, etc.</span
+				America. This was a website for providing information about the campaign, signing people up for events, and helping people call their local representatives.</span
 			>
 			<BuiltWith
 				><span class="ttr">Built with React, Next.js, using Airtable and Action Network</span
@@ -95,11 +95,13 @@
 			--letter-spacing="0.07em"
 			--opaque-background="white"
 			--border-color="#3970AA"
-			>Conner's Brian Website started as an experiment where I played with various features of the
+		>
+			Conner's Brian Website started as an experiment where I played with different features of the
 			canvas browser element. With no clear purpose, it evolved into an open-to-interpretation
-			<i>experience</i>. Digital art? Waste of time? Either way, put it on in the background at your
-			party for some chill vibes&mdash;and to meet cool people who catch the subtle Family Guy
+			<em>experience</em>. Digital art? Waste of time? Either way, put it on in the background at
+			your party for some chill vibes&mdash;and to meet cool people who catch the subtle Family Guy
 			reference.
+
 			<BuiltWith --built-with-color="#35352b"
 				>Built with Svelte, using Canvas API and FFmpeg for audio manipulation</BuiltWith
 			>
@@ -121,7 +123,6 @@
 			icon="/images/Cleveland_Brown.png"
 			bgcolors={['#1D0917', '#380E21']}
 		/>
-
 		<PortfolioIcon
 			name="Weirdle"
 			href="https://weirdle.web.app"
@@ -130,7 +131,6 @@
 			bgcolors={['#B59F3B', '#538D4E']}
 			xoffset={0}
 		/>
-
 		<PortfolioIcon
 			name="Deferred Capital Gain"
 			href="https://defer-225e4.web.app/"
@@ -139,7 +139,6 @@
 			yoffset={60}
 			bgcolors={['white', 'white']}
 		/>
-
 		<PortfolioIcon
 			name="Google TTS Downloader"
 			href="https://www.conner.soy/pronunciation"
@@ -147,7 +146,6 @@
 			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
-
 		<PortfolioIcon
 			name="Income Tax Calculator"
 			href="/"
@@ -155,7 +153,6 @@
 			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
-
 		<PortfolioIcon
 			name="Xrandr Command Generator"
 			href="/"
@@ -163,19 +160,17 @@
 			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
-
+		<PortfolioIcon
+			name="SourceMod Plugins"
+			href="/"
+			gh="https://github.com/connercsbn/csgo-scripts"
+			icon="/images/blank.png"
+			bgcolors={['white', 'black']}
+		/>
 		<PortfolioIcon
 			name="Finance Calculator"
 			href="/"
 			gh="https://github.com/connercsbn/finances"
-			icon="/images/blank.png"
-			bgcolors={['white', 'black']}
-		/>
-
-		<PortfolioIcon
-			name="Counter-Strike: Global Offensive SourceMod Plugins"
-			href="/"
-			gh="https://github.com/connercsbn/csgo-scripts"
 			icon="/images/blank.png"
 			bgcolors={['white', 'black']}
 		/>
@@ -198,5 +193,8 @@
 	}
 	.ttr {
 		color: #2f4858;
+	}
+	em {
+		display: inline;
 	}
 </style>

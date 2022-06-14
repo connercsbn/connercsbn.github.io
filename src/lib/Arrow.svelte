@@ -27,12 +27,12 @@
 		right: 0.4em;
 		bottom: 0em;
 		font-size: 40px;
-		color: var(--custom-background-color, gray);
+		color: var(--arrow-color, gray);
 		stroke: var(--custom-text-color, black);
 		stroke-width: 10px;
-		// color: var(--arrow-color);
+		color: var(--arrow-color);
 		&:hover {
-			color: var(--custom-background-light, rgb(165, 165, 165));
+			color: var(--border-color, rgb(165, 165, 165));
 		}
 	}
 	@media (max-width: 500px) {

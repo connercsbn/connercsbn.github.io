@@ -10,6 +10,7 @@
 	class="burger"
 	class:open={$open}
 	on:click={handleBurgerClick}
+	role="navigation"
 	aria-expanded={$open}
 	aria-label={ariaLabel}
 >

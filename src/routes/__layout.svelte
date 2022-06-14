@@ -1,38 +1,16 @@
 <script>
-	import { fade, fly } from 'svelte/transition';
-	import {
-		AmbientLight,
-		OrthographicCamera,
-		Pass,
-		Canvas,
-		DirectionalLight,
-		Group,
-		Mesh,
-		PerspectiveCamera,
-		PointLight,
-		OrbitControls
-	} from 'threlte';
-	import { DEG2RAD } from 'three/src/math/MathUtils';
+	import { AmbientLight, Pass, Canvas, Group, PerspectiveCamera, PointLight } from 'threlte';
 	import '../app.scss';
 	import '@fontsource/roboto';
 	import '@fontsource/ibm-plex-serif';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
-	import { Parallax, ParallaxLayer } from 'svelte-parallax';
 	import { open } from '$lib/stores';
 	import { color, colorMode } from '$lib/stores';
 	import { LCH_to_sRGB_string } from '$lib/lch.js';
 	import Header from '$lib/Header.svelte';
 	import Nav from '$lib/Nav.svelte';
-	import Guitar from '$lib/Guitar.svelte';
-	import {
-		MeshStandardMaterial,
-		CircleBufferGeometry,
-		DoubleSide,
-		BoxBufferGeometry,
-		Color
-	} from 'three';
-	import { OutlinePass } from 'three/examples/jsm/postprocessing/OutlinePass';
+	import { onMount } from 'svelte';
 
 	const guitarOpacity = tweened(0, {
 		duration: 1000,
@@ -41,28 +19,57 @@
 
 	let startingColor = 206.5;
 	let scrollY;
-	let chromaSat = 70; // was 70, then 30
+	let chromaSat = 50; // was 70, then 30
 	let brightness = 85; // was 95
 	let guitarLoaded = false;
 
-	let rotateX, rotateY, positionX;
+	let rotateX, rotateY, rotateZ, positionX, positionY, positionZ;
 	const right = tweened(1, {
 		duration: 300,
 		easing: cubicOut
 	});
 	let startX, startY, moveX, moveY, clientY, innerWidth, innerHeight;
 
-	$: positionX = 3 - scrollY / 500;
-	$: rotateX = -0.3 - scrollY / 50000;
-	$: rotateY = 0 + scrollY / 500;
-	$: scale = 4.5 + scrollY / 500;
+	let originalPositionX = 4.4;
+	let originalPositionY = -1.7;
+	let originalPositionZ = 4.7;
+	let originalRotateX = 0.2;
+	let originalRotateY = 0.3;
+	let originalRotateZ = -0.16;
+	let originalScale = 0.023;
+
+	const tweenedPositionY = tweened(originalPositionY, {
+		duration: 1000,
+		easing: cubicOut
+	});
+	const tweenedRotateY = tweened(originalRotateY, {
+		duration: 1000,
+		easing: cubicOut
+	});
+
+	$: positionX = originalPositionX;
+	$: positionY = originalPositionY + scrollY / 20000;
+	$: positionZ = originalPositionZ;
+	$: rotateMouseOffset = (mouse.x - 0.5 * innerWidth) / 10000;
+	$: rotateX = originalRotateX;
+	$: rotateY = originalRotateY + scrollY / 50000 + rotateMouseOffset;
+	$: rotateZ = originalRotateZ;
+	$: scale = originalScale + scrollY / 1000000;
 	$: if (guitarLoaded) {
 		guitarOpacity.set(guitarLoaded ? 1 : 0);
 	}
 
-	$: $right = $open ? 300 : 0;
+	let Guitar;
+	onMount( async () => {
+		Guitar = (await import('../lib/Guitar.svelte')).default;
+		setInterval(() => {
+			$color = $color + 1;
+		}, 400);
+	});
 
+	$: $right = $open ? 300 : 0;
 	let mouse = { x: undefined, y: undefined };
+
 
 	function handleMouseMove(e) {
 		mouse = { x: e.clientX, y: e.clientY };
@@ -86,11 +93,6 @@
 				$open = false;
 			}
 		}
-		if (startY + 10 < moveY) {
-			status = 'down';
-		} else if (startY - 10 > moveY) {
-			status = 'up';
-		}
 	}
 
 	function handleKeyDown({ key }) {
@@ -105,24 +107,24 @@
 			chromaSat,
 			$color || startingColor,
 			100,
-			false
+			true
 		)};
     --custom-arrow-color: ${LCH_to_sRGB_string(80, 20, $color || startingColor, 100, true)};
     --custom-text-color: ${LCH_to_sRGB_string(0, 40, $color || startingColor)};
-    --custom-background-light: ${LCH_to_sRGB_string(100, 20, $color || startingColor)};
+    --custom-background-light: ${LCH_to_sRGB_string(94, 20, $color || startingColor, 100, true)};
     --custom-secondary-color: ${LCH_to_sRGB_string(
 			40,
-			100,
+			40,
 			(($color || startingColor) + 180) % 360,
 			100,
-			false
+			true
 		)};
     --custom-nav-color: ${LCH_to_sRGB_string(
 			90,
 			20,
 			(($color || startingColor) - 100) % 360,
 			100,
-			false
+			true
 		)};
     --custom-secondary-highlight-color: ${LCH_to_sRGB_string(
 			45,
@@ -136,6 +138,9 @@
 	let guitar;
 </script>
 
+<svelte:head>
+	<title>website title</title>
+</svelte:head>
 <svelte:window
 	on:touchstart={touchStart}
 	on:touchmove={touchMove}
@@ -154,42 +159,86 @@
 			<Canvas>
 				<PerspectiveCamera position={{ x: 10, y: 10, z: 10 }} fov={24} lookAt={{ y: 0.5 }} />
 				<PointLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
-				<AmbientLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
+				<AmbientLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.8} />
 				<Group scale={1}>
-					<Guitar
-						rotateAmount={{ x: rotateX, y: rotateY }}
-						{scale}
-						{rotateX}
-						{rotateY}
-						{guitar}
-						bind:guitarLoaded
-						{positionX}
-					/>
-				</Group>
-				<!-- <Mesh
-					receiveShadow
-					rotation={{ x: -90 * (Math.PI / 180) }}
-					geometry={new CircleBufferGeometry(3, 72)}
-					material={new MeshStandardMaterial({ side: DoubleSide, color: new Color('white') })}
-				/> -->
+					<svelte:component this={Guitar} {mouse} {scrollY} {innerWidth} {guitar} bind:guitarLoaded />
+				</Group> 
 			</Canvas>
-		</div>
+	 	</div>
 		<div class="content">
-			<!-- 	<div class="orangutan-container">
-				<Parallax sections={4} style="overflow: visible;" config={{ damping: 0.8 }}>
-					<ParallaxLayer offset={0.05} />
-					<ParallaxLayer offset={0.05}>
-						<div class="first-orangutan" />
-					</ParallaxLayer>
-					<ParallaxLayer offset={0.6} rate={-2}>
-						<div class="second-orangutan" />
-					</ParallaxLayer>
-					<ParallaxLayer offset={2}>
-						<div class="third-orangutan" />
-					</ParallaxLayer>
-				</Parallax>
-			</div> -->
 			<slot />
+			<!-- <div style="position: fixed;z-index:100000000; top: 100px;" class="slidecontainer">
+				<input
+					bind:value={positionX}
+					type="range"
+					min="-10"
+					max="10"
+					step="0.1"
+					class="slider"
+					id="myRange"
+				/>
+				positionX: {positionX}
+				<input
+					bind:value={positionY}
+					type="range"
+					min="-10"
+					max="10"
+					step="0.1"
+					class="slider"
+					id="myRange"
+				/>
+				positionY: {positionY}
+				<input
+					bind:value={positionZ}
+					type="range"
+					min="-10"
+					max="10"
+					step="0.1"
+					class="slider"
+					id="myRange"
+				/>
+				positionZ: {positionZ}
+				<input
+					bind:value={rotateX}
+					type="range"
+					min="-2"
+					max="2"
+					step="0.1"
+					class="slider"
+					id="myRange"
+				/>
+				rotateX: {rotateX}
+				<input
+					bind:value={rotateY}
+					type="range"
+					step="0.01"
+					min="-2"
+					max="2"
+					class="slider"
+					id="myRange"
+				/>
+				rotateY: {rotateY}
+				<input
+					bind:value={rotateZ}
+					type="range"
+					step="0.01"
+					min="-2"
+					max="2"
+					class="slider"
+					id="myRange"
+				/>
+				rotateZ: {rotateZ}
+				<input
+					bind:value={scale}
+					type="range"
+					step="0.001"
+					min="0"
+					max=".1"
+					class="slider"
+					id="myRange"
+				/>
+				{scale}
+			</div> -->
 		</div>
 	</div>
 </main>
@@ -220,46 +269,5 @@
 		height: 100%;
 		width: 100%;
 		z-index: 0;
-	}
-	.orangutan-container {
-		position: absolute;
-		left: 0;
-		right: 0;
-		top: 0;
-		bottom: 0;
-		z-index: -1;
-	}
-	.first-orangutan,
-	.second-orangutan,
-	.third-orangutan {
-		position: absolute;
-		background: #ffab7b;
-		background: #ffc450;
-		mask-image: url('/orangutan-glasses.svg');
-		-webkit-mask-image: url('/orangutan-glasses.svg');
-		mask-size: cover;
-		-webkit-mask-size: cover;
-		width: 600px;
-		height: 600px;
-		mask-position: center;
-		-webkit-mask-position: center;
-		display: none;
-	}
-	.first-orangutan {
-		top: 0;
-		right: 8%;
-		clip-path: circle(243px at 323px 242px);
-	}
-	.second-orangutan {
-		top: 800px;
-		top: 0;
-		left: 4%;
-		clip-path: circle(244px at 315px 244px);
-	}
-	.third-orangutan {
-		top: 3400px;
-		top: 0;
-		right: 9%;
-		clip-path: circle(253px at 320px 252px);
 	}
 </style>

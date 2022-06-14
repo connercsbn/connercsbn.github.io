@@ -16,7 +16,7 @@
 	box-sizing: border-box;
 	padding: 1% 6%;
 	color: white;
-	background: var(--custom-secondary-color, black);
+	background: var(--custom-secondary-color, #4d4c4c);
 	box-shadow: 4px 4px 0px var(--text-color, black);
 	width: min(800px, 100%);
 	margin-bottom: min(30px, 4%);
@@ -41,6 +41,21 @@ h2 {
 }
 #about .h2-container {
 	display: none;
+}
+#about .article {
+	// color: black;
+	// span {
+	// 	background: white;
+	// }
+	// background: var(--custom-secondary-highlight-color);
+	// margin: 1em auto;
+	// color: white;
+	// a {
+	// 	color: white;
+	// 	&:visited {
+	// 		color: white;
+	// 	}
+	// }
 }
 
 // .unspacer {
