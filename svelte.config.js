@@ -23,7 +23,7 @@ const config = {
 				rollupOptions: {
 					output: {
 						manualChunks: {
-							// threlte: ['threlte']
+							threlte: ['threlte']
 						}
 					}
 				}
