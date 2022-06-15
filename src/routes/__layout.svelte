@@ -7,6 +7,7 @@
 	import { cubicOut } from 'svelte/easing';
 	import { open } from '$lib/stores';
 	import { color, colorMode } from '$lib/stores';
+	import UAParser from 'ua-parser-js';
 	import { LCH_to_sRGB_string } from '$lib/lch.js';
 	import Header from '$lib/Header.svelte';
 	import Nav from '$lib/Nav.svelte';
@@ -61,10 +62,12 @@
 
 	let Guitar;
 	onMount( async () => {
-		Guitar = (await import('../lib/Guitar.svelte')).default;
-		setInterval(() => {
-			$color = $color + 1;
-		}, 400);
+		if (new UAParser().getDevice().type != 'mobile') {
+			Guitar = (await import('../lib/Guitar.svelte')).default;
+			setInterval(() => {
+				$color = $color + 1;
+			}, 400);
+		}
 	});
 
 	$: $right = $open ? 300 : 0;

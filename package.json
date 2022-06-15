@@ -38,6 +38,7 @@
 		"svelte-fa": "^2.4.0",
 		"svelte-scrolling": "^1.1.1",
 		"three": "^0.141.0",
-		"threlte": "^3.8.1"
+		"threlte": "^3.8.1",
+		"ua-parser-js": "^1.0.2"
 	}
 }
