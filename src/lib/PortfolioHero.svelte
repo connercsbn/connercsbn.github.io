@@ -3,6 +3,7 @@
 	import '@fontsource/roboto';
 	import '@fontsource/andada-pro';
 	import Arrow from '$lib/Arrow.svelte';
+	import { onMobileDevice } from '$lib/stores'
 	import { clickOutside } from './clickOutside.js';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
@@ -15,6 +16,8 @@
 	export let arrowColor;
 	let showLinks = false;
 	let pillIsClicked = false;
+
+
 
 	const handlePillUncLick = (e) => {
 		e.preventDefault();
@@ -53,9 +56,11 @@
 				<div class="bg-rect" />
 			</div>
 		{:else}
-			<video autoplay muted loop playsinline>
-				<source src={source} type="video/mp4" />
-			</video>
+			{#if !$onMobileDevice}
+				<video autoplay muted loop playsinline>
+					<source src={source} type="video/mp4" />
+				</video>
+			{/if}
 		{/if}
 		<h3 href={link} on:click={changeShowLinks}>
 			{title}
