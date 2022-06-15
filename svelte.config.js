@@ -19,9 +19,9 @@ const config = {
 					}
 				}
 			},
-			build: {
-				rollupOptions: {
-					output: {
+		   build: {
+			   rollupOptions: {
+				   output: {
 						manualChunks: {
 							threlte: ['threlte']
 						}
@@ -35,11 +35,15 @@ const config = {
 	},
 	preprocess: [
 		preprocess({
+			sourceMap: true,
 			scss: {
 				prependData: '@use "src/variables.scss" as *;'
 			}
 		})
-	]
+	],
+	compilerOptions: {
+		enableSourcemap: true
+	}
 };
 
 export default config;
