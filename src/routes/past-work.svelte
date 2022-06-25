@@ -39,9 +39,9 @@
 			--opaque-background="#1c1e21"
 			--border-color="#8ec07c"
 		>
-			<u>Albumsplit</u> is a project that allows users to automatically download, split, and tag audio
-			books, podcasts, or song compilations&mdash;straight from YouTube&mdash;into separate tracks
-			for offline listening.
+			<u>Albumsplit</u> is a project that allows users to automatically download, split, and tag
+			audio books, podcasts, or song compilations&mdash;straight from YouTube&mdash;into separate
+			tracks for offline listening.
 			<BuiltWith>Built with React, Django, Yt-dlp, Celery w/ RabbitMQ, Material UI</BuiltWith>
 		</PortfolioHero>
 		<PortfolioHero
@@ -65,8 +65,9 @@
 			--border-color="#ff362c"
 		>
 			<span class="ttr"
-			><em>Tax The Rich</em> was a political campaign in New York run by the Democratic Socialists of
-				America. This website provided information about the campaign along with tools to help people get involved, including event registration and a representative lookup tool.</span
+				><em>Tax The Rich</em> was a political campaign in New York run by the Democratic Socialists
+				of America. This website provided information about the campaign along with tools to help people
+				get involved, including event registration and a representative lookup tool.</span
 			>
 			<BuiltWith
 				><span class="ttr">Built with React, Next.js, using Airtable and Action Network</span
@@ -76,7 +77,7 @@
 
 		<PortfolioHero
 			title={`Conner's Brian Website`}
-			source="brian.mp4"
+			source="brian480.mp4"
 			link="//connersbrianwebsite.xyz"
 			githubLink="//www.github.com/connercsbn/connersbrianwebsite"
 			background={undefined}
@@ -96,8 +97,9 @@
 			--opaque-background="white"
 			--border-color="#3970AA"
 		>
-			<u>Conner's Brian Website</u> started as an experiment where I played with different features of the
-			canvas browser element. With no clear purpose, it evolved into an open-to-interpretation
+			<u>Conner's Brian Website</u> started as an experiment where I played with different features
+			of the canvas browser element. With no clear purpose, it evolved into an
+			open-to-interpretation
 			<em>experience</em>. Digital art? Waste of time? Either way, put it on in the background at
 			your party for some chill vibes&mdash;and to meet cool people who catch the subtle Family Guy
 			reference.
@@ -127,7 +129,7 @@
 			name="Weirdle"
 			href="https://weirdle.web.app"
 			gh="https://github.com/connercsbn/weirdle"
-			icon="/images/weirdle2.png"
+			icon="/images/weirdle3.png"
 			bgcolors={['#B59F3B', '#538D4E']}
 			xoffset={0}
 		/>
@@ -141,37 +143,26 @@
 		/>
 		<PortfolioIcon
 			name="Google TTS Downloader"
-			href="https://www.conner.soy/pronunciation"
 			gh="https://github.com/connercsbn/tts-tool"
-			icon="/images/blank.png"
-			bgcolors={['white', 'black']}
+			icon="/images/googlepronunciations.png"
+			bgcolors={['white', 'white']}
 		/>
 		<PortfolioIcon
-			name="Income Tax Calculator"
-			href="/"
+			name="Marginal Tax Calculator"
 			gh="https://github.com/connercsbn/marginal-tax-calculator"
-			icon="/images/blank.png"
-			bgcolors={['white', 'black']}
-		/>
-		<PortfolioIcon
-			name="Xrandr Command Generator"
-			href="/"
-			gh="https://github.com/connercsbn/xcg"
-			icon="/images/blank.png"
+			icon="/images/marginaltax.png"
 			bgcolors={['white', 'black']}
 		/>
 		<PortfolioIcon
 			name="SourceMod Plugins"
-			href="/"
 			gh="https://github.com/connercsbn/csgo-scripts"
-			icon="/images/blank.png"
+			icon="/images/csgo.png"
 			bgcolors={['white', 'black']}
 		/>
 		<PortfolioIcon
 			name="Finance Calculator"
-			href="/"
 			gh="https://github.com/connercsbn/finances"
-			icon="/images/blank.png"
+			icon="/images/finances.png"
 			bgcolors={['white', 'black']}
 		/>
 		<div class="unspacer" />
