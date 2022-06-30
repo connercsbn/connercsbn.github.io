@@ -27,7 +27,7 @@
 		padding: 18px min(3vw, 30px);
 		right: 0;
 		top: 0;
-		z-index: 1;
+		z-index: 20;
 		width: 30px;
 		height: 30px;
 		width: 30px;
