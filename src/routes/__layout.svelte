@@ -144,7 +144,7 @@
 </script>
 
 <svelte:head>
-	<title>website title</title>
+	<title>Conner's Portfolio</title>
 </svelte:head>
 <svelte:window
 	on:touchstart={touchStart}
