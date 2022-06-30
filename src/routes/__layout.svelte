@@ -12,6 +12,7 @@
 	import Header from '$lib/Header.svelte';
 	import Nav from '$lib/Nav.svelte';
 	import { onMount } from 'svelte';
+	import { scrollTo } from 'svelte-scrolling';
 
 	const guitarOpacity = tweened(0, {
 		duration: 1000,
@@ -245,9 +246,10 @@
 			</div> -->
 		</div>
 	</div>
+	<div class="scroll-to-top" use:scrollTo={'home'} >🔝</div>
 </main>
 
-<style>
+<style lang="scss">
 	main {
 		position: relative;
 		overflow: hidden;
@@ -273,5 +275,18 @@
 		height: 100%;
 		width: 100%;
 		z-index: 0;
+	}
+	.scroll-to-top {
+		z-index: 10;
+		opacity: 0.5;
+		font-size: 60px;
+		position: relative;
+		position:absolute;
+		bottom: 10px;
+		right: min(3vw, 30px);
+		transition: 0.2s all;
+		&:hover {
+			opacity: 1;
+		}
 	}
 </style>

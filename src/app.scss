@@ -7,6 +7,10 @@
 	font-family: roboto;
 	font-family: 'IBM Plex Serif';
 }
+@font-face {
+	font-family: "Termines";
+	src: url("/terminess.woff")
+}
 
 .h2-container {
 	border: 1px solid var(--custom-secondary-color, black);

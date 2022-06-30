@@ -8,15 +8,24 @@
 	</div>
 	<div class="article">
 		<p><span>Hi, my name is Conner and I'm a full stack web developer with experience primarily in Svelte, React, and Django.</span></p>
-		<p><span>I like making websites that accomplish something while being fun, helpful, and intuitive.</span></p>
 		<p><span>Languages I use:</span></p>
-		<ul><li>Javascript, Python</li>
-	<!--	<p><span><li>Some experience in Rust, C, PHP, Awk, Bash</li></span></p> --></ul>
-		<p><span>Web tools and services I've used:</span></p>
-		<ul><li>Svelte, React, Django, Next, Celery, Websockets, Stripe, Twilio, CSS/SCSS, Linux, Git,
-		Nginx, Firebase, MySQL, Redis, ThreeJS</li></ul>
+	<ul><li>Javascript, Python</li></ul>
+		<p><span>Web tools and services I use:</span></p>
+		<ul><li>Svelte, React, Django, Next, GNU Coreutils, Websockets, Stripe, Twilio, CSS/SCSS, Linux, Git,
+		Nginx, MySQL, ThreeJS, Celery</li></ul>
 	</div>
 </div>
 
 <style>
+	.article {
+		padding: 1em;
+		margin: 1em auto;
+		/*background: var(--custom-background-light);*/
+		background: var(--custom-background-light);
+		background: #ffffff94;
+		border: 1px solid var(--custom-secondary-highlight-color);
+	}
+	li {
+		list-style-type: "—  ";
+	}
 </style>

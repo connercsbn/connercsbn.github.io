@@ -101,7 +101,7 @@
 		}
 	}
 	span {
-		font-family: 'Terminus';
+		font-family: 'Terminus', 'Terminess', 'Termines', 'mono';
 		position: absolute;
 		display: flex;
 		z-index: 10000;

@@ -142,7 +142,7 @@
 			bgcolors={['white', 'white']}
 		/>
 		<PortfolioIcon
-			name="Google TTS Downloader"
+			name="Batch Google Text-To-Speech Processor"
 			gh="https://github.com/connercsbn/tts-tool"
 			icon="/images/googlepronunciations.png"
 			bgcolors={['white', 'white']}

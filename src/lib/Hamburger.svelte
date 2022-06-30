@@ -24,19 +24,19 @@
 		position: fixed;
 		margin: auto;
 		cursor: pointer;
-		padding: 20px;
+		padding: 18px min(3vw, 30px);
 		right: 0;
 		top: 0;
 		z-index: 1;
 		width: 30px;
 		height: 30px;
-		width: 20px;
+		width: 30px;
 	}
 	.burger-item {
-		height: 1px;
+		height: 2px;
 		width: 100%;
-		background: var(--custom-text-color, black);
-		margin: 30% 0;
+		background: var(--custom-secondary-highlight-color, black);
+		margin: 20% 0;
 	}
 	.burger.open {
 		transform: translate3d(5px, 3px, 0);
@@ -48,6 +48,6 @@
 		display: none;
 	}
 	.open.c {
-		transform: translate3d(-5px, -2px, 0) rotate(-45deg);
+		transform: translate3d(-5px, -3px, 0) rotate(-45deg);
 	}
 </style>
