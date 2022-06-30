@@ -252,8 +252,7 @@
 <style lang="scss">
 	main {
 		position: relative;
-		overflow: hidden;
-		top: 67px;
+		padding-top: 67px;
 		background: var(--custom-background-color);
 		min-height: 100vh;
 	}
