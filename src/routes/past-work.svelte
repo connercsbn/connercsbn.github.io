@@ -22,7 +22,6 @@
 	<main class="heros">
 		<PortfolioHero
 			title="Albumsplit"
-			source="albumsplit.mp4"
 			link="//www.albumsplit.com"
 			background={undefined}
 			githubLink="//www.github.com/connercsbn/albumsplit"
