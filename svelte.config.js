@@ -6,7 +6,9 @@ import adapter from '@sveltejs/adapter-static';
 const config = {
 	kit: {
 		adapter: adapter({
-			precompress: true
+			precompress: true,
+			pages: 'docs',
+			assets: 'docs'
 		}),
 		vite: {
 			ssr: {

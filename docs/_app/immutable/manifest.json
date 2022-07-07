@@ -1,0 +1,172 @@
+{
+  ".svelte-kit/runtime/client/start.js": {
+    "file": "start-5dadfd56.js",
+    "src": ".svelte-kit/runtime/client/start.js",
+    "isEntry": true,
+    "imports": [
+      "_threlte-377a87a5.js",
+      "_preload-helper-60cab3ee.js"
+    ],
+    "dynamicImports": [
+      "___layout-abb9e96d.js",
+      ".svelte-kit/runtime/components/error.svelte",
+      "src/routes/about.svelte",
+      "src/routes/contact.svelte",
+      "src/routes/index.svelte",
+      "src/routes/past-work.svelte"
+    ]
+  },
+  ".svelte-kit/runtime/components/error.svelte": {
+    "file": "error.svelte-6f9493b7.js",
+    "src": ".svelte-kit/runtime/components/error.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_threlte-377a87a5.js"
+    ]
+  },
+  "src/routes/about.svelte": {
+    "file": "pages/about.svelte-23c67c1a.js",
+    "src": "src/routes/about.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_threlte-377a87a5.js",
+      "_index-a5e2e047.js"
+    ],
+    "css": [
+      "assets/pages/about.svelte-7602b70d.css"
+    ]
+  },
+  "src/routes/contact.svelte": {
+    "file": "pages/contact.svelte-f1452706.js",
+    "src": "src/routes/contact.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_threlte-377a87a5.js",
+      "_index-a5e2e047.js"
+    ]
+  },
+  "src/routes/index.svelte": {
+    "file": "pages/index.svelte-b4676622.js",
+    "src": "src/routes/index.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_threlte-377a87a5.js",
+      "src/routes/past-work.svelte",
+      "src/routes/contact.svelte",
+      "src/routes/about.svelte",
+      "_clickOutside-f1e22371.js",
+      "_index-a5e2e047.js"
+    ]
+  },
+  "src/routes/past-work.svelte": {
+    "file": "pages/past-work.svelte-8be25958.js",
+    "src": "src/routes/past-work.svelte",
+    "isEntry": true,
+    "isDynamicEntry": true,
+    "imports": [
+      "_threlte-377a87a5.js",
+      "_clickOutside-f1e22371.js",
+      "_index-a5e2e047.js"
+    ],
+    "css": [
+      "assets/pages/past-work.svelte-41c1e402.css"
+    ],
+    "assets": [
+      "assets/roboto-slab-cyrillic-ext-400-normal-64ac969d.woff2",
+      "assets/roboto-slab-all-400-normal-a39df3a4.woff",
+      "assets/roboto-slab-cyrillic-400-normal-64030c67.woff2",
+      "assets/roboto-slab-greek-400-normal-8bd1d139.woff2",
+      "assets/roboto-slab-latin-ext-400-normal-51adf138.woff2",
+      "assets/roboto-slab-latin-400-normal-f5dad5b1.woff2",
+      "assets/andada-pro-vietnamese-400-normal-7d27709f.woff2",
+      "assets/andada-pro-all-400-normal-3db72338.woff",
+      "assets/andada-pro-latin-ext-400-normal-a7ba7e10.woff2",
+      "assets/andada-pro-latin-400-normal-4f7f45e1.woff2"
+    ]
+  },
+  "src/routes/__layout.svelte": {
+    "file": "pages/__layout.svelte-f4875825.js",
+    "src": "src/routes/__layout.svelte",
+    "isEntry": true,
+    "imports": [
+      "_preload-helper-60cab3ee.js",
+      "_threlte-377a87a5.js",
+      "___layout-abb9e96d.js",
+      "_clickOutside-f1e22371.js",
+      "_index-a5e2e047.js"
+    ]
+  },
+  "_threlte-377a87a5.js": {
+    "file": "chunks/threlte-377a87a5.js",
+    "css": [
+      "assets/threlte-f3634d49.css"
+    ]
+  },
+  "_preload-helper-60cab3ee.js": {
+    "file": "chunks/preload-helper-60cab3ee.js"
+  },
+  "___layout-abb9e96d.js": {
+    "file": "chunks/__layout-abb9e96d.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "_preload-helper-60cab3ee.js",
+      "_threlte-377a87a5.js",
+      "_index-a5e2e047.js",
+      "_clickOutside-f1e22371.js"
+    ],
+    "dynamicImports": [
+      "src/lib/Guitar.svelte"
+    ],
+    "css": [
+      "assets/__layout-6f30c0a6.css"
+    ],
+    "assets": [
+      "assets/ibm-plex-serif-cyrillic-ext-400-normal-1ef30118.woff2",
+      "assets/ibm-plex-serif-all-400-normal-40960a13.woff",
+      "assets/ibm-plex-serif-cyrillic-400-normal-4102194b.woff2",
+      "assets/ibm-plex-serif-vietnamese-400-normal-60665d6b.woff2",
+      "assets/ibm-plex-serif-latin-ext-400-normal-82b86a74.woff2",
+      "assets/ibm-plex-serif-latin-400-normal-20e75a23.woff2"
+    ]
+  },
+  "_clickOutside-f1e22371.js": {
+    "file": "chunks/clickOutside-f1e22371.js",
+    "imports": [
+      "_threlte-377a87a5.js"
+    ],
+    "css": [
+      "assets/clickOutside-cffc73e6.css"
+    ],
+    "assets": [
+      "assets/roboto-cyrillic-ext-400-normal-b7ef2cd1.woff2",
+      "assets/roboto-all-400-normal-e41533d5.woff",
+      "assets/roboto-cyrillic-400-normal-495d38d4.woff2",
+      "assets/roboto-greek-400-normal-daf51ab5.woff2",
+      "assets/roboto-vietnamese-400-normal-77b24796.woff2",
+      "assets/roboto-latin-ext-400-normal-3c23eb02.woff2",
+      "assets/roboto-latin-400-normal-f6734f81.woff2"
+    ]
+  },
+  "_index-a5e2e047.js": {
+    "file": "chunks/index-a5e2e047.js",
+    "imports": [
+      "_threlte-377a87a5.js"
+    ]
+  },
+  "src/lib/Guitar.svelte": {
+    "file": "chunks/Guitar-8cedda95.js",
+    "src": "src/lib/Guitar.svelte",
+    "isDynamicEntry": true,
+    "imports": [
+      "_threlte-377a87a5.js",
+      "_clickOutside-f1e22371.js",
+      "_index-a5e2e047.js",
+      "___layout-abb9e96d.js",
+      "_preload-helper-60cab3ee.js"
+    ]
+  }
+}
