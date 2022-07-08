@@ -164,19 +164,16 @@
 			icon="/images/finances.png"
 			bgcolors={['white', 'black']}
 		/>
-		<div class="unspacer" />
 	</div>
 </div>
 
 <style>
 	.other {
 		display: grid;
-		/* grid-template-columns: repeat(auto-fit, minmax(200px, 2fr)); */
 		grid-template-columns: repeat(auto-fit, minmax(max(180px, 230px), 1fr));
 		margin: auto;
 		grid-gap: 16px;
 		justify-content: center;
-		/* padding: 16px; */
 		max-width: 800px;
 		box-sizing: border-box;
 		margin: auto;

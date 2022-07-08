@@ -42,7 +42,7 @@
 	class="portfolio-icon"
 	style={baseBackgroundStyle + `--border-color: ${bgcolors[0]}`}
 >
-	<div class="a" {href} style={extrastuff}>
+	<div class="a" style={extrastuff}>
 		{#if showLinks}
 			<div class="github-link">
 				{#if href}
