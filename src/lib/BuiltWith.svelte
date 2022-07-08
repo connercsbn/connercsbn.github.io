@@ -1,7 +1,3 @@
-<script>
-	import { onMount } from 'svelte';
-</script>
-
 <span><slot /></span>
 
 <style lang="scss">

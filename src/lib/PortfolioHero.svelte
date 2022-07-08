@@ -123,14 +123,8 @@
 			background: var(--custom-nav-color, white);
 			transition: all 0.2s;
 			&:hover {
-				// background: white;
 				transform: translate3d(-5px, -5px, 0);
 				box-shadow: 5px 5px 0px 0px var(--custom-secondary-color, black);
-				// color: var(--custom-secondary-color);
-				// & svg {
-				// 	fill: var(--custom-secondary-color);
-				// }
-				// font-style: italic;
 			}
 		}
 		& svg {
@@ -147,7 +141,6 @@
 		flex-direction: column;
 		color: var(--explicit-p-color, var(--custom-background-color));
 		padding: 0;
-		// margin: 1.3em 0;
 		font-size: var(--p-font-size);
 		font-weight: bold;
 		position: relative;
@@ -165,10 +158,7 @@
 		position: relative;
 		background: var(--opaque-background);
 		overflow: hidden;
-		// border: 2px solid var(--border-color);
-		// border: 0.3em solid var(--custom-secondary-color);
 		border: 1px solid var(--custom-text-color, black);
-		// box-shadow: 0.3em 0.3em 0px 0px var(--custom-secondary-highlight-color, black);
 		margin: min(30px, max(1.1%, 10px)) auto;
 		padding: 5% 4% 3.5%;
 		&::after {
@@ -247,7 +237,6 @@
 		font-size: var(--font-size);
 		line-height: 1;
 		position: relative;
-		// text-decoration: var(--text-decoration, underline);
 		text-decoration-color: #8ec07c;
 		text-decoration-thickness: 0.5vw;
 		text-underline-offset: 1vw;
