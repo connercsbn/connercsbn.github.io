@@ -52,9 +52,6 @@
 	export let guitarLoaded;
 	let guitarScene;
 
-	// $: $tweenedPositionY = originalPositionY + scrollY / 20000;
-	// $: $tweenedRotateY = originalRotateY + scrollY / 50000 + rotateMouseOffset;
-
 	const gradientTexture = useTexture('/models/threeTone.jpg', {
 		onError: (error) => {
 			console.warn(`An error occured loading the texture: ${error.message}`);
@@ -120,7 +117,6 @@
 						}
 					}
 				});
-				// console.log(outlinePass);
 			}
 			checkIntersection();
 		},
@@ -136,8 +132,6 @@
 			const selectedObject = intersects[0].object;
 			addSelectedObject(selectedObject);
 			outlinePass.selectedObjects = selectedObjects;
-		} else {
-			// outlinePass.selectedObjects = [];
 		}
 	}
 	outlinePass = new OutlinePass(new Vector2(get(size).width, get(size).height), scene, get(camera));
@@ -173,5 +167,4 @@
 	}}
 />;
 
-<!-- <Pass pass={outlinePass} /> -->
 <style></style>

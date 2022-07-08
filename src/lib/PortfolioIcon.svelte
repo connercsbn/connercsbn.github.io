@@ -19,19 +19,12 @@
 
 	function handleMouseLeave() {
 		showLinks = false;
-		// currentXOffset = xoffset;
 	}
 	function handleMouseEnter() {
 		showLinks = true;
-		// currentXOffset = adjustedXOffset;
 	}
 	function handleTouchStart() {
 		showLinks = !showLinks;
-		// if (showLinks) {
-		// 	// currentXOffset = adjustedXOffset;
-		// } else {
-		// 	// currentXOffset = xoffset;
-		// }
 	}
 </script>
 
@@ -70,10 +63,6 @@
 </div>
 
 <style lang="scss">
-	:root {
-		// --hover-color: rgba(0, 0, 0, 1);
-		// --hover-color: rgb(28, 28, 28);
-	}
 	.portfolio-icon {
 		display: flex;
 		position: relative;

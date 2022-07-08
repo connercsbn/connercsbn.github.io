@@ -29,7 +29,6 @@
 	.article {
 		padding: 1em;
 		margin: 1em auto;
-		/*background: var(--custom-background-light);*/
 		background: var(--custom-background-light);
 		background: #ffffff94;
 		border: 1px solid var(--custom-secondary-highlight-color, black);

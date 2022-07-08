@@ -83,7 +83,6 @@
 			height: 3px;
 			top: 100%;
 			left: 0px;
-			// background: linear-gradient(to right, var(--gradient-colors));
 		}
 	}
 	.arrow {
@@ -105,12 +104,6 @@
 			position: absolute;
 			background: var(--custom-arrow-color);
 			display: none;
-			// background-image: linear-gradient(
-			// 	to left,
-			// 	var(--custom-background-light),
-			// 	var(--custom-arrow-color),
-			// 	var(--custom-background-light)
-			// );
 		}
 	}
 	.title {
@@ -130,8 +123,6 @@
 		margin: 0.38em 30px;
 		margin-left: min(3vw, 30px);
 		font-size: 2em;
-		/* transition: padding 0.2s;
-		transition: font-size 0.2s; */
 		transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 	}
 </style>

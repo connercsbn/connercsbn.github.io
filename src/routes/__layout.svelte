@@ -62,8 +62,8 @@
 	}
 
 	let Guitar;
-	onMount( async () => {
-		$onMobileDevice = new UAParser().getDevice().type == 'mobile'
+	onMount(async () => {
+		$onMobileDevice = new UAParser().getDevice().type == 'mobile';
 		if (!$onMobileDevice) {
 			Guitar = (await import('../lib/Guitar.svelte')).default;
 			setInterval(() => {
@@ -74,7 +74,6 @@
 
 	$: $right = $open ? 300 : 0;
 	let mouse = { x: undefined, y: undefined };
-
 
 	function handleMouseMove(e) {
 		mouse = { x: e.clientX, y: e.clientY };
@@ -166,87 +165,22 @@
 				<PointLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.7} />
 				<AmbientLight shadow position={{ x: 20, y: 0, z: 20 }} intensity={0.8} />
 				<Group scale={1}>
-					<svelte:component this={Guitar} {mouse} {scrollY} {innerWidth} {guitar} bind:guitarLoaded />
-				</Group> 
+					<svelte:component
+						this={Guitar}
+						{mouse}
+						{scrollY}
+						{innerWidth}
+						{guitar}
+						bind:guitarLoaded
+					/>
+				</Group>
 			</Canvas>
-	 	</div>
+		</div>
 		<div class="content">
 			<slot />
-			<!-- <div style="position: fixed;z-index:100000000; top: 100px;" class="slidecontainer">
-				<input
-					bind:value={positionX}
-					type="range"
-					min="-10"
-					max="10"
-					step="0.1"
-					class="slider"
-					id="myRange"
-				/>
-				positionX: {positionX}
-				<input
-					bind:value={positionY}
-					type="range"
-					min="-10"
-					max="10"
-					step="0.1"
-					class="slider"
-					id="myRange"
-				/>
-				positionY: {positionY}
-				<input
-					bind:value={positionZ}
-					type="range"
-					min="-10"
-					max="10"
-					step="0.1"
-					class="slider"
-					id="myRange"
-				/>
-				positionZ: {positionZ}
-				<input
-					bind:value={rotateX}
-					type="range"
-					min="-2"
-					max="2"
-					step="0.1"
-					class="slider"
-					id="myRange"
-				/>
-				rotateX: {rotateX}
-				<input
-					bind:value={rotateY}
-					type="range"
-					step="0.01"
-					min="-2"
-					max="2"
-					class="slider"
-					id="myRange"
-				/>
-				rotateY: {rotateY}
-				<input
-					bind:value={rotateZ}
-					type="range"
-					step="0.01"
-					min="-2"
-					max="2"
-					class="slider"
-					id="myRange"
-				/>
-				rotateZ: {rotateZ}
-				<input
-					bind:value={scale}
-					type="range"
-					step="0.001"
-					min="0"
-					max=".1"
-					class="slider"
-					id="myRange"
-				/>
-				{scale}
-			</div> -->
 		</div>
 	</div>
-	<div class="scroll-to-top" use:scrollTo={'home'} >🔝</div>
+	<div class="scroll-to-top" use:scrollTo={'home'}>🔝</div>
 </main>
 
 <style lang="scss">
@@ -280,7 +214,7 @@
 		opacity: 0.5;
 		font-size: 60px;
 		position: relative;
-		position:absolute;
+		position: absolute;
 		bottom: 10px;
 		right: min(3vw, 30px);
 		transition: 0.2s all;
