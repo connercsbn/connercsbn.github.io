@@ -38,9 +38,9 @@
 			--opaque-background="#1c1e21"
 			--border-color="#8ec07c"
 		>
-			<u>Albumsplit</u> is a project that allows users to automatically download, split, and tag
-			audio books, podcasts, or song compilations&mdash;straight from YouTube&mdash;into separate
-			tracks for offline listening.
+			<u>Albumsplit</u> is a tool that allows users to automatically download, split, and tag audio
+			books, podcasts, or song compilations&mdash;straight from YouTube&mdash;into separate tracks
+			for offline listening.
 			<BuiltWith>Built with React, Django, Yt-dlp, Celery w/ RabbitMQ, Material UI</BuiltWith>
 		</PortfolioHero>
 		<PortfolioHero
