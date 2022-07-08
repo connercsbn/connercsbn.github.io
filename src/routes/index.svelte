@@ -4,11 +4,9 @@
 	import About from './about.svelte';
 </script>
 
-<main>
-	<About />
-	<PastWork />
-	<Contact />
-</main>
+<About />
+<PastWork />
+<Contact />
 
 <style lang="scss">
 </style>

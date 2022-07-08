@@ -35,10 +35,11 @@
 	}
 </script>
 
-<main
+<div
 	on:mouseleave={handleMouseLeave}
 	on:mouseover={handleMouseEnter}
 	on:focus={() => {}}
+	class="portfolio-icon"
 	style={baseBackgroundStyle + `--border-color: ${bgcolors[0]}`}
 >
 	<div class="a" {href} style={extrastuff}>
@@ -66,14 +67,14 @@
 		{/if}
 		<span>{name}</span>
 	</div>
-</main>
+</div>
 
 <style lang="scss">
 	:root {
 		// --hover-color: rgba(0, 0, 0, 1);
 		// --hover-color: rgb(28, 28, 28);
 	}
-	main {
+	.portfolio-icon {
 		display: flex;
 		position: relative;
 		justify-content: space-evenly;
