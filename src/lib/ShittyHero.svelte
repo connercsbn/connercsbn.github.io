@@ -25,7 +25,7 @@
 	} from 'threlte';
 </script>
 
-<main>
+<div class="hero-wrapper">
 	<div class="hero main">
 		<Canvas>
 			<Fog near={10} far={100} color={'#000'} />
@@ -63,19 +63,11 @@
 			/>
 		</Canvas>
 	</div>
-</main>
+</div>
 
 <style>
-	main {
+	hero-wrapper {
 		height: 20em;
-	}
-	html,
-	body,
-	* {
-		padding: 0;
-		margin: 0;
-	}
-	canvas {
 	}
 	.hero {
 		position: absolute;
@@ -84,9 +76,5 @@
 		right: 0;
 		width: 100%;
 		height: 20em;
-	}
-	.hero.main {
-	}
-	.hero.text {
 	}
 </style>

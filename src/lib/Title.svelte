@@ -43,7 +43,8 @@
 </script>
 
 <svelte:window bind:innerWidth={width} />
-<main
+<div
+	class="title"
 	on:mousemove={handleMouseMove}
 	on:touchmove={handleTouchMove}
 	on:mousedown={() => (clicking = true)}
@@ -59,10 +60,10 @@
 	<div class="title" use:scrollTo={'home'} use:scrollRef={'home'}>
 		<a on:click|stopPropagation={() => {}} href="/">CL</a>
 	</div>
-</main>
+</div>
 
 <style type="scss">
-	main {
+	.title {
 		position: relative;
 		display: flex;
 		background: var(--custom-background-light, white);
