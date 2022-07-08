@@ -59,7 +59,7 @@
 				<source src={source} type="video/mp4" />
 			</video>
 		{/if}
-		<h3 href={link} on:click={changeShowLinks}>
+		<h3 on:click={changeShowLinks}>
 			{title}
 		</h3>
 		<div class="info-display">
