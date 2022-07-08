@@ -2,12 +2,12 @@
 	import Title from '$lib/Title.svelte';
 </script>
 
-<main>
+<div>
 	<Title />
-</main>
+</div>
 
 <style>
-	main {
+	div {
 		position: relative;
 	}
 </style>

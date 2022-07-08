@@ -7,12 +7,21 @@
 		<h2>About</h2>
 	</div>
 	<div class="article">
-		<p><span>Hi, my name is Conner and I'm a full stack web developer with experience primarily in Svelte, React, and Django.</span></p>
+		<p>
+			<span
+				>Hi, my name is Conner and I'm a full stack web developer with experience primarily in
+				Svelte, React, and Django.</span
+			>
+		</p>
 		<p><span>Languages I use:</span></p>
-	<ul><li>Javascript, Python</li></ul>
+		<ul><li>Javascript, Python</li></ul>
 		<p><span>Web tools and services I use:</span></p>
-		<ul><li>Svelte, React, Django, Next, GNU Coreutils, Websockets, Stripe, Twilio, CSS/SCSS, Linux, Git,
-		Nginx, MySQL, ThreeJS, Celery</li></ul>
+		<ul>
+			<li>
+				Svelte, React, Django, Next, GNU Coreutils, Websockets, Stripe, Twilio, CSS/SCSS, Linux,
+				Git, Nginx, MySQL, ThreeJS, Celery
+			</li>
+		</ul>
 	</div>
 </div>
 
@@ -23,9 +32,9 @@
 		/*background: var(--custom-background-light);*/
 		background: var(--custom-background-light);
 		background: #ffffff94;
-		border: 1px solid var(--custom-secondary-highlight-color);
+		border: 1px solid var(--custom-secondary-highlight-color, black);
 	}
 	li {
-		list-style-type: "—  ";
+		list-style-type: '—  ';
 	}
 </style>

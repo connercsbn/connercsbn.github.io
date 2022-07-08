@@ -3,7 +3,7 @@
 	import '@fontsource/roboto';
 	import '@fontsource/andada-pro';
 	import Arrow from '$lib/Arrow.svelte';
-	import { onMobileDevice } from '$lib/stores'
+	import { onMobileDevice } from '$lib/stores';
 	import { clickOutside } from './clickOutside.js';
 	import { tweened } from 'svelte/motion';
 	import { cubicOut } from 'svelte/easing';
@@ -16,8 +16,6 @@
 	export let arrowColor;
 	let showLinks = false;
 	let pillIsClicked = false;
-
-
 
 	const handlePillUncLick = (e) => {
 		e.preventDefault();
@@ -43,7 +41,8 @@
 </script>
 
 <div class="container">
-	<main
+	<div
+		class="hero"
 		use:clickOutside
 		on:click_outside={() => {
 			showLinks = false;
@@ -55,14 +54,12 @@
 				<div class="bg-circle" />
 				<div class="bg-rect" />
 			</div>
-		{:else}
-			{#if !$onMobileDevice}
-				<video autoplay muted loop playsinline>
-					<source src={source} type="video/mp4" />
-				</video>
-			{/if}
+		{:else if !$onMobileDevice}
+			<video autoplay muted loop playsinline>
+				<source src={source} type="video/mp4" />
+			</video>
 		{/if}
-		<h3 href={link} on:click={changeShowLinks}>
+		<h3 on:click={changeShowLinks}>
 			{title}
 		</h3>
 		<div class="info-display">
@@ -99,7 +96,7 @@
 			<div class="info" style={`transform: translate(0, ${$yOffset}%);`}><p><slot /></p></div>
 			<Arrow {showLinks} {arrowColor} onclick={changeShowLinks} />
 		</div>
-	</main>
+	</div>
 </div>
 
 <style lang="scss">
@@ -186,7 +183,7 @@
 			position: absolute;
 		}
 	}
-	main {
+	.hero {
 		max-width: 800px;
 		margin: auto;
 	}

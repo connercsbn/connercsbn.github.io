@@ -8,8 +8,8 @@
 	font-family: 'IBM Plex Serif';
 }
 @font-face {
-	font-family: "Termines";
-	src: url("/terminess.woff")
+	font-family: 'Termines';
+	src: url('/terminess.woff');
 }
 
 .h2-container {
@@ -46,27 +46,6 @@ h2 {
 #about .h2-container {
 	display: none;
 }
-#about .article {
-	// color: black;
-	// span {
-	// 	background: white;
-	// }
-	// background: var(--custom-secondary-highlight-color);
-	// margin: 1em auto;
-	// color: white;
-	// a {
-	// 	color: white;
-	// 	&:visited {
-	// 		color: white;
-	// 	}
-	// }
-}
-
-// .unspacer {
-// 	// margin: -67px;
-// 	margin: 0;
-// }
-
 a {
 	color: var(--custom-secondary-color, deepskyblue);
 	&:hover {

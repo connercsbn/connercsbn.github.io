@@ -19,7 +19,7 @@
 	<div class="h2-container">
 		<h2>Past Work</h2>
 	</div>
-	<main class="heros">
+	<div class="heros">
 		<PortfolioHero
 			title="Albumsplit"
 			link="//www.albumsplit.com"
@@ -107,7 +107,7 @@
 				>Built with Svelte, using Canvas API and FFmpeg for audio manipulation</BuiltWith
 			>
 		</PortfolioHero>
-	</main>
+	</div>
 </div>
 
 <div>
@@ -116,7 +116,7 @@
 			<h2>Other work</h2>
 		</div>
 	</div>
-	<main class="other">
+	<div class="other">
 		<PortfolioIcon
 			name="The Cleveland Show Time Capsule Discord Bot"
 			gh="https://github.com/connercsbn/cleveland-show-time-capsule"
@@ -164,19 +164,16 @@
 			icon="/images/finances.png"
 			bgcolors={['white', 'black']}
 		/>
-		<div class="unspacer" />
-	</main>
+	</div>
 </div>
 
 <style>
-	main.other {
+	.other {
 		display: grid;
-		/* grid-template-columns: repeat(auto-fit, minmax(200px, 2fr)); */
 		grid-template-columns: repeat(auto-fit, minmax(max(180px, 230px), 1fr));
 		margin: auto;
 		grid-gap: 16px;
 		justify-content: center;
-		/* padding: 16px; */
 		max-width: 800px;
 		box-sizing: border-box;
 		margin: auto;
